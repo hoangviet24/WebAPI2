@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAnimals.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240517114844_InitData")]
-    partial class InitData
+    [Migration("20240518084804_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,6 +42,9 @@ namespace DataAnimals.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("IamgeId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -56,6 +59,7 @@ namespace DataAnimals.Migrations
                             AgeAvg = 12.5f,
                             CatergoryAnimal_Id = 1,
                             Description = "Một loại hung dữ",
+                            IamgeId = 0,
                             Name = "Tiger"
                         },
                         new
@@ -64,17 +68,27 @@ namespace DataAnimals.Migrations
                             AgeAvg = 17.5f,
                             CatergoryAnimal_Id = 2,
                             Description = "Một loại ăn cỏ",
+                            IamgeId = 0,
                             Name = "Bò"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AgeAvg = 12.5f,
+                            CatergoryAnimal_Id = 3,
+                            Description = "thú nuôi trong nhà",
+                            IamgeId = 0,
+                            Name = "Mèo"
                         });
                 });
 
             modelBuilder.Entity("DataAnimals.Models.AnimalCategory", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
 
                     b.Property<int?>("Animal_Id")
                         .HasColumnType("int");
@@ -102,6 +116,12 @@ namespace DataAnimals.Migrations
                             Id = 2,
                             Animal_Id = 2,
                             Category_Id = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Animal_Id = 3,
+                            Category_Id = 3
                         });
                 });
 
@@ -136,7 +156,49 @@ namespace DataAnimals.Migrations
                             Id = 2,
                             CatergoryAnimal_Id = 2,
                             Name = "Ăn cỏ"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CatergoryAnimal_Id = 3,
+                            Name = "Ăn thịt"
                         });
+                });
+
+            modelBuilder.Entity("DataAnimals.Models.Image", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Animal_Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FileDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FileExtension")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FilePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("Size")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Animal_Id");
+
+                    b.ToTable("Images");
                 });
 
             modelBuilder.Entity("DataAnimals.Models.AnimalCategory", b =>
@@ -154,9 +216,22 @@ namespace DataAnimals.Migrations
                     b.Navigation("category");
                 });
 
+            modelBuilder.Entity("DataAnimals.Models.Image", b =>
+                {
+                    b.HasOne("DataAnimals.Models.Animal", "animal")
+                        .WithMany("Images")
+                        .HasForeignKey("Animal_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("animal");
+                });
+
             modelBuilder.Entity("DataAnimals.Models.Animal", b =>
                 {
                     b.Navigation("AnimalCategory");
+
+                    b.Navigation("Images");
                 });
 
             modelBuilder.Entity("DataAnimals.Models.Category", b =>

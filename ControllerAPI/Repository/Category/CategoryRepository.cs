@@ -1,5 +1,5 @@
 ﻿using DataAnimals.Data;
-using DataAnimals.DTO;
+using DataAnimals.DTO.Category;
 using DataAnimals.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
 
@@ -62,16 +62,22 @@ namespace ControllerAPI.Repository.Category
             if (cateDomain != null)
             {
                 cateDomain.Name = categoryDTO.Name;
+                _dataContext.SaveChanges();
             }
 
-            _dataContext.Categories.Add(cateDomain);
-            _dataContext.SaveChanges();
+            var animalDomail = _dataContext.AnimalCategories.Where(a => a.Id == id);
+            if (animalDomail != null)
+            {
+                _dataContext.AnimalCategories.RemoveRange(animalDomail);
+                _dataContext.SaveChanges();
+            }
+        
             foreach (var item in categoryDTO.Animal_Id)
             {
                 var cateAnimal = new DataAnimals.Models.AnimalCategory
                 {
                     Animal_Id = item,
-                    Category_Id = cateDomain.Id,
+                    Category_Id = id,
                 };
                 _dataContext.AnimalCategories.Add(cateAnimal);
                 _dataContext.SaveChanges();

@@ -10,6 +10,8 @@ namespace DataAnimals.Models
         public string? Description { get; set; }
         public float AgeAvg { get; set; }
         public int CatergoryAnimal_Id { get; set; }
-        public List<AnimalCategory>? AnimalCategory { get; set; }
+        public List<AnimalCategory> AnimalCategory { get; set; }
+        public int AnimalImage_Id { get; set; }
+        public List<AnimalImage> AnimalImage { get; set; }
     }
 }

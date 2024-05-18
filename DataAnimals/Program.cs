@@ -18,6 +18,10 @@ namespace DataAnimals
             builder.Services.AddSwaggerGen();
             builder.Services.AddDbContext<DataContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("Conn")));
+
+            builder.Services.AddDbContext<AuthDataContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("AnimalConn")));
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

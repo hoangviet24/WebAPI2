@@ -32,6 +32,14 @@ namespace DataAnimals.Data
                     AgeAvg = (float)17.5,
                     CatergoryAnimal_Id = 2,
                 });
+                a.HasData(new Animal
+                {
+                    Id = 3,
+                    Name = "Mèo",
+                    Description = "thú nuôi trong nhà",
+                    AgeAvg = (float)12.5,
+                    CatergoryAnimal_Id = 3,
+                });
             });
             modelBuilder.Entity<Category>(c =>
             {
@@ -47,6 +55,12 @@ namespace DataAnimals.Data
                     Name = "Ăn cỏ",
                     CatergoryAnimal_Id = 2,
                 });
+                c.HasData(new Category
+                {
+                    Id = 3,
+                    Name = "Ăn thịt",
+                    CatergoryAnimal_Id = 3,
+                });
             });
             modelBuilder.Entity<AnimalCategory>(ac =>
             {
@@ -61,6 +75,12 @@ namespace DataAnimals.Data
                     Id = 2,
                     Category_Id = 2,
                     Animal_Id = 2,
+                });
+                ac.HasData(new AnimalCategory
+                {
+                    Id = 3,
+                    Category_Id = 3,
+                    Animal_Id = 3,
                 });
             });
         }

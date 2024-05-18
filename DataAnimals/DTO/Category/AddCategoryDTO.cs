@@ -1,4 +1,4 @@
-﻿namespace DataAnimals.DTO
+﻿namespace DataAnimals.DTO.Category
 {
     public class AddCategoryDTO
     {

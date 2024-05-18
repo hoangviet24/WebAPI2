@@ -1,5 +1,4 @@
-﻿
-using DataAnimals.DTO;
+﻿using DataAnimals.DTO.Category;
 
 namespace ControllerAPI.Repository.Category
 {

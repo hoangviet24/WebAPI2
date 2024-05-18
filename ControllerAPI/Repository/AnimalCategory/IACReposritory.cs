@@ -1,4 +1,4 @@
-﻿using DataAnimals.DTO;
+﻿using DataAnimals.DTO.Warehouse;
 
 namespace ControllerAPI.Repository.AnimalCategory
 {

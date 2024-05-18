@@ -1,4 +1,8 @@
-﻿using ControllerAPI.Repository.AnimalCategory;
+﻿using System.Reflection.Metadata.Ecma335;
+using ControllerAPI.Repository.AnimalCategory;
+using DataAnimals.Data;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,14 +18,14 @@ namespace ControllerAPI.Controllers
         {
             this.reposritory = reposritory;
         }
-
+        [Authorize(Roles = "Read")]
         [HttpGet("Get-All")]
         public ActionResult Get()
         {
             var getall = reposritory.GetRepos();
             return Ok(getall);
         }
-
+        [Authorize(Roles = "Write")]
         [HttpDelete("Delete")]
         public ActionResult Delete(int Id)
         {
