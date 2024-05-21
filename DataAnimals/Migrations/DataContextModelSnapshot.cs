@@ -33,9 +33,6 @@ namespace DataAnimals.Migrations
                     b.Property<float>("AgeAvg")
                         .HasColumnType("real");
 
-                    b.Property<int>("AnimalImage_Id")
-                        .HasColumnType("int");
-
                     b.Property<int>("CatergoryAnimal_Id")
                         .HasColumnType("int");
 
@@ -43,6 +40,9 @@ namespace DataAnimals.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Url")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -54,7 +54,6 @@ namespace DataAnimals.Migrations
                         {
                             Id = 1,
                             AgeAvg = 12.5f,
-                            AnimalImage_Id = 0,
                             CatergoryAnimal_Id = 1,
                             Description = "Một loại hung dữ",
                             Name = "Tiger"
@@ -63,7 +62,6 @@ namespace DataAnimals.Migrations
                         {
                             Id = 2,
                             AgeAvg = 17.5f,
-                            AnimalImage_Id = 0,
                             CatergoryAnimal_Id = 2,
                             Description = "Một loại ăn cỏ",
                             Name = "Bò"
@@ -72,7 +70,6 @@ namespace DataAnimals.Migrations
                         {
                             Id = 3,
                             AgeAvg = 12.5f,
-                            AnimalImage_Id = 0,
                             CatergoryAnimal_Id = 3,
                             Description = "thú nuôi trong nhà",
                             Name = "Mèo"
@@ -122,29 +119,6 @@ namespace DataAnimals.Migrations
                         });
                 });
 
-            modelBuilder.Entity("DataAnimals.Models.AnimalImage", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("Animal_Id")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("Image_Id")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Animal_Id");
-
-                    b.HasIndex("Image_Id");
-
-                    b.ToTable("AnimalImages");
-                });
-
             modelBuilder.Entity("DataAnimals.Models.Category", b =>
                 {
                     b.Property<int>("Id")
@@ -185,40 +159,6 @@ namespace DataAnimals.Migrations
                         });
                 });
 
-            modelBuilder.Entity("DataAnimals.Models.Image", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AnimalImage_Id")
-                        .HasColumnType("int");
-
-                    b.Property<string>("FileDescription")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FileExtension")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FileName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FilePath")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<long>("Size")
-                        .HasColumnType("bigint");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Images");
-                });
-
             modelBuilder.Entity("DataAnimals.Models.AnimalCategory", b =>
                 {
                     b.HasOne("DataAnimals.Models.Animal", "animal")
@@ -234,36 +174,14 @@ namespace DataAnimals.Migrations
                     b.Navigation("category");
                 });
 
-            modelBuilder.Entity("DataAnimals.Models.AnimalImage", b =>
-                {
-                    b.HasOne("DataAnimals.Models.Animal", "Animal")
-                        .WithMany("AnimalImage")
-                        .HasForeignKey("Animal_Id");
-
-                    b.HasOne("DataAnimals.Models.Image", "Image")
-                        .WithMany("AnimalImages")
-                        .HasForeignKey("Image_Id");
-
-                    b.Navigation("Animal");
-
-                    b.Navigation("Image");
-                });
-
             modelBuilder.Entity("DataAnimals.Models.Animal", b =>
                 {
                     b.Navigation("AnimalCategory");
-
-                    b.Navigation("AnimalImage");
                 });
 
             modelBuilder.Entity("DataAnimals.Models.Category", b =>
                 {
                     b.Navigation("AnimalCategory");
-                });
-
-            modelBuilder.Entity("DataAnimals.Models.Image", b =>
-                {
-                    b.Navigation("AnimalImages");
                 });
 #pragma warning restore 612, 618
         }

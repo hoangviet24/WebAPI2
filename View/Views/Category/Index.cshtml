@@ -1,0 +1,22 @@
+﻿@model IEnumerable<DataAnimals.DTO.Category.CategoryDTO>
+
+<h1>Danh sách Loại</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.Id</th>
+                <td>@item.Name</td>
+                <td>@String.Join(",",@item.Animal_Name)</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<DataAnimals.DTO.Warehouse.ACDto>
+
+<h1>Danh sách chứa các loại vật</h1>
+@if (Model != null)
+{
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Tên động vật</th>
+            <th scope="col">Tên loại</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Animal_Name</td>
+                <td>@item.Category_Name</td>
+                <td><a asp-controller="WareHouse" asp-action="Delete" asp-route-id="@item.Id">Delete</a></td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+else
+{
+    <h1>Không có dữ liệu</h1>
+}

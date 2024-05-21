@@ -1,0 +1,22 @@
+﻿@model DataAnimals.DTO.Animal.AddAnimalDto
+
+<h1>Thêm dữ liệu</h1>
+<form asp-controller="Animal" asp-action="CreateAnimal" onsubmit="submitForm()">
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter name" asp-for="Name">
+    </div>
+    <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea class="form-control" id="description" rows="3" placeholder="Enter description" asp-for="Description"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="ageAvg">Average Age:</label>
+        <input type="number" class="form-control" id="ageAvg" placeholder="Enter average age" asp-for="AgeAvg">
+    </div>
+    <div class="form-group">
+        <label for="ageAvg">File Id:</label>
+        <input type="text" class="form-control" id ="fileid" placeholder="Url..." asp-for="Url"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

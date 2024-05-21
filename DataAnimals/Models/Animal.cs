@@ -6,12 +6,11 @@ namespace DataAnimals.Models
     {
         [Key]
         public int Id { get; set; }
+        public string? Url { get; set; }
         public string? Name { get; set; }    
         public string? Description { get; set; }
         public float AgeAvg { get; set; }
         public int CatergoryAnimal_Id { get; set; }
         public List<AnimalCategory> AnimalCategory { get; set; }
-        public int AnimalImage_Id { get; set; }
-        public List<AnimalImage> AnimalImage { get; set; }
     }
 }

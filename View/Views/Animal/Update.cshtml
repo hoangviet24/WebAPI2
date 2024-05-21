@@ -1,0 +1,29 @@
+﻿@using DataAnimals.DTO.Animal
+@using DataAnimals.Models
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model DataAnimals.DTO.Animal.AnimalDto
+
+<h1>Thêm dữ liệu</h1>
+<form asp-controller="Animal" asp-action="UpdateAnimal" asp-route-id="@Model.ID" method="post">
+    <div class="form-group">
+        <label for="name">Id:</label>
+        <input type="text" class="form-control" id="Id" name="Id" placeholder="@Model.ID" asp-for="ID" readonly="">
+    </div>
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="Name"  placeholder="@Model.Name"  asp-for="Name">
+    </div>
+    <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea class="form-control" id="Description" rows="3" placeholder="Description"  asp-for="Description"  ></textarea>
+    </div>
+    <div class="form-group">
+        <label for="ageAvg">Average Age:</label>
+        <input type="number" class="form-control" id="AgeAvg" placeholder="AgeAvg" asp-for="AgeAvg">
+    </div>
+    <div class="form-group">
+        <label for="ageAvg">File Id:</label>
+        <input type="text" class="form-control" id="Url" placeholder="Url" asp-for="Url"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

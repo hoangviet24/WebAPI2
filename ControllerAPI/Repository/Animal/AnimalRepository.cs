@@ -1,6 +1,7 @@
 ﻿using DataAnimals.Data;
 using DataAnimals.DTO.Animal;
 using DataAnimals.DTO.Category;
+using System.Linq;
 
 namespace ControllerAPI.Repository.Animal
 {
@@ -12,57 +13,49 @@ namespace ControllerAPI.Repository.Animal
         {
             _dataContext= dataContext;
         }
-        public List<AnimalDTO> GetAnimals()
+        public List<AnimalDto> GetAnimals()
         {
-            var getall = _dataContext.Animals.Select(a => new AnimalDTO()
+            var getall = _dataContext.Animals.Select(a => new AnimalDto()
             {
                 ID = a.Id,
                 Name = a.Name,
                 Description = a.Description,
                 AgeAvg = a.AgeAvg,
-                filename = a.AnimalImage.Select(b => b.Image.FileName).ToList()
+                Url = a.Url
             }).ToList();
             return getall;
         }
 
-        public AnimalDTO GetAnimal(int id)
+        public AnimalDto GetAnimal(int id)
         {
             var getId = _dataContext.Animals.Where(a => a.Id == id);
-            var getDomain = getId.Select(a => new AnimalDTO
+            var getDomain = getId.Select(a => new AnimalDto
             {
                 ID = a.Id,
                 Name = a.Name,
                 Description =  a.Description,
                 AgeAvg = a.AgeAvg,
-                filename = a.AnimalImage.Select(b => b.Image.FileName).ToList()
+                Url =a.Url
             }).FirstOrDefault();
             return getDomain;
         }
 
-        public AddAnimalDTO AddAnimal(AddAnimalDTO animal)
+        public AddAnimalDto AddAnimal(AddAnimalDto animal)
         {
             var AnimalDomain = new DataAnimals.Models.Animal()
             {
                 Name = animal.Name,
                 Description = animal.Description,
                 AgeAvg = (float)animal.AgeAvg,
+                Url = animal.Url
             };
-            foreach (var item in animal.file_Id)
-            {
-                var cateAnimal = new DataAnimals.Models.AnimalImage()
-                {
-                    Animal_Id = AnimalDomain.Id,
-                    Image_Id = item
-                };
-                _dataContext.AnimalImages.Add(cateAnimal);
-                _dataContext.SaveChanges();
-            }
             _dataContext.Animals.Add(AnimalDomain);
             _dataContext.SaveChanges();
+            
             return animal;
         }
 
-        public AddAnimalDTO PutAnimalDto(AddAnimalDTO animal, int Id)
+        public AddAnimalDto PutAnimalDto(AddAnimalDto animal, int Id)
         {
             var put = _dataContext.Animals.FirstOrDefault(a => a.Id == Id);
             if (put != null)
@@ -70,6 +63,7 @@ namespace ControllerAPI.Repository.Animal
                 put.Name = animal.Name;
                 put.Description = animal.Description;
                 put.AgeAvg = (float)animal.AgeAvg;
+                put.Url = animal.Url;
                 _dataContext.SaveChanges();
             }
 
@@ -77,16 +71,6 @@ namespace ControllerAPI.Repository.Animal
             if (putDomain != null)
             {
                 _dataContext.AnimalCategories.RemoveRange(putDomain);
-                _dataContext.SaveChanges();
-            }
-            foreach (var item in animal.file_Id)
-            {
-                var cateAnimal = new DataAnimals.Models.AnimalImage()
-                {
-                    Animal_Id = Id,
-                    Image_Id = item
-                };
-                _dataContext.AnimalImages.Add(cateAnimal);
                 _dataContext.SaveChanges();
             }
             return animal;
@@ -104,17 +88,17 @@ namespace ControllerAPI.Repository.Animal
             return getId;
         }
 
-        public AnimalDTO GetbyName(string? name)
+        public List<AnimalDto> GetbyName(string name)
         {
-            var getId = _dataContext.Animals.Where(a => a.Name.Contains(name));
-            var getDomain = getId.Select(a => new AnimalDTO
+            var getId = _dataContext.Animals.Where(a => a.Name.ToLower().Contains(name.ToLower()));
+            var getDomain = getId.Select(a => new AnimalDto()
             {
                 ID = a.Id,
                 Name = a.Name,
                 Description = a.Description,
                 AgeAvg = a.AgeAvg,
-                filename = a.AnimalImage.Select(b => b.Image.FileName).ToList()
-            }).FirstOrDefault();
+                Url = a.Url
+            }).ToList();
             return getDomain;
         }
     }

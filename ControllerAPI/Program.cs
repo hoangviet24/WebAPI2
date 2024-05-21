@@ -1,10 +1,8 @@
 using System.Text;
 using ControllerAPI.Repository.Animal;
 using ControllerAPI.Repository.AnimalCategory;
-using ControllerAPI.Repository.AnimalImage;
 using ControllerAPI.Repository.Auth;
 using ControllerAPI.Repository.Category;
-using ControllerAPI.Repository.Image;
 using DataAnimals.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -75,10 +73,7 @@ namespace ControllerAPI
                         Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
                 });
             builder.Services.AddHttpClient();
-            builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            builder.Services.AddScoped<IImageRepository, LocalImageRepository>();
             builder.Services.AddScoped<IACReposritory, ACRepository>();
-            builder.Services.AddScoped<IAIRepository, AIRepository>();
             builder.Services.AddScoped<IAnimalRepository, AnimalRepository>();
             builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
             builder.Services.AddScoped<ITokenRepository, AuthTokenRepository>();

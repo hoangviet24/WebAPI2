@@ -17,7 +17,7 @@ namespace ControllerAPI.Controllers
         {
             _catrgoryRepository = catrgoryRepository;
         }
-        [Authorize(Roles = "Read")]
+        //[Authorize(Roles = "Read")]
         [HttpGet("Get-All")]
         public IActionResult GetAll()
         {
@@ -25,22 +25,29 @@ namespace ControllerAPI.Controllers
             Log.Information($"Category Page => {getAll}");
             return Ok(getAll);
         }
-        [Authorize(Roles = "Read")]
+      //  [Authorize(Roles = "Read")]
         [HttpGet("Get-by-ID")]
         public IActionResult Get(int id)
         {
             var getid = _catrgoryRepository.GetById(id); Log.Information($"Category Page => {getid}");
             return Ok(getid);
         }
-        [Authorize(Roles = "Write")]
+        //[Authorize(Roles = "Write")]
         [HttpPost("Post")]
         public IActionResult Post([FromBody] AddCategoryDTO categoryDto)
         {
-            var add = _catrgoryRepository.AddCategory(categoryDto);
-            Log.Information($"Category Page => {categoryDto}");
-            return Ok(add);
+            try
+            {
+                var add = _catrgoryRepository.AddCategory(categoryDto);
+                Log.Information($"Category Page => {categoryDto}");
+                return Ok(add);
+            }
+            catch
+            {
+                return Ok("vui lòng nhập động vật");
+            }
         }
-        [Authorize(Roles = "Write")]
+      //  [Authorize(Roles = "Write")]
         [HttpPut("Update")]
         public IActionResult Update([FromBody] AddCategoryDTO categoryDto, int id)
         {
@@ -48,13 +55,20 @@ namespace ControllerAPI.Controllers
             Log.Information($"Category Page => {categoryDto}");
             return Ok(add);
         }
-        [Authorize(Roles = "Write")]
+      //  [Authorize(Roles = "Write")]
         [HttpDelete("Delete")]
         public IActionResult Delete(int id)
         {
-            var del = _catrgoryRepository.Delete(id);
-            Log.Information($"Category Page => {del}");
-            return Ok(del);
+            try
+            {
+                var del = _catrgoryRepository.Delete(id);
+                Log.Information($"Category Page => {del}");
+                return Ok(del);
+            }
+            catch
+            {
+                return Ok("Kho đang chứa nó");
+            }
         }
     }
 }

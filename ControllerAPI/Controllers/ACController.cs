@@ -18,14 +18,14 @@ namespace ControllerAPI.Controllers
         {
             this.reposritory = reposritory;
         }
-        [Authorize(Roles = "Read")]
+       // [Authorize(Roles = "Read")]
         [HttpGet("Get-All")]
         public ActionResult Get()
         {
             var getall = reposritory.GetRepos();
             return Ok(getall);
         }
-        [Authorize(Roles = "Write")]
+      //  [Authorize(Roles = "Write")]
         [HttpDelete("Delete")]
         public ActionResult Delete(int Id)
         {
