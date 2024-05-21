@@ -1,5 +1,9 @@
-﻿using DataAnimals.DTO.Category;
+﻿using DataAnimals.DTO.Animal;
+using DataAnimals.DTO.Category;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Mime;
+using System.Text;
+using System.Text.Json;
 
 namespace View.Controllers
 {
@@ -10,15 +14,112 @@ namespace View.Controllers
         {
             _httpClientFactory = httpClientFactory;
         }
-
-        public async Task<IActionResult> Index()
+        //Get all
+        public async Task<IActionResult> Index([FromQuery] string? filterQuery, bool isAccess)
         {
-            List<CategoryDTO> categories = new List<CategoryDTO>();
             var client = _httpClientFactory.CreateClient();
-            var data = await client.GetAsync("https://localhost:7035/api/Category/Get-All");
+
+            List<CategoryDto> category = new List<CategoryDto>();
+            var data = await client.GetAsync($"https://localhost:7035/api/Category/GetAll?name={filterQuery}&isAccess={isAccess}");
             data.EnsureSuccessStatusCode();
-            categories.AddRange(await data.Content.ReadFromJsonAsync<IEnumerable<CategoryDTO>>());
-            return View(categories);
+            category.AddRange(await data.Content.ReadFromJsonAsync<IEnumerable<CategoryDto>>());
+            return View(category);
+        }
+        //Add data
+        public async Task<IActionResult> Create()
+        {
+            var client = _httpClientFactory.CreateClient();
+            List<AnimalDto> animal = new List<AnimalDto>();
+            var data = await client.GetAsync("https://localhost:7035/api/Animal/GetAll");
+            data.EnsureSuccessStatusCode();
+            animal.AddRange(await data.Content.ReadFromJsonAsync<IEnumerable<AnimalDto>>());
+            ViewBag.ListAnimal = animal;
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> CreateCategory(AddCategoryDto category)
+        {
+            try
+            {
+                var client = _httpClientFactory.CreateClient();
+                var httpReq = new HttpRequestMessage()
+                {
+                    Method = HttpMethod.Post,
+                    RequestUri = new Uri("https://localhost:7035/api/Category/Post"),
+                    Content = new StringContent(JsonSerializer.Serialize(category), Encoding.UTF8,
+                        MediaTypeNames.Application.Json)
+                };
+                var httpRes = await client.SendAsync(httpReq);
+                httpRes.EnsureSuccessStatusCode();
+                var data = await httpRes.Content.ReadFromJsonAsync<AddCategoryDto>();
+                if (data != null)
+                {
+                    return RedirectToAction("Index", "Category");
+                }
+
+                return View("Index");
+            }
+            catch
+            {
+                return View("Info");
+            }
+        }
+        //Delete
+        [HttpGet]
+        public async Task<IActionResult> DeleteAnimal([FromRoute] int id)
+        {
+            try
+            {
+                var client = _httpClientFactory.CreateClient();
+                var httpReponse = await client.DeleteAsync("https://localhost:7035/api/Category/Delete?id=" + id);
+                httpReponse.EnsureSuccessStatusCode();
+            }
+            catch
+            {
+                return View("Info");
+
+            }
+            return RedirectToAction("Index", "Category");
+        }
+        //Update
+        public async Task<IActionResult> UpdateCtx(int Id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            //
+            CategoryDto category = new CategoryDto();
+            var data = await client.GetAsync("https://localhost:7035/api/Category/Get-by-ID?id=" + Id);
+            data.EnsureSuccessStatusCode();
+            category = await data.Content.ReadFromJsonAsync<CategoryDto>();
+            ViewBag.Id = category;
+            //list animal
+            List<AnimalDto> animal = new List<AnimalDto>();
+            var dataAnimal = await client.GetAsync("https://localhost:7035/api/Animal/GetAll");
+            dataAnimal.EnsureSuccessStatusCode();
+            animal.AddRange(await dataAnimal.Content.ReadFromJsonAsync<IEnumerable<AnimalDto>>());
+            ViewBag.ListAnimal = animal;
+            AddCategoryDto addCategoryDto = new AddCategoryDto();
+            return View(addCategoryDto);
+        }
+        [HttpPost]
+        public async Task<IActionResult> UpdateCategory(AddCategoryDto category, int Id)
+        {
+
+            var client = _httpClientFactory.CreateClient();
+            var httpReq = new HttpRequestMessage()
+            {
+                Method = HttpMethod.Put,
+                RequestUri = new Uri("https://localhost:7035/api/Category/Update?id=" + Id),
+                Content = new StringContent(JsonSerializer.Serialize(category), Encoding.UTF8,
+                    MediaTypeNames.Application.Json)
+            };
+            var httpRes = await client.SendAsync(httpReq);
+            httpRes.EnsureSuccessStatusCode();
+            var data = await httpRes.Content.ReadFromJsonAsync<AddCategoryDto>();
+            if (data != null)
+            {
+                return RedirectToAction("Index", "Category");
+            }
+            return View("Detail");
         }
     }
 }

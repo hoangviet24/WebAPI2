@@ -74,7 +74,6 @@ namespace View.Controllers
             catch
             {
                 return View("Info");
-                
             }
             return RedirectToAction("Index", "Animal");
         }

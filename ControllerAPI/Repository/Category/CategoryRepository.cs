@@ -1,4 +1,5 @@
 ﻿using DataAnimals.Data;
+using DataAnimals.DTO.Animal;
 using DataAnimals.DTO.Category;
 using DataAnimals.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -12,9 +13,9 @@ namespace ControllerAPI.Repository.Category
         {
             _dataContext = dataContext;
         }
-        public List<CategoryDTO> GetAll()
+        public List<CategoryDto> GetAll()
         {
-            var addCategorty = _dataContext.Categories.Select(a => new CategoryDTO()
+            var addCategorty = _dataContext.Categories.Select(a => new CategoryDto()
             {
                 Id = a.Id,
                 Name = a.Name,
@@ -23,10 +24,10 @@ namespace ControllerAPI.Repository.Category
             return addCategorty;
         }
 
-        public CategoryDTO GetById(int id)
+        public CategoryDto GetById(int id)
         {
             var getId = _dataContext.Categories.Where(a => a.Id == id);
-            var getCateId = getId.Select(a => new CategoryDTO()
+            var getCateId = getId.Select(a => new CategoryDto()
             {
                 Id = a.Id,
                 Name = a.Name,
@@ -35,7 +36,7 @@ namespace ControllerAPI.Repository.Category
             return getCateId;
         }
 
-        public AddCategoryDTO AddCategory(AddCategoryDTO categoryDTO)
+        public AddCategoryDto AddCategory(AddCategoryDto categoryDTO)
         {
             var CategoryDomain = new DataAnimals.Models.Category
             {
@@ -56,7 +57,7 @@ namespace ControllerAPI.Repository.Category
             return categoryDTO; 
         }
 
-        public AddCategoryDTO? PutCategory(AddCategoryDTO categoryDTO,int id)
+        public AddCategoryDto? PutCategory(AddCategoryDto categoryDTO,int id)
         {
             var cateDomain = _dataContext.Categories.FirstOrDefault(a => a.Id == id);
             if (cateDomain != null)
@@ -96,6 +97,17 @@ namespace ControllerAPI.Repository.Category
             }
 
             return getId;
+        }
+        public List<CategoryDto> GetbyName(string name)
+        {
+            var getId = _dataContext.Categories.Where(a => a.Name.ToLower().Contains(name.ToLower()));
+            var getDomain = getId.Select(a => new CategoryDto()
+            {
+                Id = a.Id,
+                Name = a.Name,
+                Animal_Name = a.AnimalCategory.Select(a => a.animal.Name).ToList()
+            }).ToList();
+            return getDomain;
         }
     }
 }

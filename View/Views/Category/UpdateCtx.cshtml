@@ -1,0 +1,25 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model DataAnimals.DTO.Category.AddCategoryDto
+@{
+    var cateId = ViewBag.Id;
+    var listAnimal = ViewBag.ListAnimal;
+}
+<h1>Thêm dữ liệu</h1>
+<form asp-controller="Category" asp-action="UpdateCategory" asp-route-id="@cateId.Id" method="post">
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="Name" placeholder="@cateId.Name" asp-for="Name">
+    </div>
+    <br />
+    <div class="form-group">
+        <select asp-for="@Model.Animal_Id" class="form-control">
+            @foreach (var item in listAnimal)
+            {
+                <option value="@item.ID">@item.Name</option>
+            }
+        </select>
+
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

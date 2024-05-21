@@ -24,7 +24,7 @@ namespace ControllerAPI.Controllers
         }
         //[Authorize (Roles = "Read")]
         [HttpGet("GetAll")]
-        public IActionResult Filtering([FromQuery] string? name,[FromQuery] int page,[FromQuery] float pageSize,[FromQuery] bool isAccess)
+        public IActionResult Filtering([FromQuery] string? name,[FromQuery] bool isAccess)
         {
             try
             {
@@ -34,50 +34,13 @@ namespace ControllerAPI.Controllers
                     {
                         case true:
                             var post = iAnimalRepository.GetbyName(name).OrderByDescending(a => a.ID).ToList();
+                            Log.Information($"Animal Page => {post}");
                             return Ok(post);
                         case false:
                             var post1 = iAnimalRepository.GetbyName(name).OrderBy(a => a.ID).ToList();
+                            Log.Information($"Animal Page => {post1}");
                             return Ok(post1);
                     }
-                }
-                if (ModelState.IsValid)
-                {
-                    if (_datacontext.Animals == null)
-                    {
-                        return NotFound();
-                    }
-
-                    if (_datacontext.Animals.Count() == 0)
-                    {
-                        return NoContent(); // No data found
-                    }
-
-                    int pageCount = (int)Math.Ceiling(_datacontext.Animals.Count() / pageSize);
-
-                    if (page < 1 || page > pageCount)   
-                    {
-                        return BadRequest("Invalid page number"); // Handle invalid page requests
-                    }
-
-                    int skip = (page - 1) * (int)pageSize;
-                    int take = (int)pageSize;
-
-                    var author = _datacontext.Animals
-                        .Skip(skip)
-                        .Take(take)
-                        .ToList();
-
-                    var response = new AnimalPage()
-                    {
-                        Animal = author,
-                        CurrentPage = page,
-                        Pages = pageCount,
-                    };
-
-
-                    Log.Information($"Animal Page => {response}");
-
-                    return Ok(response);
                 }
                 else
                 {

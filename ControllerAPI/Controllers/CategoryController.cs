@@ -1,4 +1,5 @@
-﻿using ControllerAPI.Repository.Category;
+﻿using ControllerAPI.Repository.Animal;
+using ControllerAPI.Repository.Category;
 using DataAnimals.DTO.Category;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -18,15 +19,47 @@ namespace ControllerAPI.Controllers
             _catrgoryRepository = catrgoryRepository;
         }
         //[Authorize(Roles = "Read")]
-        [HttpGet("Get-All")]
-        public IActionResult GetAll()
+        [HttpGet("GetAll")]
+        public IActionResult Filtering([FromQuery] string? name, [FromQuery] bool isAccess)
         {
-            var getAll = _catrgoryRepository.GetAll();
-            Log.Information($"Category Page => {getAll}");
-            return Ok(getAll);
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    switch (isAccess)
+                    {
+                        case true:
+                            var post = _catrgoryRepository.GetbyName(name).OrderByDescending(a => a.Id).ToList();
+                            Log.Information($"Animal Page => {post}");
+                            return Ok(post);
+                        case false:
+                            var post1 = _catrgoryRepository.GetbyName(name).OrderBy(a => a.Id).ToList();
+                            Log.Information($"Animal Page => {post1}");
+                            return Ok(post1);
+                    }
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            catch
+            {
+                switch (isAccess)
+                {
+                    case true:
+                        var post = _catrgoryRepository.GetAll().OrderByDescending(a => a.Id).ToList();
+                        Log.Information($"Animal Page => {post}");
+                        return Ok(post);
+                    case false:
+                        var post1 = _catrgoryRepository.GetAll().OrderBy(a => a.Id).ToList();
+                        Log.Information($"Animal Page => {post1}");
+                        return Ok(post1);
+                }
+            }
         }
-      //  [Authorize(Roles = "Read")]
-        [HttpGet("Get-by-ID")]
+        //  [Authorize(Roles = "Read")]
+            [HttpGet("Get-by-ID")]
         public IActionResult Get(int id)
         {
             var getid = _catrgoryRepository.GetById(id); Log.Information($"Category Page => {getid}");
@@ -34,22 +67,15 @@ namespace ControllerAPI.Controllers
         }
         //[Authorize(Roles = "Write")]
         [HttpPost("Post")]
-        public IActionResult Post([FromBody] AddCategoryDTO categoryDto)
+        public IActionResult Post([FromBody] AddCategoryDto categoryDto)
         {
-            try
-            {
-                var add = _catrgoryRepository.AddCategory(categoryDto);
-                Log.Information($"Category Page => {categoryDto}");
-                return Ok(add);
-            }
-            catch
-            {
-                return Ok("vui lòng nhập động vật");
-            }
+            var add = _catrgoryRepository.AddCategory(categoryDto);
+            Log.Information($"Category Page => {categoryDto}");
+            return Ok(add);
         }
       //  [Authorize(Roles = "Write")]
         [HttpPut("Update")]
-        public IActionResult Update([FromBody] AddCategoryDTO categoryDto, int id)
+        public IActionResult Update([FromBody] AddCategoryDto categoryDto, int id)
         {
             var add = _catrgoryRepository.PutCategory(categoryDto,id);
             Log.Information($"Category Page => {categoryDto}");

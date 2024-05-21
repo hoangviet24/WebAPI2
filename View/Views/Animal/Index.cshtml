@@ -10,10 +10,10 @@
             <button type="submit" class="btn btn-primary search-btn">Tìm kiếm</button>
         </div>
         <div class="input-group">
-            <label class="lable lable-">Sắp xếp: </label>
+            <label class="lable lable-">Sắp xếp: &nbsp;</label>
             <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" id="isAccess" name="isAccess" value="False" checked class="custom-control-input">
-                <label for="isAccess" class="custom-control-label">Tăng dần</label>
+                <label for="isAccess" class="custom-control-label">Tăng dần&nbsp;</label>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" id="isAccess" name="isAccess" value="True" class="custom-control-input">
@@ -34,6 +34,9 @@
             <th scope="col">Id</th>
             <th scope="col">Tên</th>
             <th scope="col">Mô tả</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+            <th scope="col">Detail</th>
         </tr>
         </thead>
         <tbody>
@@ -43,9 +46,9 @@
                 <td>@item.ID</td>
                 <td>@item.Name</td>
                 <td>@item.Description</td>
-                <td><a asp-controller="Animal" asp-action="Update" asp-route-id="@item.ID">Update</a></td>
-                <td><a asp-controller="Animal" asp-action="Delete" asp-route-id="@item.ID">Delete</a></td>
-                <td><a asp-controller="Animal" asp-action="Detail" asp-route-id="@item.ID">Detail</a></td>
+                <td><a class="btn btn-primary" asp-controller="Animal" asp-action="Update" asp-route-id="@item.ID">Update</a></td>
+                <td><a class="btn btn-danger" asp-controller="Animal" asp-action="Delete" asp-route-id="@item.ID">Delete</a></td>
+                <td><a class="btn btn-info"asp-controller="Animal" asp-action="Detail" asp-route-id="@item.ID">Detail</a></td>
             </tr>
         }
         </tbody>
