@@ -83,7 +83,7 @@ namespace ControllerAPI
                 options.UseSqlServer(builder.Configuration.GetConnectionString("AnimalConn")));
             builder.Services.AddIdentityCore<IdentityUser>()
                 .AddRoles<IdentityRole>()
-                .AddTokenProvider<DataProtectorTokenProvider<IdentityUser>>("Book")
+                .AddTokenProvider<DataProtectorTokenProvider<IdentityUser>>("Animal")
                 .AddEntityFrameworkStores<AuthDataContext>()
                 .AddDefaultTokenProviders();
 

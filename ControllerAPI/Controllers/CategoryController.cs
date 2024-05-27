@@ -1,5 +1,6 @@
 ﻿using ControllerAPI.Repository.Animal;
 using ControllerAPI.Repository.Category;
+using DataAnimals.Data;
 using DataAnimals.DTO.Category;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -14,8 +15,10 @@ namespace ControllerAPI.Controllers
     public class CategoryController : ControllerBase
     {
         private readonly ICategoryRepository _catrgoryRepository;
-        public CategoryController(ICategoryRepository catrgoryRepository)
+        private readonly DataContext _datacontext;
+        public CategoryController(ICategoryRepository catrgoryRepository, DataContext dataContext)
         {
+            _datacontext = dataContext;
             _catrgoryRepository = catrgoryRepository;
         }
         //[Authorize(Roles = "Read")]
@@ -58,8 +61,54 @@ namespace ControllerAPI.Controllers
                 }
             }
         }
+        [HttpGet("Paging")]
+        public IActionResult GetPaging(int page, float pageSize = 10)
+        {
+            if (ModelState.IsValid)
+            {
+                if (_datacontext.Animals == null)
+                {
+                    return NotFound();
+                }
+
+                if (_datacontext.Animals.Count() == 0)
+                {
+                    return NoContent(); // No data found
+                }
+
+                int pageCount = (int)Math.Ceiling(_datacontext.Animals.Count() / pageSize);
+
+                if (page < 1 || page > pageCount)
+                {
+                    return BadRequest("Invalid page number"); // Handle invalid page requests
+                }
+
+                int skip = (page - 1) * (int)pageSize;
+                int take = (int)pageSize;
+
+                var animal = _datacontext.Animals
+                    .Skip(skip)
+                    .Take(take)
+                    .ToList();
+
+                var response = new AnimalPage()
+                {
+                    Animal = animal,
+                    CurrentPage = page,
+                    Pages = pageCount,
+                };
+
+                Log.Information("author Page => {@response}", response);
+
+                return Ok(response);
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
         //  [Authorize(Roles = "Read")]
-            [HttpGet("Get-by-ID")]
+        [HttpGet("Get-by-ID")]
         public IActionResult Get(int id)
         {
             var getid = _catrgoryRepository.GetById(id); Log.Information($"Category Page => {getid}");

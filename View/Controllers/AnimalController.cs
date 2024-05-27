@@ -9,6 +9,7 @@ using Humanizer;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System.Net.Http;
 using Microsoft.CodeAnalysis.Elfie.Diagnostics;
+using NuGet.Protocol.Model;
 using Serilog;
 
 namespace View.Controllers
@@ -16,6 +17,7 @@ namespace View.Controllers
     public class AnimalController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
+        private readonly IHttpContextAccessor _httpContextAccessor;
         public AnimalController(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
@@ -23,13 +25,13 @@ namespace View.Controllers
         public async Task<IActionResult> Index([FromQuery] string? filterQuery, bool isAccess)
         {
             var client = _httpClientFactory.CreateClient();
-            
-                List<AnimalDto> animal = new List<AnimalDto>();
-                var data = await client.GetAsync("https://localhost:7035/api/Animal/GetAll?name="+filterQuery+"&isAccess="+isAccess);
-                data.EnsureSuccessStatusCode();
-                animal.AddRange(await data.Content.ReadFromJsonAsync<IEnumerable<AnimalDto>>());
-                return View(animal);
+            List<AnimalDto> animal = new List<AnimalDto>();
+            var data = await client.GetAsync("https://localhost:7035/api/Animal/GetAll?name=" + filterQuery + "&isAccess=" + isAccess);
+            data.EnsureSuccessStatusCode();
+            animal.AddRange(await data.Content.ReadFromJsonAsync<IEnumerable<AnimalDto>>());
+            return View(animal);
         }
+
         public IActionResult Create()
         {
             return View();
@@ -123,6 +125,5 @@ namespace View.Controllers
             animal = await data.Content.ReadFromJsonAsync<AnimalDto>();
             return View(animal);
         }
-        
     }
 }

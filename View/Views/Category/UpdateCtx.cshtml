@@ -10,7 +10,7 @@
         <label for="name">Name:</label>
         <input type="text" class="form-control" id="Name" placeholder="@cateId.Name" asp-for="Name">
     </div>
-    <br />
+    <br/>
     <div class="form-group">
         <select asp-for="@Model.Animal_Id" class="form-control">
             @foreach (var item in listAnimal)
@@ -20,6 +20,6 @@
         </select>
 
     </div>
-    <br />
+    <br/>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

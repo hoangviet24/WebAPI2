@@ -1,0 +1,25 @@
+﻿@using View.Controllers
+@model IEnumerable< DataAnimals.DTO.Animal.AnimalDto>
+@{
+    float count = Model.Count()/3;
+}
+<div class="container text-center">
+    
+        <div class="row g-5">
+            @foreach (var item in Model)
+            {
+                <div class="col-4">
+                    <div class="card">
+                        <img src="@item.Url" width="100px" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Tên: @item.Name</h5>
+                            <p class="card-text">Tiêu đề: @StringHelpers.TruncateAtWord(item.Description, 50)</p>
+                            <p class="card-text">Tuổi: @item.AgeAvg</p>
+                            <a asp-controller="Animal" asp-action="Detail" asp-route-id="@item.ID" class="btn btn-primary">Detail</a>
+                        </div>
+                    </div>
+                </div>
+            }
+            <p class="card-text">Số lượng hiện tại: @Model.Count()</p>
+        </div>
+</div>

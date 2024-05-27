@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\View.bundle.scp.css"
     },
     {
+      "Id": "D:\\API\\ProjectWeb2\\WebAPIAnimals\\View\\wwwroot\\Image\\Logo.png",
+      "PackagePath": "staticwebassets\\Image\\Logo.png"
+    },
+    {
       "Id": "D:\\API\\ProjectWeb2\\WebAPIAnimals\\View\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

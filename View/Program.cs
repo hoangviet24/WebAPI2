@@ -1,5 +1,13 @@
 using ControllerAPI.Repository.Animal;
+using DataAnimals.Data;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using Serilog;
+using System.Text;
 using View.Controllers;
 
 namespace View
@@ -12,7 +20,7 @@ namespace View
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddHttpClient();
-            
+            builder.Services.AddEndpointsApiExplorer();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -27,7 +35,7 @@ namespace View
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(

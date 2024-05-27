@@ -23356,3 +23356,57 @@ FROM [Animals] AS [a]
 2024-05-21 15:08:53.720 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) in 6.0766ms
 2024-05-21 15:08:53.721 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
 2024-05-21 15:08:53.721 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll - 200 null application/json; charset=utf-8 11.3985ms
+2024-05-21 15:28:56.809 +07:00 [INF] User profile is available. Using 'C:\Users\hoang\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-05-21 15:28:57.061 +07:00 [INF] Now listening on: https://localhost:7035
+2024-05-21 15:28:57.063 +07:00 [INF] Now listening on: http://localhost:5287
+2024-05-21 15:28:57.067 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-05-21 15:28:57.068 +07:00 [INF] Hosting environment: Development
+2024-05-21 15:28:57.070 +07:00 [INF] Content root path: D:\API\ProjectWeb2\WebAPIAnimals\ControllerAPI
+2024-05-21 15:28:58.053 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7035/swagger/index.html - null null
+2024-05-21 15:28:58.474 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7035/swagger/index.html - 200 null text/html;charset=utf-8 422.5597ms
+2024-05-21 15:28:58.738 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7035/_framework/aspnetcore-browser-refresh.js - null null
+2024-05-21 15:28:58.738 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7035/_vs/browserLink - null null
+2024-05-21 15:28:58.751 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7035/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 12.9479ms
+2024-05-21 15:28:58.855 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7035/_vs/browserLink - 200 null text/javascript; charset=UTF-8 116.5316ms
+2024-05-21 15:28:59.777 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7035/swagger/v1/swagger.json - null null
+2024-05-21 15:29:00.162 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7035/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 383.9389ms
+2024-05-21 15:29:03.638 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7035/api/Animal/GetAll - null null
+2024-05-21 15:29:03.693 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-05-21 15:29:03.721 +07:00 [INF] Route matched with {action = "Filtering", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Filtering(System.String, Boolean) on controller ControllerAPI.Controllers.AnimalController (ControllerAPI).
+2024-05-21 15:29:03.960 +07:00 [INF] Executing action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) - Validation state: "Valid"
+2024-05-21 15:29:06.478 +07:00 [INF] Executed DbCommand (46ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id] AS [ID], [a].[Name], [a].[Description], [a].[AgeAvg], [a].[Url]
+FROM [Animals] AS [a]
+2024-05-21 15:29:06.533 +07:00 [INF] Animal Page => System.Collections.Generic.List`1[DataAnimals.DTO.Animal.AnimalDto]
+2024-05-21 15:29:06.542 +07:00 [INF] Executed action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 2574.0181ms.
+2024-05-21 15:29:06.555 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Animal.AnimalDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-05-21 15:29:06.588 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) in 2857.802ms
+2024-05-21 15:29:06.590 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-05-21 15:29:06.605 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7035/api/Animal/GetAll - 200 null application/json; charset=utf-8 2966.7063ms
+2024-05-21 17:41:00.813 +07:00 [INF] User profile is available. Using 'C:\Users\hoang\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-05-21 17:41:01.048 +07:00 [INF] Now listening on: https://localhost:7035
+2024-05-21 17:41:01.049 +07:00 [INF] Now listening on: http://localhost:5287
+2024-05-21 17:41:01.051 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-05-21 17:41:01.052 +07:00 [INF] Hosting environment: Development
+2024-05-21 17:41:01.053 +07:00 [INF] Content root path: D:\API\ProjectWeb2\WebAPIAnimals\ControllerAPI
+2024-05-21 17:41:02.031 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7035/swagger/index.html - null null
+2024-05-21 17:41:02.114 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=False - null null
+2024-05-21 17:41:02.160 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-05-21 17:41:02.177 +07:00 [INF] Route matched with {action = "Filtering", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Filtering(System.String, Boolean) on controller ControllerAPI.Controllers.AnimalController (ControllerAPI).
+2024-05-21 17:41:02.227 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7035/swagger/index.html - 200 null text/html;charset=utf-8 197.0293ms
+2024-05-21 17:41:02.342 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7035/_framework/aspnetcore-browser-refresh.js - null null
+2024-05-21 17:41:02.343 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7035/_vs/browserLink - null null
+2024-05-21 17:41:02.358 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7035/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 15.9393ms
+2024-05-21 17:41:02.363 +07:00 [INF] Executing action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) - Validation state: "Valid"
+2024-05-21 17:41:02.434 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7035/_vs/browserLink - 200 null text/javascript; charset=UTF-8 90.9972ms
+2024-05-21 17:41:03.145 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7035/swagger/v1/swagger.json - null null
+2024-05-21 17:41:03.355 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7035/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 210.1159ms
+2024-05-21 17:41:04.277 +07:00 [INF] Executed DbCommand (33ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id] AS [ID], [a].[Name], [a].[Description], [a].[AgeAvg], [a].[Url]
+FROM [Animals] AS [a]
+2024-05-21 17:41:04.313 +07:00 [INF] Animal Page => System.Collections.Generic.List`1[DataAnimals.DTO.Animal.AnimalDto]
+2024-05-21 17:41:04.322 +07:00 [INF] Executed action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1942.6881ms.
+2024-05-21 17:41:04.329 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Animal.AnimalDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-05-21 17:41:04.346 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) in 2163.6899ms
+2024-05-21 17:41:04.347 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-05-21 17:41:04.359 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=False - 200 null application/json; charset=utf-8 2245.1535ms

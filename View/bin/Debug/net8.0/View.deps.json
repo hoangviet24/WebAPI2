@@ -9,7 +9,8 @@
       "View/1.0.0": {
         "dependencies": {
           "ControllerAPI": "1.0.0",
-          "DataAnimals": "1.0.0"
+          "DataAnimals": "1.0.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.5"
         },
         "runtime": {
           "View.dll": {}

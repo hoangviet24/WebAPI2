@@ -1,6 +1,6 @@
 ﻿@model DataAnimals.DTO.Animal.AnimalDto
 
-    <div class="card" style="max-width: 18rem;margin:0 auto">
+    <div class="card" style="max-width: 38rem;margin:0 auto">
         <img src="@Model.Url" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">Tên: @Model.Name</h5>
@@ -8,6 +8,6 @@
             <p class="card-text">Tuổi: @Model.AgeAvg</p>
             <a asp-controller="Animal" asp-action="Delete" asp-route-id="@Model.ID" class="btn btn-primary">Delete</a>
             <a asp-controller="Animal" asp-action="Update" asp-route-id="@Model.ID" class="btn btn-primary">Update</a>
-            <a asp-controller="Animal" asp-action="Index" asp-route-id="@Model.ID" class="btn btn-primary">Go back</a>
+            <a asp-controller="Home" asp-action="Index" asp-route-id="@Model.ID" class="btn btn-primary">Go back</a>
         </div>
     </div>

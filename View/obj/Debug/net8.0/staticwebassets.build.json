@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FAK7qOq4G+pjSi2rlowK8n3VOMvkkmZUplXspkqueN0=",
+  "Hash": "njvmAK2YAWdzA3hJ5ae7TczIjbAEwwoqTR2NIjBCUPE=",
   "Source": "View",
   "BasePath": "_content/View",
   "Mode": "Default",
@@ -114,6 +114,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\API\\ProjectWeb2\\WebAPIAnimals\\View\\wwwroot\\Image\\Logo.png",
+      "SourceId": "View",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\API\\ProjectWeb2\\WebAPIAnimals\\View\\wwwroot\\",
+      "BasePath": "_content/View",
+      "RelativePath": "Image/Logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Image\\Logo.png"
     },
     {
       "Identity": "D:\\API\\ProjectWeb2\\WebAPIAnimals\\View\\wwwroot\\js\\site.js",
