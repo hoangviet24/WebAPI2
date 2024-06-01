@@ -1,3 +1,5 @@
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using ControllerAPI.Repository.Animal;
 using DataAnimals.Data;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -9,11 +11,13 @@ using Microsoft.OpenApi.Models;
 using Serilog;
 using System.Text;
 using View.Controllers;
+using JwtRegisteredClaimNames = Microsoft.IdentityModel.JsonWebTokens.JwtRegisteredClaimNames;
 
 namespace View
 {
     public class Program
     {
+        private readonly IConfiguration _config;
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);

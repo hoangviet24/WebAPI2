@@ -64,7 +64,7 @@ namespace ControllerAPI.Controllers
             
         }
         [HttpGet("Paging")]
-        public IActionResult GetPaging(int page, float pageSize = 10)
+        public IActionResult GetPaging(int page = 1, float pageSize = 5)
         {
             try
             {
@@ -89,7 +89,7 @@ namespace ControllerAPI.Controllers
 
                     int skip = (page - 1) * (int)pageSize;
                     int take = (int)pageSize;
-
+                      
                     var animal = _datacontext.Animals
                         .Skip(skip)
                         .Take(take)
@@ -102,7 +102,7 @@ namespace ControllerAPI.Controllers
                         Pages = pageCount,
                     };
 
-                    Log.Information("author Page => {@response}", response);
+                    Log.Information("Animal Page => {@response}", response);
 
                     return Ok(response);
                 }

@@ -62,7 +62,7 @@ namespace ControllerAPI.Repository.Animal
             {
                 put.Name = animal.Name;
                 put.Description = animal.Description;
-                put.AgeAvg = (float)animal.AgeAvg;
+                put.AgeAvg = animal.AgeAvg;
                 put.Url = animal.Url;
                 _dataContext.SaveChanges();
             }

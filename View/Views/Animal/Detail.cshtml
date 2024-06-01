@@ -2,12 +2,21 @@
 
     <div class="card" style="max-width: 38rem;margin:0 auto">
         <img src="@Model.Url" class="card-img-top" alt="...">
+        <br/>
+        <div class="dropdown dropstart text-start">
+            <button type="button" class="btn btn-primary" data-bs-toggle="dropdown">
+            <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="dropdown-menu">
+            <li><a asp-controller="Animal" asp-action="Delete" asp-route-id="@Model.ID" class="dropdown-item">Delete</a></li>
+            <li><a asp-controller="Animal" asp-action="Update" asp-route-id="@Model.ID" class="dropdown-item">Update</a></li>
+            <li><a asp-controller="Home" asp-action="Index" asp-route-id="@Model.ID" class="dropdown-item">Go back</a></li>
+            </ul>
+        </div>
         <div class="card-body">
             <h5 class="card-title">Tên: @Model.Name</h5>
             <p class="card-text">Tiêu đề: @Model.Description</p>
             <p class="card-text">Tuổi: @Model.AgeAvg</p>
-            <a asp-controller="Animal" asp-action="Delete" asp-route-id="@Model.ID" class="btn btn-primary">Delete</a>
-            <a asp-controller="Animal" asp-action="Update" asp-route-id="@Model.ID" class="btn btn-primary">Update</a>
-            <a asp-controller="Home" asp-action="Index" asp-route-id="@Model.ID" class="btn btn-primary">Go back</a>
+            
         </div>
     </div>

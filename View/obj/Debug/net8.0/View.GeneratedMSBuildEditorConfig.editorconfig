@@ -26,6 +26,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\API\ProjectWeb2\WebAPIAnimals\View
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/API/ProjectWeb2/WebAPIAnimals/View/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/API/ProjectWeb2/WebAPIAnimals/View/Views/Animal/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5pbWFsXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -56,10 +60,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/API/ProjectWeb2/WebAPIAnimals/View/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/API/ProjectWeb2/WebAPIAnimals/View/Views/Home/Pagingx.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQYWdpbmd4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/API/ProjectWeb2/WebAPIAnimals/View/Views/Shared/Error.cshtml]

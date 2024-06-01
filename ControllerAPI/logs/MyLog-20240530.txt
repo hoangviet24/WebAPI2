@@ -1,0 +1,80 @@
+2024-05-30 19:56:35.825 +07:00 [INF] User profile is available. Using 'C:\Users\hoang\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-05-30 19:56:36.115 +07:00 [INF] Now listening on: https://localhost:7035
+2024-05-30 19:56:36.120 +07:00 [INF] Now listening on: http://localhost:5287
+2024-05-30 19:56:36.148 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-05-30 19:56:36.171 +07:00 [INF] Hosting environment: Development
+2024-05-30 19:56:36.172 +07:00 [INF] Content root path: D:\API\ProjectWeb2\WebAPIAnimals\ControllerAPI
+2024-05-30 19:56:36.749 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7035/swagger/index.html - null null
+2024-05-30 19:56:37.557 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7035/swagger/index.html - 200 null text/html;charset=utf-8 800.9695ms
+2024-05-30 19:56:37.912 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7035/_framework/aspnetcore-browser-refresh.js - null null
+2024-05-30 19:56:37.913 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7035/_vs/browserLink - null null
+2024-05-30 19:56:37.919 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=False - null null
+2024-05-30 19:56:37.931 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7035/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 15.0196ms
+2024-05-30 19:56:37.981 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7035/_vs/browserLink - 200 null text/javascript; charset=UTF-8 67.317ms
+2024-05-30 19:56:39.170 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7035/swagger/v1/swagger.json - null null
+2024-05-30 19:56:39.552 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-05-30 19:56:39.579 +07:00 [INF] Route matched with {action = "Filtering", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Filtering(System.String, Boolean) on controller ControllerAPI.Controllers.AnimalController (ControllerAPI).
+2024-05-30 19:56:39.599 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7035/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 429.2508ms
+2024-05-30 19:56:41.732 +07:00 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id] AS [ID], [a].[Name], [a].[Description], [a].[AgeAvg], [a].[Url]
+FROM [Animals] AS [a]
+2024-05-30 19:56:41.763 +07:00 [INF] Animal Page => System.Collections.Generic.List`1[DataAnimals.DTO.Animal.AnimalDto]
+2024-05-30 19:56:41.769 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Animal.AnimalDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-05-30 19:56:41.783 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) in 2198.0688ms
+2024-05-30 19:56:41.785 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-05-30 19:56:41.796 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=False - 200 null application/json; charset=utf-8 3877.0131ms
+2024-05-30 19:56:47.406 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7035/api/Animal/GetAll - null null
+2024-05-30 19:56:47.412 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-05-30 19:56:47.415 +07:00 [INF] Route matched with {action = "Filtering", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Filtering(System.String, Boolean) on controller ControllerAPI.Controllers.AnimalController (ControllerAPI).
+2024-05-30 19:56:47.431 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id] AS [ID], [a].[Name], [a].[Description], [a].[AgeAvg], [a].[Url]
+FROM [Animals] AS [a]
+2024-05-30 19:56:47.433 +07:00 [INF] Animal Page => System.Collections.Generic.List`1[DataAnimals.DTO.Animal.AnimalDto]
+2024-05-30 19:56:47.435 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Animal.AnimalDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-05-30 19:56:47.440 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) in 24.4311ms
+2024-05-30 19:56:47.442 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-05-30 19:56:47.444 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7035/api/Animal/GetAll - 200 null application/json; charset=utf-8 38.5739ms
+2024-05-30 19:57:14.244 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=True - null null
+2024-05-30 19:57:14.250 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-05-30 19:57:14.251 +07:00 [INF] Route matched with {action = "Filtering", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Filtering(System.String, Boolean) on controller ControllerAPI.Controllers.AnimalController (ControllerAPI).
+2024-05-30 19:57:14.295 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id] AS [ID], [a].[Name], [a].[Description], [a].[AgeAvg], [a].[Url]
+FROM [Animals] AS [a]
+2024-05-30 19:57:14.299 +07:00 [INF] Animal Page => System.Collections.Generic.List`1[DataAnimals.DTO.Animal.AnimalDto]
+2024-05-30 19:57:14.300 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Animal.AnimalDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-05-30 19:57:14.301 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) in 48.4572ms
+2024-05-30 19:57:14.302 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-05-30 19:57:14.303 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=True - 200 null application/json; charset=utf-8 59.151ms
+2024-05-30 19:57:16.227 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=False - null null
+2024-05-30 19:57:16.231 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-05-30 19:57:16.232 +07:00 [INF] Route matched with {action = "Filtering", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Filtering(System.String, Boolean) on controller ControllerAPI.Controllers.AnimalController (ControllerAPI).
+2024-05-30 19:57:16.234 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id] AS [ID], [a].[Name], [a].[Description], [a].[AgeAvg], [a].[Url]
+FROM [Animals] AS [a]
+2024-05-30 19:57:16.236 +07:00 [INF] Animal Page => System.Collections.Generic.List`1[DataAnimals.DTO.Animal.AnimalDto]
+2024-05-30 19:57:16.237 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Animal.AnimalDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-05-30 19:57:16.238 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) in 5.3654ms
+2024-05-30 19:57:16.240 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-05-30 19:57:16.241 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=False - 200 null application/json; charset=utf-8 14.1896ms
+2024-05-30 19:57:17.628 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=True - null null
+2024-05-30 19:57:17.634 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-05-30 19:57:17.635 +07:00 [INF] Route matched with {action = "Filtering", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Filtering(System.String, Boolean) on controller ControllerAPI.Controllers.AnimalController (ControllerAPI).
+2024-05-30 19:57:17.639 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id] AS [ID], [a].[Name], [a].[Description], [a].[AgeAvg], [a].[Url]
+FROM [Animals] AS [a]
+2024-05-30 19:57:17.642 +07:00 [INF] Animal Page => System.Collections.Generic.List`1[DataAnimals.DTO.Animal.AnimalDto]
+2024-05-30 19:57:17.643 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Animal.AnimalDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-05-30 19:57:17.645 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) in 8.9241ms
+2024-05-30 19:57:17.646 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-05-30 19:57:17.647 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=True - 200 null application/json; charset=utf-8 19.1631ms
+2024-05-30 19:57:19.075 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=True - null null
+2024-05-30 19:57:19.079 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-05-30 19:57:19.080 +07:00 [INF] Route matched with {action = "Filtering", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Filtering(System.String, Boolean) on controller ControllerAPI.Controllers.AnimalController (ControllerAPI).
+2024-05-30 19:57:19.083 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id] AS [ID], [a].[Name], [a].[Description], [a].[AgeAvg], [a].[Url]
+FROM [Animals] AS [a]
+2024-05-30 19:57:19.084 +07:00 [INF] Animal Page => System.Collections.Generic.List`1[DataAnimals.DTO.Animal.AnimalDto]
+2024-05-30 19:57:19.085 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Animal.AnimalDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-05-30 19:57:19.086 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) in 5.253ms
+2024-05-30 19:57:19.087 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-05-30 19:57:19.089 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=True - 200 null application/json; charset=utf-8 13.2452ms

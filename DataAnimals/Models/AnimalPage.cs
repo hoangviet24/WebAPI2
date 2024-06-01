@@ -1,4 +1,5 @@
-﻿using DataAnimals.Models;
+﻿using DataAnimals.DTO.Animal;
+using DataAnimals.Models;
 
 namespace ControllerAPI.Controllers
 {
