@@ -72,7 +72,7 @@ namespace ControllerAPI.Repository.Category
                 _dataContext.AnimalCategories.RemoveRange(animalDomail);
                 _dataContext.SaveChanges();
             }
-        
+            //thêm lại dữ liệu vào kho bằng tham chiếu
             foreach (var item in categoryDTO.Animal_Id)
             {
                 var cateAnimal = new DataAnimals.Models.AnimalCategory

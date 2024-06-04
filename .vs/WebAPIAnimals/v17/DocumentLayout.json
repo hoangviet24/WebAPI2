@@ -3,24 +3,20 @@
   "WorkspaceRootPath": "D:\\API\\ProjectWeb2\\WebAPIAnimals\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C3AED088-A281-4C6F-A600-6BE1EE0B071A}|View\\View.csproj|d:\\api\\projectweb2\\webapianimals\\view\\views\\animal\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C3AED088-A281-4C6F-A600-6BE1EE0B071A}|View\\View.csproj|solutionrelative:view\\views\\animal\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C3AED088-A281-4C6F-A600-6BE1EE0B071A}|View\\View.csproj|d:\\api\\projectweb2\\webapianimals\\view\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C3AED088-A281-4C6F-A600-6BE1EE0B071A}|View\\View.csproj|solutionrelative:view\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C3AED088-A281-4C6F-A600-6BE1EE0B071A}|View\\View.csproj|d:\\api\\projectweb2\\webapianimals\\view\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3AED088-A281-4C6F-A600-6BE1EE0B071A}|View\\View.csproj|solutionrelative:view\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C3AED088-A281-4C6F-A600-6BE1EE0B071A}|View\\View.csproj|d:\\api\\projectweb2\\webapianimals\\view\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C3AED088-A281-4C6F-A600-6BE1EE0B071A}|View\\View.csproj|solutionrelative:view\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C3AED088-A281-4C6F-A600-6BE1EE0B071A}|View\\View.csproj|d:\\api\\projectweb2\\webapianimals\\view\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C3AED088-A281-4C6F-A600-6BE1EE0B071A}|View\\View.csproj|solutionrelative:view\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C3AED088-A281-4C6F-A600-6BE1EE0B071A}|View\\View.csproj|d:\\api\\projectweb2\\webapianimals\\view\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3AED088-A281-4C6F-A600-6BE1EE0B071A}|View\\View.csproj|solutionrelative:view\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3598DBFB-DF19-4A85-B3C4-B9FE5E13C5F3}|DataAnimals\\DataAnimals.csproj|d:\\api\\projectweb2\\webapianimals\\dataanimals\\models\\animal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3598DBFB-DF19-4A85-B3C4-B9FE5E13C5F3}|DataAnimals\\DataAnimals.csproj|solutionrelative:dataanimals\\models\\animal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C3AED088-A281-4C6F-A600-6BE1EE0B071A}|View\\View.csproj|d:\\api\\projectweb2\\webapianimals\\view\\views\\category\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C3AED088-A281-4C6F-A600-6BE1EE0B071A}|View\\View.csproj|solutionrelative:view\\views\\category\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,73 +26,57 @@
       "DocumentGroups": [
         {
           "DockedWidth": 326,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "D:\\API\\ProjectWeb2\\WebAPIAnimals\\View\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "View\\Controllers\\HomeController.cs",
-              "ToolTip": "D:\\API\\ProjectWeb2\\WebAPIAnimals\\View\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "View\\Controllers\\HomeController.cs",
-              "ViewState": "AQIAAAIAAAAAAAAAAAAAAA4AAAArAAAA",
+              "DocumentIndex": 0,
+              "Title": "CategoryController.cs",
+              "DocumentMoniker": "D:\\API\\ProjectWeb2\\WebAPIAnimals\\View\\Controllers\\CategoryController.cs",
+              "RelativeDocumentMoniker": "View\\Controllers\\CategoryController.cs",
+              "ToolTip": "D:\\API\\ProjectWeb2\\WebAPIAnimals\\View\\Controllers\\CategoryController.cs",
+              "RelativeToolTip": "View\\Controllers\\CategoryController.cs",
+              "ViewState": "AQIAANAAAAAAAAAAAAAAANYAAAA7AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-01T06:52:09.067Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Animal.cs",
-              "DocumentMoniker": "D:\\API\\ProjectWeb2\\WebAPIAnimals\\DataAnimals\\Models\\Animal.cs",
-              "RelativeDocumentMoniker": "DataAnimals\\Models\\Animal.cs",
-              "ToolTip": "D:\\API\\ProjectWeb2\\WebAPIAnimals\\DataAnimals\\Models\\Animal.cs",
-              "RelativeToolTip": "DataAnimals\\Models\\Animal.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-01T07:11:27.618Z",
-              "IsPinned": true,
+              "WhenOpened": "2024-06-04T05:07:43.23Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "D:\\API\\ProjectWeb2\\WebAPIAnimals\\View\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "View\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "D:\\API\\ProjectWeb2\\WebAPIAnimals\\View\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "View\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-01T07:34:41.317Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Detail.cshtml",
-              "DocumentMoniker": "D:\\API\\ProjectWeb2\\WebAPIAnimals\\View\\Views\\Animal\\Detail.cshtml",
-              "RelativeDocumentMoniker": "View\\Views\\Animal\\Detail.cshtml",
-              "ToolTip": "D:\\API\\ProjectWeb2\\WebAPIAnimals\\View\\Views\\Animal\\Detail.cshtml",
-              "RelativeToolTip": "View\\Views\\Animal\\Detail.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAABgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-01T07:31:47.05Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\API\\ProjectWeb2\\WebAPIAnimals\\View\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "View\\Views\\Home\\Index.cshtml",
               "ToolTip": "D:\\API\\ProjectWeb2\\WebAPIAnimals\\View\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "View\\Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAAEAAAAAAAAAAAAAACIAAABRAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAA7AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-01T07:01:38.904Z",
+              "WhenOpened": "2024-06-04T04:59:15.039Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\API\\ProjectWeb2\\WebAPIAnimals\\View\\Views\\Category\\Index.cshtml",
+              "RelativeDocumentMoniker": "View\\Views\\Category\\Index.cshtml",
+              "ToolTip": "D:\\API\\ProjectWeb2\\WebAPIAnimals\\View\\Views\\Category\\Index.cshtml",
+              "RelativeToolTip": "View\\Views\\Category\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACoAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-04T04:36:02.6Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "D:\\API\\ProjectWeb2\\WebAPIAnimals\\View\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "View\\Controllers\\AccountController.cs",
+              "ToolTip": "D:\\API\\ProjectWeb2\\WebAPIAnimals\\View\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "View\\Controllers\\AccountController.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAAACEAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T16:15:44.616Z",
               "EditorCaption": ""
             }
           ]

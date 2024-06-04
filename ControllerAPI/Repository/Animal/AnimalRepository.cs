@@ -9,12 +9,15 @@ namespace ControllerAPI.Repository.Animal
     {
         private readonly DataContext _dataContext;
 
+        // thiết lập constructor với Data
         public AnimalRepository(DataContext dataContext)
         {
             _dataContext= dataContext;
         }
+        // Lấy tất cả
         public List<AnimalDto> GetAnimals()
         {
+            // dùng phương thức Select để lấy dữ liệu dto từ dữ liệu chính
             var getall = _dataContext.Animals.Select(a => new AnimalDto()
             {
                 ID = a.Id,
@@ -28,6 +31,7 @@ namespace ControllerAPI.Repository.Animal
 
         public AnimalDto GetAnimal(int id)
         {
+            // như ở trên nhưng sẽ dùng where để lấy dữ liệu
             var getId = _dataContext.Animals.Where(a => a.Id == id);
             var getDomain = getId.Select(a => new AnimalDto
             {
@@ -42,6 +46,7 @@ namespace ControllerAPI.Repository.Animal
 
         public AddAnimalDto AddAnimal(AddAnimalDto animal)
         {
+            // truyền dữ liệu dto vào data
             var AnimalDomain = new DataAnimals.Models.Animal()
             {
                 Name = animal.Name,
@@ -57,6 +62,7 @@ namespace ControllerAPI.Repository.Animal
 
         public AddAnimalDto PutAnimalDto(AddAnimalDto animal, int Id)
         {
+            // Lấy ID để thay đổi dữ liệu
             var put = _dataContext.Animals.FirstOrDefault(a => a.Id == Id);
             if (put != null)
             {
@@ -66,7 +72,7 @@ namespace ControllerAPI.Repository.Animal
                 put.Url = animal.Url;
                 _dataContext.SaveChanges();
             }
-
+            // sau đó vô kho chứa để xóa tất cả dữ liệu
             var putDomain = _dataContext.AnimalCategories.Where(a => a.Id == Id);
             if (putDomain != null)
             {

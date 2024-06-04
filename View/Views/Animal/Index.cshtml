@@ -22,7 +22,7 @@
             </div>
         </div>
     </div>
-    <a href="@Url.Action("Create", "Animal")" class="btn btn-success mt-2 add-animal-btn" target="_blank">Thêm động vật mới</a>
+    <a href="@Url.Action("Create", "Animal")" class="btn btn-success mt-2 add-animal-btn">Thêm động vật mới</a>
 </form>
 
 
@@ -47,7 +47,7 @@
                     <td>@item.ID</td>
                     <td>@item.Name</td>
                     <td>@StringHelpers.TruncateAtWord(item.Description, 50)</td>
-                        <td><a class="btn btn-primary" asp-controller="Animal" asp-action="Update" asp-route-id="@item.ID" target="_blank">Update</a></td>
+                        <td><a class="btn btn-primary" asp-controller="Animal" asp-action="Update" asp-route-id="@item.ID">Update</a></td>
                     <td><a class="btn btn-danger" asp-controller="Animal" asp-action="Delete" asp-route-id="@item.ID">Delete</a></td>
                     <td><a class="btn btn-info"asp-controller="Animal" asp-action="Detail" asp-route-id="@item.ID" >Detail</a></td>
                 </tr>

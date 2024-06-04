@@ -281,3 +281,4 @@ D:\API\ProjectWeb2\WebAPIAnimals\View\obj\Debug\net8.0\refint\View.dll
 D:\API\ProjectWeb2\WebAPIAnimals\View\obj\Debug\net8.0\View.pdb
 D:\API\ProjectWeb2\WebAPIAnimals\View\obj\Debug\net8.0\View.genruntimeconfig.cache
 D:\API\ProjectWeb2\WebAPIAnimals\View\obj\Debug\net8.0\ref\View.dll
+D:\API\ProjectWeb2\WebAPIAnimals\View\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll

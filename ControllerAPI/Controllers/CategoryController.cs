@@ -21,7 +21,7 @@ namespace ControllerAPI.Controllers
             _datacontext = dataContext;
             _catrgoryRepository = catrgoryRepository;
         }
-        //[Authorize(Roles = "Read")]
+        [Authorize(Roles = "Read")]
         [HttpGet("GetAll")]
         public IActionResult Filtering([FromQuery] string? name, [FromQuery] bool isAccess)
         {
@@ -61,53 +61,7 @@ namespace ControllerAPI.Controllers
                 }
             }
         }
-        [HttpGet("Paging")]
-        public IActionResult GetPaging(int page, float pageSize = 10)
-        {
-            if (ModelState.IsValid)
-            {
-                if (_datacontext.Animals == null)
-                {
-                    return NotFound();
-                }
-
-                if (_datacontext.Animals.Count() == 0)
-                {
-                    return NoContent(); // No data found
-                }
-
-                int pageCount = (int)Math.Ceiling(_datacontext.Animals.Count() / pageSize);
-
-                if (page < 1 || page > pageCount)
-                {
-                    return BadRequest("Invalid page number"); // Handle invalid page requests
-                }
-
-                int skip = (page - 1) * (int)pageSize;
-                int take = (int)pageSize;
-
-                var animal = _datacontext.Animals
-                    .Skip(skip)
-                    .Take(take)
-                    .ToList();
-
-                var response = new AnimalPage()
-                {
-                    Animal = animal,
-                    CurrentPage = page,
-                    Pages = pageCount,
-                };
-
-                Log.Information("author Page => {@response}", response);
-
-                return Ok(response);
-            }
-            else
-            {
-                return BadRequest();
-            }
-        }
-        //  [Authorize(Roles = "Read")]
+        [Authorize(Roles = "Read")]
         [HttpGet("Get-by-ID")]
         public IActionResult Get(int id)
         {
@@ -122,7 +76,7 @@ namespace ControllerAPI.Controllers
             Log.Information($"Category Page => {categoryDto}");
             return Ok(add);
         }
-      //  [Authorize(Roles = "Write")]
+        [Authorize(Roles = "Write")]
         [HttpPut("Update")]
         public IActionResult Update([FromBody] AddCategoryDto categoryDto, int id)
         {
@@ -130,7 +84,7 @@ namespace ControllerAPI.Controllers
             Log.Information($"Category Page => {categoryDto}");
             return Ok(add);
         }
-      //  [Authorize(Roles = "Write")]
+        [Authorize(Roles = "Write")]
         [HttpDelete("Delete")]
         public IActionResult Delete(int id)
         {

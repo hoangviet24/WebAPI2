@@ -22,7 +22,7 @@ namespace ControllerAPI.Controllers
             iAnimalRepository = animal;
             _datacontext = dataContext;
         }
-       // [Authorize (Roles = "Read")]
+        [Authorize (Roles = "Read")]
         [HttpGet("GetAll")]
         public IActionResult Filtering([FromQuery] string? name,[FromQuery] bool isAccess)
         {
@@ -61,64 +61,8 @@ namespace ControllerAPI.Controllers
                         return Ok(post1);
                 }
             }
-            
         }
-        [HttpGet("Paging")]
-        public IActionResult GetPaging(int page = 1, float pageSize = 5)
-        {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    if (_datacontext.Animals == null)
-                    {
-                        return NotFound();
-                    }
-
-                    if (_datacontext.Animals.Count() == 0)
-                    {
-                        return NoContent(); // No data found
-                    }
-
-                    int pageCount = (int)Math.Ceiling(_datacontext.Animals.Count() / pageSize);
-
-                    if (page < 1 || page > pageCount)
-                    {
-                        return BadRequest("Invalid page number"); // Handle invalid page requests
-                    }
-
-                    int skip = (page - 1) * (int)pageSize;
-                    int take = (int)pageSize;
-                      
-                    var animal = _datacontext.Animals
-                        .Skip(skip)
-                        .Take(take)
-                        .ToList();
-
-                    var response = new AnimalPage()
-                    {
-                        Animal = animal,
-                        CurrentPage = page,
-                        Pages = pageCount,
-                    };
-
-                    Log.Information("Animal Page => {@response}", response);
-
-                    return Ok(response);
-                }
-                else
-                {
-                    return BadRequest();
-                }
-            }
-            catch
-            {
-                var post = iAnimalRepository.GetAnimals();
-                return Ok(post);
-            }
-            
-        }
-
+        [Authorize(Roles = "Read")]
         [HttpGet("Get-By-Id")]
         public IActionResult GetId(int id)
         {
@@ -126,7 +70,7 @@ namespace ControllerAPI.Controllers
             Log.Information($"Animal Page => {@getId}");
             return Ok(getId);
         }
-       // [Authorize(Roles = "Write")]
+        [Authorize(Roles = "Write")]
         [HttpPost("Push")]
         public IActionResult Post([FromBody]AddAnimalDto animal)
         {
@@ -135,7 +79,7 @@ namespace ControllerAPI.Controllers
             Log.Information($"Animal Page => {animal}");
             return Ok(Post);
         }
-        //[Authorize(Roles = "Write")]
+        [Authorize(Roles = "Write")]
         [HttpPut("Update")]
         public IActionResult Put([FromBody] AddAnimalDto animal,int id)
         {
@@ -143,7 +87,7 @@ namespace ControllerAPI.Controllers
             Log.Information($"Animal Page => {Put}");
             return Ok(Put);
         }
-        //[Authorize(Roles = "Write")]
+        [Authorize(Roles = "Write")]
         [HttpDelete("Delete")]
         public IActionResult DeleteById(int id)
         {

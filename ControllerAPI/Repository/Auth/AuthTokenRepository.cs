@@ -11,7 +11,7 @@ namespace ControllerAPI.Repository.Auth
         private readonly IConfiguration _configuration;
         public AuthTokenRepository(IConfiguration configuration)
         {
-            _configuration = configuration;
+            _configuration = configuration;                         
         }
         public string CreateJWTToken(IdentityUser user, List<string> roles)
         {
