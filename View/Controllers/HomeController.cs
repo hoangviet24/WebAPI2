@@ -1,4 +1,5 @@
-﻿using DataAnimals.DTO.Animal;
+﻿using System.Drawing.Printing;
+using DataAnimals.DTO.Animal;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Http.Headers;
 using System.Text.Json;
@@ -13,8 +14,7 @@ namespace View.Controllers
         {
             _httpClientFactory = httpClientFactory;
         }
-
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
             var client = _httpClientFactory.CreateClient();
             List<AnimalDto> animal = new List<AnimalDto>();
@@ -38,7 +38,15 @@ namespace View.Controllers
             // Thêm token vào header Authorization của yêu cầu HTTP
             Console.WriteLine("JWT Token: " + token); // Ghi log token để kiểm tra
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            var data = await client.GetAsync("https://localhost:7035/api/Animal/GetAll");
+            {
+                List<AnimalDto> animals = new List<AnimalDto>();
+                var dataAnimal = await client.GetAsync("https://localhost:7035/api/Animal/GetAll");
+                dataAnimal.EnsureSuccessStatusCode();
+                animals.AddRange(await dataAnimal.Content.ReadFromJsonAsync<IEnumerable<AnimalDto>>());
+                ViewBag.ListAnimal = animals;
+            }
+
+            var data = await client.GetAsync($"https://localhost:7035/api/Animal/Get-Page?page={page}&pagesize=5");
             data.EnsureSuccessStatusCode();
             animal.AddRange(await data.Content.ReadFromJsonAsync<IEnumerable<AnimalDto>>());
             return View(animal);

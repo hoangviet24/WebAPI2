@@ -15,6 +15,7 @@ namespace ControllerAPI.Controllers
     [ApiController]
     public class AnimalController : ControllerBase
     {
+
         private readonly IAnimalRepository iAnimalRepository;
         private readonly DataContext _datacontext;
         public AnimalController(IAnimalRepository animal,DataContext dataContext)
@@ -61,6 +62,18 @@ namespace ControllerAPI.Controllers
                         return Ok(post1);
                 }
             }
+        }
+
+        [HttpGet("Get-Page")]
+        public IActionResult GetPaging(int page = 1,int pagesize = 5)
+        {
+            var totalCount = iAnimalRepository.GetAnimals().Count();
+            var totalPage = Math.Ceiling((decimal)totalCount / pagesize);
+            var AnimalPerPage = iAnimalRepository.GetAnimals()
+                .Skip((page - 1) * pagesize)
+                .Take(pagesize)
+                .ToList();
+            return Ok(AnimalPerPage);
         }
         [Authorize(Roles = "Read")]
         [HttpGet("Get-By-Id")]

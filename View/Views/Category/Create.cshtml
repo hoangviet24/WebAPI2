@@ -2,6 +2,11 @@
 @model DataAnimals.DTO.Category.AddCategoryDto
 @{
     var listanimal = ViewBag.ListAnimal;
+    int i = 1;
+    foreach (var it in listanimal)
+    {
+        i++;
+    }
 }
 <h1 class="text-white">Thêm dữ liệu</h1>
 <form asp-controller="Category" asp-action="CreateCategory" method="post" onsubmit="submitForm()">
@@ -10,6 +15,7 @@
         <input type="text" class="form-control" id="name" placeholder="Enter name" asp-for="Name">
     </div>
     <br/>
+    <p class ="text-white">Số loại vật: @i</p>
     <div class="form-group">
         <label class="text-white">Loài vật:</label>
         <select asp-for="Animal_Id" class="form-control">
