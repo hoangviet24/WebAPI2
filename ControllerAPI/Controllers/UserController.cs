@@ -84,10 +84,10 @@ namespace ControllerAPI.Controllers
         }
         [HttpPost]
         [Route("UpdateRoles")]
-        public async Task<IActionResult> UpdateRoles([FromBody] UpdateUserRolesDTO updateUserRolesDTO,string username)
+        public async Task<IActionResult> UpdateRoles([FromBody] UpdateUserRolesDTO updateUserRolesDTO)
         {
             // Find the user by username
-            var user = await _userManager.FindByNameAsync(username);
+            var user = await _userManager.FindByNameAsync(updateUserRolesDTO.Username);
             if (user == null)
             {
                 return NotFound("User not found");

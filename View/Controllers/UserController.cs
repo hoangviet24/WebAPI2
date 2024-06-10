@@ -6,6 +6,7 @@ using System.Web;
 using DataAnimals.DTO.Login;
 using Microsoft.AspNetCore.Mvc;
 using View.Models;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace View.Controllers
 {
@@ -80,34 +81,43 @@ namespace View.Controllers
                 user = await data.Content.ReadFromJsonAsync<UserDTO>();
                 ViewBag.User = user;
             }
-            var registerRequest = new RegisterRequestDTO();
-            registerRequest.Roles = new string[] { "Read", "Write" };
-            ViewBag.Roles = registerRequest.Roles;
-            return View(); ;
+            {
+                var registerRequest = new RegisterRequestDTO();
+                registerRequest.Roles = new string[] { "Read", "Write" };
+                ViewBag.Roles = registerRequest.Roles;
+            }
+            
+            return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateUserView([FromQuery] UpdateUserRolesDTO update,string username)
+        public async Task<IActionResult> UpdateUserView(UpdateUserRolesDTO update)
         {
-            var clt = _httpClientFactory.CreateClient();
-            var httpReq = new HttpRequestMessage()
+            try
             {
-                Method = HttpMethod.Put,
-                RequestUri = new Uri($"https://localhost:7035/api/User/UpdateRoles?username={username}"),
-                Content = new StringContent(JsonSerializer.Serialize(update), Encoding.UTF8,
-                    MediaTypeNames.Application.Json)
-            };
-            var data = await clt.SendAsync(httpReq);
-            data.EnsureSuccessStatusCode();
-            var roles = await data.Content.ReadFromJsonAsync<UpdateUserRolesDTO>();
-            if (roles != null)
+                var clt = _httpClientFactory.CreateClient();
+                var httpReq = new HttpRequestMessage()
+                {
+                    Method = HttpMethod.Post,
+                    RequestUri = new Uri("https://localhost:7035/api/User/UpdateRoles"),
+                    Content = new StringContent(JsonSerializer.Serialize(update), Encoding.UTF8,
+                        MediaTypeNames.Application.Json)
+                };
+                var httpRes = await clt.SendAsync(httpReq);
+                httpRes.EnsureSuccessStatusCode();
+                var data = await httpRes.Content.ReadFromJsonAsync<UpdateUserRolesDTO>();
+                if (data != null)
+                {
+                    return RedirectToAction("Index", "User");
+                }
+
+                return View("Error");
+            }
+            catch
             {
                 return RedirectToAction("Index", "User");
             }
-            ModelState.AddModelError("", "An unexpected error occurred. Please try again later.");
-            return View("Error", new ErrorViewModel { ErrorMessage = "An unexpected error occurred. Please try again later." });
         }
-
         [HttpGet]
         public async Task<IActionResult> DeleteUserView(string username)
         {
