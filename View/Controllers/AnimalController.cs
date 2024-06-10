@@ -135,7 +135,7 @@ namespace View.Controllers
             }
             catch
             {
-                return View("Warn");
+                return View("WarnDelete");
             }
             return RedirectToAction("Index", "Animal");
         }
@@ -145,7 +145,12 @@ namespace View.Controllers
             return View();
         }
 
-        public IActionResult Warn()
+        public IActionResult WarnDelete()
+        {
+            return View();
+        }
+
+        public IActionResult WarnUpdate()
         {
             return View();
         }

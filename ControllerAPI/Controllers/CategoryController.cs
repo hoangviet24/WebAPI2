@@ -1,11 +1,8 @@
-﻿using ControllerAPI.Repository.Animal;
-using ControllerAPI.Repository.Category;
+﻿using ControllerAPI.Repository.Category;
 using DataAnimals.Data;
 using DataAnimals.DTO.Category;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.OpenApi.Validations;
 using Serilog;
 
 namespace ControllerAPI.Controllers
@@ -80,7 +77,7 @@ namespace ControllerAPI.Controllers
         [HttpPut("Update")]
         public IActionResult Update([FromBody] AddCategoryDto categoryDto, int id)
         {
-            var add = _catrgoryRepository.PutCategory(categoryDto,id);
+            var add = _catrgoryRepository.PutCategory(categoryDto, id);
             Log.Information($"Category Page => {categoryDto}");
             return Ok(add);
         }
@@ -88,16 +85,9 @@ namespace ControllerAPI.Controllers
         [HttpDelete("Delete")]
         public IActionResult Delete(int id)
         {
-            try
-            {
-                var del = _catrgoryRepository.Delete(id);
-                Log.Information($"Category Page => {del}");
-                return Ok(del);
-            }
-            catch
-            {
-                return Ok("Kho đang chứa nó");
-            }
+            var del = _catrgoryRepository.Delete(id);
+            Log.Information($"Category Page => {del}");
+            return Ok(del);
         }
     }
 }

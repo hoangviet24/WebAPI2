@@ -68,7 +68,6 @@ namespace ControllerAPI.Controllers
         public IActionResult GetPaging(int page = 1,int pagesize = 5)
         {
             var totalCount = iAnimalRepository.GetAnimals().Count();
-            var totalPage = Math.Ceiling((decimal)totalCount / pagesize);
             var AnimalPerPage = iAnimalRepository.GetAnimals()
                 .Skip((page - 1) * pagesize)
                 .Take(pagesize)
@@ -104,16 +103,9 @@ namespace ControllerAPI.Controllers
         [HttpDelete("Delete")]
         public IActionResult DeleteById(int id)
         {
-            try
-            {
-                var Del = iAnimalRepository.Delete(id);
-                Log.Information($"Animal Page => {Del}");
-                return Ok(Del);
-            }
-            catch
-            {
-                return Ok("Kho đang chứa nó");
-            }
+            var Del = iAnimalRepository.Delete(id);
+            Log.Information($"Animal Page => {Del}");
+            return Ok(Del);
         }
     }
 }

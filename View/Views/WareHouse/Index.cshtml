@@ -6,7 +6,6 @@
     <table class="table table-striped table-bordered ">
         <thead class="text-white">
         <tr>
-            <th scope="col">Id</th>
             <th scope="col">Tên động vật</th>
             <th scope="col">Tên loại</th>
         </tr>
@@ -15,7 +14,6 @@
         @foreach (var item in Model)
         {
             <tr class="text-white">
-                <td>@item.Id</td>
                 <td>@item.Animal_Name</td>
                 <td>@item.Category_Name</td>
                 <td><a class="btn btn-danger" asp-controller="WareHouse" asp-action="Delete" asp-route-id="@item.Id">Delete</a></td>

@@ -66,7 +66,7 @@ namespace ControllerAPI.Repository.Category
                 _dataContext.SaveChanges();
             }
 
-            var animalDomail = _dataContext.AnimalCategories.Where(a => a.Id == id);
+            var animalDomail = _dataContext.AnimalCategories.Where(a => a.Category_Id == id);
             if (animalDomail != null)
             {
                 _dataContext.AnimalCategories.RemoveRange(animalDomail);

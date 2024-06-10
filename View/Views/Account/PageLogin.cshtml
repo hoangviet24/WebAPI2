@@ -1,6 +1,6 @@
 ﻿@model DataAnimals.Models.DTO.LoginRequestDTO;
 
-<form asp-controller="Account" asp-action="Login" method="post">
+<form asp-controller="Account" asp-action="Login" method="post" style="max-width: 380px;margin:0 auto;background-color:#636e72;border-radius:10px;padding:10px">
     <div class="form-group">
         <label class="text-white" asp-for="Username"></label>
         <input asp-for="Username" class="form-control" />
@@ -15,8 +15,12 @@
             Show Password
         </label>
     </div>
-
-    <button type="submit" class="btn btn-primary text-white">Đăng nhập</button>
+    <div style="max-width:180px;margin:0 auto" class="d-flex flex-column mb-3">
+        <button type="submit" class="btn btn-primary text-white">Login</button>
+        <label class="text-white" style="padding-left:10px">You have no Account</label>
+        <a type="button" class="btn btn-primary text-white" asp-controller="Account" asp-action="Register">Register</a>
+    </div>
+    
 </form>
 <script>
     function togglePassword() {

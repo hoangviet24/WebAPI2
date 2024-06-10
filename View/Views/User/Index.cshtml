@@ -1,0 +1,24 @@
+﻿@model IEnumerable< DataAnimals.DTO.Login.UserDTO>
+<table class="table text-white">
+    <thead>
+    <tr>
+        <th scope="col">UserName</th>
+        <th scope="col">Vai trò</th>
+        <th scope="col">Delete</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Detail</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Username</td>
+            <td>@String.Join(", ",@item.Roles)</td>
+            <td><a asp-controller="User" asp-action="DeleteUserView" asp-route-username="@item.Username">Delete</a></td>
+            <td><a asp-controller="User" asp-action="Update" asp-route-username="@item.Username">Edit</a></td>
+            <td><a asp-controller="User" asp-action="DetailUser" asp-route-username="@item.Username">Detail</a></td>
+        </tr>
+    }
+    </tbody>
+</table>

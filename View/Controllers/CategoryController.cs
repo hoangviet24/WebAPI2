@@ -157,7 +157,7 @@ namespace View.Controllers
             }
             catch
             {
-                return View("Warn");
+                return View("WarnDelete");
 
             }
             return RedirectToAction("Index", "Category");
@@ -240,11 +240,11 @@ namespace View.Controllers
                 {
                     return RedirectToAction("Index", "Category");
                 }
-                return View("Detail");
+                return RedirectToAction("Index", "Category");
             }
             catch
             {
-                return View("Warn");
+                return View("WarnUpdate");
             }
             
         }

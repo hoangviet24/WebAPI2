@@ -20,6 +20,7 @@ using DataAnimals.DTO.Animal;
 using DataAnimals.Models;
 using NuGet.Common;
 using System.Net.Mime;
+using System.Net.Http.Json;
 
 namespace View.Controllers
 {
@@ -35,6 +36,7 @@ namespace View.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> Login(LoginRequestDTO loginRequestDto)
         {
@@ -48,7 +50,7 @@ namespace View.Controllers
                 {
                     // Đọc token từ phản hồi
                     var token = await response.Content.ReadAsStringAsync();
-
+                    Console.WriteLine($"Add token: {token}\n\n");
                     // Lưu token vào session
                     HttpContext.Session.SetString("Jwt", token);
 
@@ -67,11 +69,29 @@ namespace View.Controllers
             }
             return RedirectToAction("PageLogin", "Account");
         }
+        public IActionResult Logout()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult LogoutSuccess()
+        {
+            try
+            {
+                // Xóa token khỏi session
+                HttpContext.Session.Remove("Jwt");
+                // Chuyển hướng đến trang đăng nhập sau khi đăng xuất
+                return RedirectToAction("PageLogin", "Account");
+            }
+            catch (Exception ex)
+            {
+                return Ok(ex.Message);
+            }
+        }
         public IActionResult Register()
         {
             var registerRequest = new RegisterRequestDTO();
-            // Gán các giá trị cho Roles
-            registerRequest.Roles = new string[] { "Read", "Write"}; // Thay bằng cách lấy từ database hoặc nơi khác
+            registerRequest.Roles = new string[] { "Read", "Write"};
             ViewBag.Roles = registerRequest.Roles;
             return View();
         }
@@ -96,7 +116,7 @@ namespace View.Controllers
             {
                 return RedirectToAction("Register", "Account");
             }
-            
+
         }
     }
 }

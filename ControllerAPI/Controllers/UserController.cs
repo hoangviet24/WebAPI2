@@ -1,6 +1,7 @@
 ﻿using ControllerAPI.Repository.Auth;
 using DataAnimals.DTO.Login;
 using DataAnimals.Models.DTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -13,11 +14,103 @@ namespace ControllerAPI.Controllers
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly ITokenRepository _tokenRepository;
-
         public UserController(UserManager<IdentityUser> userManager, ITokenRepository tokenRepository)
         {
             _userManager = userManager;
             _tokenRepository = tokenRepository;
+        }
+        [HttpGet]
+        [Route("ListUsers"),Authorize(Roles = "Write")]
+        public async Task<IActionResult> ListUsers()
+        {
+            var users = _userManager.Users.ToList();
+            var userList = new List<UserDTO>();
+
+            foreach (var user in users)
+            {
+                var roles = await _userManager.GetRolesAsync(user);
+                userList.Add(new UserDTO
+                {
+                    Username = user.UserName,
+                    Email = user.Email,
+                    Roles = roles.ToList()
+                });
+            }
+
+            return Ok(userList);
+        }
+        [HttpGet]
+        [Route("GetUser/{username}")]
+        public async Task<IActionResult> GetUser(string username)
+        {
+            // Find the user by username
+            var user = await _userManager.FindByNameAsync(username);
+            if (user == null)
+            {
+                return NotFound("User not found");
+            }
+
+            // Get roles for this user
+            var roles = await _userManager.GetRolesAsync(user);
+
+            var userDto = new UserDTO
+            {
+                Username = user.UserName,
+                Email = user.Email,
+                Roles = roles.ToList()
+            };
+
+            return Ok(userDto);
+        }
+        [HttpDelete]
+        [Route("DeleteUser/{username}")]
+        public async Task<IActionResult> DeleteUser(string username)
+        {
+            // Find the user by username
+            var user = await _userManager.FindByNameAsync(username);
+            if (user == null)
+            {
+                return NotFound("User not found");
+            }
+
+            // Delete the user
+            var result = await _userManager.DeleteAsync(user);
+            if (!result.Succeeded)
+            {
+                return BadRequest("Failed to delete user");
+            }
+
+            return Ok("User deleted successfully");
+        }
+        [HttpPost]
+        [Route("UpdateRoles")]
+        public async Task<IActionResult> UpdateRoles([FromBody] UpdateUserRolesDTO updateUserRolesDTO,string username)
+        {
+            // Find the user by username
+            var user = await _userManager.FindByNameAsync(username);
+            if (user == null)
+            {
+                return NotFound("User not found");
+            }
+
+            // Get current roles
+            var currentRoles = await _userManager.GetRolesAsync(user);
+
+            // Remove existing roles
+            var removeResult = await _userManager.RemoveFromRolesAsync(user, currentRoles);
+            if (!removeResult.Succeeded)
+            {
+                return BadRequest("Failed to remove existing roles");
+            }
+
+            // Add new roles
+            var addResult = await _userManager.AddToRolesAsync(user, updateUserRolesDTO.Roles);
+            if (!addResult.Succeeded)
+            {
+                return BadRequest("Failed to add new roles");
+            }
+
+            return Ok("Roles updated successfully");
         }
         [HttpPost]
         [Route("Register")]

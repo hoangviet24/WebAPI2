@@ -1,0 +1,18 @@
+﻿@model DataAnimals.DTO.Login.UserDTO
+
+<div class="card" style="max-width: 38rem;margin:0 auto">
+    <div style="margin-left:15px" class="dropdown dropstart text-start">
+        <button type="button" class="btn btn-primary" data-bs-toggle="dropdown">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a asp-controller="User" asp-action="DeleteUserView" asp-route-username="@Model.Username" class="dropdown-item">Delete</a></li>
+            <li><a asp-controller="User" asp-action="Update" asp-route-username="@Model.Username" class="dropdown-item">Update</a></li>
+            <li><a asp-controller="User" asp-action="Index" class="dropdown-item">Go back</a></li>
+        </ul>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Tên: @Model.Username</h5>
+        <p class="card-text">Vai trò: @String.Join(", ",@Model.Roles)</p>
+    </div>
+</div>
