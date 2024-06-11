@@ -9,6 +9,7 @@ namespace DataAnimals.Data
         public DbSet<Animal> Animals { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<AnimalCategory> AnimalCategories { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //Animal - Category

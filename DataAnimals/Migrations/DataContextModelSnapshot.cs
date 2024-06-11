@@ -159,6 +159,33 @@ namespace DataAnimals.Migrations
                         });
                 });
 
+            modelBuilder.Entity("DataAnimals.Models.Contact", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("PhoneNumber")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Contacts");
+                });
+
             modelBuilder.Entity("DataAnimals.Models.AnimalCategory", b =>
                 {
                     b.HasOne("DataAnimals.Models.Animal", "animal")

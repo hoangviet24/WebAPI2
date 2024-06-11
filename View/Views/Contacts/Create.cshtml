@@ -1,0 +1,73 @@
+﻿@model DataAnimals.Models.Contact
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4 class="text-center text-white">Hỗ trợ</h4>
+<hr class="text-white"/>
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <form asp-action="Create" class="needs-validation" novalidate>
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label text-white"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label text-white"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label text-white"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label text-white"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary"><i class="fa-solid fa-file-arrow-up"></i></button>
+                <a asp-action="Index" asp-controller="Animal" class="btn btn-secondary ml-2">
+                    <span class="material-symbols-outlined">
+                        undo
+                    </span>
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    h4 {
+        color: white; /* Màu trắng cho tiêu đề */
+    }
+
+    .text-white {
+        color: white; /* Màu trắng cho nhãn */
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem; /* Tăng khoảng cách giữa các nhóm form */
+    }
+
+    .btn-primary {
+        background-color: #007bff; /* Màu xanh dương đậm cho nút chính */
+        border-color: #007bff;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d; /* Màu xám cho nút phụ */
+        border-color: #6c757d;
+    }
+</style>

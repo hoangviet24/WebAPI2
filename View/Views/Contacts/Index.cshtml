@@ -1,0 +1,51 @@
+﻿@model IEnumerable<DataAnimals.Models.Contact>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center my-4 text-white">Các phiếu khiếu nại</h1>
+
+<table class="table table-striped table-bordered text-white">
+    <thead class="thead-dark">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th class="text-center">Hành động</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td class="text-white">
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td class="text-white">
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td class="text-white">
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+                <td class="text-white">
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+            <td class="text-center">
+                <a asp-action="Details" asp-route-id="@item.ID" class="btn btn-info btn-sm">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
