@@ -15,9 +15,9 @@
         <tr>
             <td>@item.Username</td>
             <td>@String.Join(", ",@item.Roles)</td>
-            <td><a asp-controller="User" asp-action="DeleteUserView" asp-route-username="@item.Username">Delete</a></td>
-            <td><a asp-controller="User" asp-action="Update" asp-route-username="@item.Username">Edit</a></td>
-            <td><a asp-controller="User" asp-action="DetailUser" asp-route-username="@item.Username">Detail</a></td>
+                <td><a asp-controller="User" class="btn btn-danger" asp-action="DeleteUserView" asp-route-username="@item.Username"><i class="fa-solid fa-trash"></i></a></td>
+                <td><a asp-controller="User" class="btn btn-primary" asp-action="Update" asp-route-username="@item.Username"><i class="fa-solid fa-gears"></i></a></td>
+                <td><a asp-controller="User" class="btn btn-info" asp-action="DetailUser" asp-route-username="@item.Username"><i class="fa-solid fa-circle-info"></i></a></td>
         </tr>
     }
     </tbody>

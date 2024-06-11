@@ -44,6 +44,7 @@ namespace View.Controllers
                 dataAnimal.EnsureSuccessStatusCode();
                 animals.AddRange(await dataAnimal.Content.ReadFromJsonAsync<IEnumerable<AnimalDto>>());
                 ViewBag.ListAnimal = animals;
+                ViewBag.CurrentPage = page;
             }
 
             var data = await client.GetAsync($"https://localhost:7035/api/Animal/Get-Page?page={page}&pagesize=5");

@@ -52,7 +52,6 @@ namespace View.Controllers
             animal.AddRange(await data.Content.ReadFromJsonAsync<IEnumerable<AnimalDto>>());
             return View(animal);
         }
-
         public IActionResult Create()
         {
             return View();
@@ -135,7 +134,7 @@ namespace View.Controllers
             }
             catch
             {
-                return View("WarnDelete");
+                return View("Info");
             }
             return RedirectToAction("Index", "Animal");
         }

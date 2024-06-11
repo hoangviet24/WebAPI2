@@ -1,22 +1,86 @@
 ﻿@model DataAnimals.DTO.Animal.AnimalDto
 
-    <div class="card" style="max-width: 38rem;margin:0 auto">
-        <img src="@Model.Url" class="card-img-top" alt="...">
+<style>
+    .card-custom {
+        max-width: 38rem;
+        margin: 2rem auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 0.5rem;
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+        .card-custom:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-custom img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+    .dropdown-custom {
+        margin-left: 15px;
+    }
+
+    .dropdown-menu {
+        margin-top: 10px;
+    }
+
+    .card-body-custom {
+        padding: 1.5rem;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .card-text {
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
+        color: #666;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border: none;
+        transition: background-color 0.3s;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    .dropdown-item {
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+        .dropdown-item:hover {
+            background-color: #f8f9fa;
+            color: #007bff;
+        }
+</style>
+
+<div class="card card-custom">
+    <img src="@Model.Url" class="card-img-top" alt="Animal Image">
+    <div class="dropdown dropstart text-start dropdown-custom">
         <br/>
-        <div style="margin-left:15px" class="dropdown dropstart text-start">
-            <button type="button" class="btn btn-primary" data-bs-toggle="dropdown">
+        <button type="button" class="btn btn-primary" data-bs-toggle="dropdown">
             <i class="fa-solid fa-bars"></i>
-            </button>
-            <ul class="dropdown-menu">
+        </button>
+        <ul class="dropdown-menu">
             <li><a asp-controller="Animal" asp-action="Delete" asp-route-id="@Model.ID" class="dropdown-item">Delete</a></li>
             <li><a asp-controller="Animal" asp-action="Update" asp-route-id="@Model.ID" class="dropdown-item">Update</a></li>
             <li><a asp-controller="Home" asp-action="Index" asp-route-id="@Model.ID" class="dropdown-item">Go back</a></li>
-            </ul>
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">Tên: @Model.Name</h5>
-            <p class="card-text">Tiêu đề: @Model.Description</p>
-            <p class="card-text">Tuổi: @Model.AgeAvg</p>
-            
-        </div>
+        </ul>
     </div>
+    <div class="card-body card-body-custom">
+        <h5 class="card-title">Tên: @Model.Name</h5>
+        <p class="card-text">Tiêu đề: @Model.Description</p>
+        <p class="card-text">Tuổi: @Model.AgeAvg</p>
+    </div>
+</div>

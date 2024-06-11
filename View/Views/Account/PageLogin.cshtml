@@ -1,27 +1,72 @@
 ﻿@model DataAnimals.Models.DTO.LoginRequestDTO;
 
-<form asp-controller="Account" asp-action="Login" method="post" style="max-width: 380px;margin:0 auto;background-color:#636e72;border-radius:10px;padding:10px">
-    <div class="form-group">
-        <label class="text-white" asp-for="Username"></label>
-        <input asp-for="Username" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label class="text-white" asp-for="Password"></label>
-        <input id="floatingPassword" asp-for="Password" type="password" class="form-control" />
-    </div>
-    <div class="form-check mt-2">
-        <input class="form-check-input" type="checkbox" value="" id="showPassword" onclick="togglePassword()">
-        <label class="form-check-label text-white" for="showPassword">
-            Show Password
-        </label>
-    </div>
-    <div style="max-width:180px;margin:0 auto" class="d-flex flex-column mb-3">
-        <button type="submit" class="btn btn-primary text-white">Login</button>
-        <label class="text-white" style="padding-left:10px">You have no Account</label>
-        <a type="button" class="btn btn-primary text-white" asp-controller="Account" asp-action="Register">Register</a>
-    </div>
-    
-</form>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+    .login-form {
+        max-width: 380px;
+        margin: 50px auto;
+        background-color: #343a40;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+        .login-form .form-group label {
+            color: white;
+            font-weight: bold;
+        }
+
+        .login-form .form-check-label {
+            color: white;
+        }
+
+        .login-form .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+            .login-form .btn-primary:hover {
+                background-color: #0056b3;
+                border-color: #0056b3;
+            }
+
+        .login-form .register-link {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+            .login-form .register-link:hover {
+                text-decoration: underline;
+            }
+</style>
+
+<div class="login-form">
+    <form asp-controller="Account" asp-action="Login" method="post">
+        <div class="form-group">
+            <label asp-for="Username"></label>
+            <input asp-for="Username" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Password"></label>
+            <input id="floatingPassword" asp-for="Password" type="password" class="form-control" />
+        </div>
+        <div class="form-check mt-2">
+            <input class="form-check-input" type="checkbox" id="showPassword" onclick="togglePassword()">
+            <label class="form-check-label" for="showPassword">
+                Show Password
+            </label>
+        </div>
+        <div class="d-flex flex-column mt-4">
+            <button type="submit" class="btn btn-primary text-white mb-3">Login</button>
+            <div class="text-center">
+                <label class="text-white d-block mb-2">Don't have an account?</label>
+                <a class="register-link" asp-controller="Account" asp-action="Register">Register</a>
+            </div>
+        </div>
+    </form>
+</div>
+
 <script>
     function togglePassword() {
         var passwordField = document.getElementById("floatingPassword");

@@ -1,7 +1,53 @@
 ﻿@model DataAnimals.DTO.Login.UserDTO
 
-<div class="card" style="max-width: 38rem;margin:0 auto">
-    <div style="margin-left:15px" class="dropdown dropstart text-start">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+    body{
+        background-color: #2d3436;
+    }
+    .user-card {
+        max-width: 38rem;
+        margin: 20px auto;
+        background-color: #343a40;
+        color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+
+        .user-card .dropdown {
+            margin: 15px;
+        }
+
+        .user-card .card-body {
+            padding: 20px;
+        }
+
+        .user-card .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .user-card .card-text {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .user-card .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+            .user-card .btn-primary:hover {
+                background-color: #0056b3;
+                border-color: #0056b3;
+            }
+</style>
+
+<div class="card user-card">
+    <div class="dropdown dropstart text-start">
         <button type="button" class="btn btn-primary" data-bs-toggle="dropdown">
             <i class="fa-solid fa-bars"></i>
         </button>
@@ -13,6 +59,8 @@
     </div>
     <div class="card-body">
         <h5 class="card-title">Tên: @Model.Username</h5>
-        <p class="card-text">Vai trò: @String.Join(", ",@Model.Roles)</p>
+        <p class="card-text">Vai trò: @String.Join(", ", @Model.Roles)</p>
     </div>
 </div>
+
+

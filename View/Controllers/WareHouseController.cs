@@ -46,30 +46,38 @@ namespace View.Controllers
         [HttpGet]
         public async Task<IActionResult> Delete([FromRoute] int id)
         {
-            var client = _httpClientFactory.CreateClient();
-            var tokenJson = HttpContext.Session.GetString("Jwt");
-
-            // Kiểm tra xem token có tồn tại không
-            if (string.IsNullOrEmpty(tokenJson))
+            try
             {
-                // Nếu không tồn tại, chuyển hướng đến trang đăng nhập
-                return RedirectToAction("PageLogin", "Account");
-            }
+                var client = _httpClientFactory.CreateClient();
+                var tokenJson = HttpContext.Session.GetString("Jwt");
 
-            // Giải mã JSON để lấy giá trị của token
-            var tokenObj = JsonSerializer.Deserialize<Dictionary<string, string>>(tokenJson);
-            if (tokenObj == null || !tokenObj.ContainsKey("jwtToken"))
+                // Kiểm tra xem token có tồn tại không
+                if (string.IsNullOrEmpty(tokenJson))
+                {
+                    // Nếu không tồn tại, chuyển hướng đến trang đăng nhập
+                    return RedirectToAction("PageLogin", "Account");
+                }
+
+                // Giải mã JSON để lấy giá trị của token
+                var tokenObj = JsonSerializer.Deserialize<Dictionary<string, string>>(tokenJson);
+                if (tokenObj == null || !tokenObj.ContainsKey("jwtToken"))
+                {
+                    return RedirectToAction("PageLogin", "Account");
+                }
+
+                var token = tokenObj["jwtToken"];
+
+                // Thêm token vào header Authorization của yêu cầu HTTP
+                Console.WriteLine("JWT Token: " + token); // Ghi log token để kiểm tra
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                var httpReponse = await client.DeleteAsync("https://localhost:7035/api/AC/Delete?Id=" + id);
+                httpReponse.EnsureSuccessStatusCode();
+                return RedirectToAction("Index", "WareHouse");
+            }
+            catch
             {
-                return RedirectToAction("PageLogin", "Account");
+                return View("WarnDelete");
             }
-            var token = tokenObj["jwtToken"];
-
-            // Thêm token vào header Authorization của yêu cầu HTTP
-            Console.WriteLine("JWT Token: " + token); // Ghi log token để kiểm tra
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            var httpReponse = await client.DeleteAsync("https://localhost:7035/api/AC/Delete?Id=" + id);
-            httpReponse.EnsureSuccessStatusCode();
-            return RedirectToAction("Index", "WareHouse");
         }
     }
 }

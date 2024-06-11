@@ -1,32 +1,21 @@
 ﻿@using View.Controllers
-@model IEnumerable< DataAnimals.DTO.Animal.AnimalDto>
+@model IEnumerable<DataAnimals.DTO.Animal.AnimalDto>
 @{
     var list = ViewBag.ListAnimal;
-    int count = 1;
-    int countMax = 1;
-    foreach (var it in list)
-    {
-        count++;
-        countMax++;
-    }
-
-    int i =0;
-    int a = count / 5;
-    float b = (float)count / 5;
-    if (b > a)
-    {
-        a++;
-    }
+    int count = list.Count;
+    int itemsPerPage = 5;
+    int totalPages = (int)Math.Ceiling((float)count / itemsPerPage);
 }
+
 @if (Model.Count() > 0)
 {
-    <div class="container text-center">
-        <div class="row align-items-center">
+    <div class="container text-center my-4">
+        <div class="row g-4">
             @foreach (var item in Model)
             {
-                <div class="col-4">
-                    <div class="card">
-                        <img src="@item.Url" width="100px"  class="card-img-top" alt="...">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100">
+                        <img src="@item.Url" class="card-img-top" alt="Animal Image">
                         <div class="card-body">
                             <h5 class="card-title">Tên: @item.Name</h5>
                             <p class="card-text">Tiêu đề: @StringHelpers.TruncateAtWord(item.Description, 50)</p>
@@ -36,36 +25,42 @@
                     </div>
                 </div>
             }
-<hr/>
-            <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                    @for (i = 1; i <= a; i++)
-                    {
-                        <li class="page-item"><a class="page-link" asp-controller="Home" asp-action="Index" id="page" asp-route-page="@i">@i</a></li>
-                    }
-                </ul>
-            </nav>
-
         </div>
+        <nav aria-label="Page navigation example" class="my-4">
+            <ul class="pagination justify-content-center">
+                @for (int i = 1; i <= totalPages; i++)
+                {
+                    <li class="page-item @(ViewBag.CurrentPage == i ? "active" : "")">
+                        <a class="page-link" asp-controller="Home" asp-action="Index" asp-route-page="@i">@i</a>
+                    </li>
+                }
+            </ul>
+        </nav>
     </div>
 }
 else
 {
-    <h1 class="text-white">Hiện trang này chưa chứa động vật</h1>
-    <ul class="pagination">
-        <li class="page-item">
-            <a class="page-link" asp-controller="Home" asp-action="Index" id="page" asp-route-page="@(i-1)" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-            </a>
-        </li>
-        @for (i = 1; i <= a; i++)
-        {
-            <li class="page-item"><a class="page-link" asp-controller="Home" asp-action="Index" id="page" asp-route-page="@i">@i</a></li>
-        }
-        <li class="page-item">
-            <a class="page-link" asp-controller="Home" asp-action="Index" id="page" asp-route-page="@(i+1)" aria-label="Previous">
-                <span aria-hidden="true">&raquo;</span>
-            </a>
-        </li>
-    </ul>
+    <div class="container text-center my-4">
+        <h1 class="text-white">Hiện trang này chưa chứa động vật</h1>
+        <nav aria-label="Page navigation example" class="my-4">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a class="page-link" asp-controller="Home" asp-action="Index" asp-route-page="@(ViewBag.CurrentPage - 1)" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                @for (int i = 1; i <= totalPages; i++)
+                {
+                    <li class="page-item @(ViewBag.CurrentPage == i ? "active" : "")">
+                        <a class="page-link" asp-controller="Home" asp-action="Index" asp-route-page="@i">@i</a>
+                    </li>
+                }
+                <li class="page-item">
+                    <a class="page-link" asp-controller="Home" asp-action="Index" asp-route-page="@(ViewBag.CurrentPage + 1)" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 }
