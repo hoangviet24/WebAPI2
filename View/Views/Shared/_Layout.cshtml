@@ -13,50 +13,82 @@
           crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="~/Image/Logo.png"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style>
+        .navbar-nav .nav-item:hover {
+            background-color: #f9f9f9; 
+            color: #000; 
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+            .navbar-nav .nav-item:hover .nav-link {
+                color: #000; 
+                border-radius: 5px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            }
+
+            .navbar-nav .nav-item:hover .nav-link {
+                text-shadow: 1px 1px 2px #000;
+                border-radius: 5px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            }
+
+        .navbar-nav .nav-item:hover .nav-link { 
+                color: black;
+                border-radius: 5px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .navbar-nav .nav-item {
+            transition: background-color 0.3s ease; 
+            color:#000;
+            border-radius: 5px;
+        }
+
+       
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-lg navbar-light bg-dark border-bottom box-shadow mb-3 ">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand text-white" asp-area="" asp-controller="Home" asp-action="Index">Trang chủ</a>
-                <button class="navbar-toggler"  type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span><i class="fa-solid fa-bars text-white"></i></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Animal" asp-action="Index">Động vật</a>
+                            <a class="nav-link " asp-area="" asp-controller="Animal" asp-action="Index">Động vật</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Category" asp-action="Index">Loại Vật</a>
+                            <a class="nav-link " asp-area="" asp-controller="Category" asp-action="Index">Loại Vật</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="WareHouse" asp-action="Index">Kho Chứa</a>
+                            <a class="nav-link " asp-area="" asp-controller="WareHouse" asp-action="Index">Kho Chứa</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="User" asp-action="Index">Người dùng</a>
+                            <a class="nav-link" asp-area="" asp-controller="User" asp-action="Index">Người dùng</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Contacts" asp-action="Create">Hỗ trợ</a>
+                            <a class="nav-link " asp-area="" asp-controller="Contacts" asp-action="Create">Hỗ trợ</a>
                         </li>
                     </ul>
-                    <ul class="navbar navbar-nav">
+                    <ul class="navbar-nav ms-auto">
                         @if (Context.Session.GetString("Jwt") == null)
                         {
-                            <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="PageLogin">Login</a>
+                            <li>
+                                <a class="nav-link btn btn-primary text-white " asp-area="" asp-controller="Account" asp-action="PageLogin">Login</a>
                             </li>
                         }
                         else
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-white">Hello </a>
+                                <a class="nav-link ">Hello</a>
                             </li>
-                            <li class="nav-item">
-                                <form asp-controller="Account" asp-action="Logout" method="post" style="display:inline;">
-                                    <button type="submit" class="btn btn-link nav-link text-white" style="text-decoration:none;">Logout</button>
-                                </form>
+                            <li >
+                                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                                    Logout
+                                </button>
                             </li>
                         }
                     </ul>
@@ -64,17 +96,32 @@
             </div>
         </nav>
     </header>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">notice</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="">
+                <label class="h5 mb-4">Are you sure you want to log out?</label>
+            </div>
+            <form asp-controller="Account" asp-action="LogoutSuccess" method="post" class="d-inline">
+                <button type="submit" class="btn btn-link nav-link bg-dark text-white" >Logout</button>
+            </form>
+        </div>
+    </div>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - View - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="border-top bg-dark footer text-muted">
+        <div class="container  text-white">
+            &copy; 2024 - View - Võ Hoàng Việt - Phạm Văn Tình - Triệu Hoàng Nhật Trường
         </div>
     </footer>
+    
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

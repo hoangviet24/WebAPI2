@@ -22,7 +22,9 @@ namespace View.Controllers
         // GET: Contacts
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Contacts.ToListAsync());
+            var data = await _context.Contacts.ToListAsync();
+            ViewBag.list = data;
+            return View(data);
         }
 
         // GET: Contacts/Details/5
@@ -134,7 +136,6 @@ namespace View.Controllers
             {
                 return NotFound();
             }
-
             return View(contact);
         }
 

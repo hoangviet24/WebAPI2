@@ -48,13 +48,9 @@ namespace View.Controllers
                 var response = await clt.PostAsync("https://localhost:7035/api/User/Login", jsonContent);
                 if (response.IsSuccessStatusCode)
                 {
-                    // Đọc token từ phản hồi
                     var token = await response.Content.ReadAsStringAsync();
                     Console.WriteLine($"Add token: {token}\n\n");
-                    // Lưu token vào session
                     HttpContext.Session.SetString("Jwt", token);
-
-                    // Chuyển hướng đến trang chính sau khi đăng nhập thành công
                     return RedirectToAction("Index", "Animal");
                 }
                 else
@@ -69,18 +65,12 @@ namespace View.Controllers
             }
             return RedirectToAction("PageLogin", "Account");
         }
-        public IActionResult Logout()
-        {
-            return View();
-        }
         [HttpPost]
         public IActionResult LogoutSuccess()
         {
             try
             {
-                // Xóa token khỏi session
                 HttpContext.Session.Remove("Jwt");
-                // Chuyển hướng đến trang đăng nhập sau khi đăng xuất
                 return RedirectToAction("PageLogin", "Account");
             }
             catch (Exception ex)

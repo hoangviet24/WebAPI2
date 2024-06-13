@@ -24,7 +24,8 @@ namespace ControllerAPI.Repository.Animal
                 Name = a.Name,
                 Description = a.Description,
                 AgeAvg = a.AgeAvg,
-                Url = a.Url
+                Url = a.Url,
+                Loai = a.AnimalCategory.Select(ac=>ac.category.Name).FirstOrDefault(),
             }).ToList();
             return getall;
         }
@@ -39,7 +40,8 @@ namespace ControllerAPI.Repository.Animal
                 Name = a.Name,
                 Description =  a.Description,
                 AgeAvg = a.AgeAvg,
-                Url =a.Url
+                Url =a.Url,
+                Loai = a.AnimalCategory.Select(ac => ac.category.Name).FirstOrDefault(),
             }).FirstOrDefault();
             return getDomain;
         }

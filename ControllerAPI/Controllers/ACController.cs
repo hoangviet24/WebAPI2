@@ -18,7 +18,7 @@ namespace ControllerAPI.Controllers
         {
             this.reposritory = reposritory;
         }
-        [Authorize(Roles = "Read")]
+        [Authorize(Roles = "Write")]
         [HttpGet("Get-All")]
         public ActionResult Get()
         {

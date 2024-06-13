@@ -26,10 +26,6 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\API\ProjectWeb2\WebAPIAnimals\View
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/API/ProjectWeb2/WebAPIAnimals/View/Views/Account/Logout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/API/ProjectWeb2/WebAPIAnimals/View/Views/Account/PageLogin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxQYWdlTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -106,6 +102,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFdhcm5EZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/API/ProjectWeb2/WebAPIAnimals/View/Views/Shared/WarnGetUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFdhcm5HZXRVc2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/API/ProjectWeb2/WebAPIAnimals/View/Views/Shared/WarnUpdate.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFdhcm5VcGRhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -124,10 +124,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/API/ProjectWeb2/WebAPIAnimals/View/Views/User/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxVcGRhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/API/ProjectWeb2/WebAPIAnimals/View/Views/User/WarnGetUser.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxXYXJuR2V0VXNlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/API/ProjectWeb2/WebAPIAnimals/View/Views/WareHouse/Index.cshtml]

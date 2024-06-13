@@ -31,24 +31,17 @@ namespace View.Controllers
                 List<UserDTO> roles = new List<UserDTO>();
                 var clt = _httpClientFactory.CreateClient();
                 var tokenJson = HttpContext.Session.GetString("Jwt");
-
-                // Kiểm tra xem token có tồn tại không
                 if (string.IsNullOrEmpty(tokenJson))
                 {
-                    // Nếu không tồn tại, chuyển hướng đến trang đăng nhập
                     return RedirectToAction("PageLogin", "Account");
                 }
-
-                // Giải mã JSON để lấy giá trị của token
                 var tokenObj = JsonSerializer.Deserialize<Dictionary<string, string>>(tokenJson);
                 if (tokenObj == null || !tokenObj.ContainsKey("jwtToken"))
                 {
                     return RedirectToAction("PageLogin", "Account");
                 }
                 var token = tokenObj["jwtToken"];
-
-                // Thêm token vào header Authorization của yêu cầu HTTP
-                Console.WriteLine("JWT Token: " + token); // Ghi log token để kiểm tra
+                Console.WriteLine("JWT Token: " + token); 
                 clt.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 var data = await clt.GetAsync("https://localhost:7035/api/User/ListUsers");
                 data.EnsureSuccessStatusCode();

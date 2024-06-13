@@ -2,35 +2,42 @@
 @{
     var userId = ViewBag.User;
 }
-<form asp-controller="User" asp-action="UpdateUserView" asp-route-username="@userId.Username" method="post">
-    <div class="form-group">
-        <label class="text-white" for="name">Tên người dùng:</label>
-        <input type="text" class="form-control" id="Username" value="@userId.Username" asp-for="Username" disabled="">
-        <input type="hidden" id="Username" value="@userId.Username" />
-    </div>
-    <br />
-    <div class="form-group">
-        <label class="text-white" for="name">Quyền:</label>
-    </div>
-    <div class="form-group">
-        @foreach (var role in ViewBag.Roles)
-        {
-            <div class="form-check form-check-inline">
-                @if (@role == "Read")
-                {
-                    <input class="form-check-input " type="checkbox" name="Roles" value="@role" checked="False" disabled="" />
-                    <input type="hidden" name="Roles" value="@role" />
-                    <label class="form-check-label text-white">@role</label>
-                }
-                else
-                {
-                    <input class="form-check-input " type="checkbox" name="Roles" value="@role" checked />
-                    <label class="form-check-label text-white">@role</label>
-                }
-            </div>
-        }
 
+<div class="container mt-5">
+    <div class="card" style="width: 300px; margin: auto;">
+        <div class="card-body">
+            <h5 class="card-title text-center">Update User Roles</h5>
+            <form asp-controller="User" asp-action="UpdateUserView" asp-route-username="@userId.Username" method="post">
+                <div class="form-group">
+                    <label class="text-dark" for="name">Tên người dùng: @userId.Username</label>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label class="text-dark" for="roles">Quyền:</label>
+                </div>
+                <div class="form-group">
+                    @foreach (var role in ViewBag.Roles)
+                    {
+                        <div class="form-check form-check-inline">
+                            @if (@role == "Read")
+                            {
+                                <input class="form-check-input" type="checkbox" name="Roles" value="@role" checked="False" disabled />
+                                <input type="hidden" name="Roles" value="@role" />
+                                <label class="form-check-label text-dark">User</label>
+                            }
+                            else
+                            {
+                                <input class="form-check-input" type="checkbox" name="Roles" value="@role" checked />
+                                <label class="form-check-label text-dark">Admin</label>
+                            }
+                        </div>
+                    }
+                </div>
+                <br />
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
     </div>
-    <br />
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+</div>

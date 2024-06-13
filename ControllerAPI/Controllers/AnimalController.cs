@@ -82,7 +82,7 @@ namespace ControllerAPI.Controllers
             Log.Information($"Animal Page => {@getId}");
             return Ok(getId);
         }
-        [Authorize(Roles = "Write")]
+        [Authorize(Roles = "Read")]
         [HttpPost("Push")]
         public IActionResult Post([FromBody]AddAnimalDto animal)
         {

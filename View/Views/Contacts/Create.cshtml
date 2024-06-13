@@ -3,6 +3,11 @@
 @{
     ViewData["Title"] = "Create";
 }
+<div style="max-width:600px;margin:0 auto">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2759.7702195153543!2d108.42660411339709!3d11.981111505842499!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31716d4d3dfe6d61%3A0xe0aae08cf82b5bcc!2zQ2h1bmcgY8awIE5ndXnhu4VuIEhvw6BuZyBCMSB0aMOgbmggcGjhu5EgxJDDoCBM4bqhdA!5e0!3m2!1svi!2s!4v1718258683358!5m2!1svi!2s" 
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
 
 <h4 class="text-center text-white">Hỗ trợ</h4>
 <hr class="text-white"/>
@@ -30,7 +35,7 @@
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-            <div class="form-group text-center">
+            <div class="form-group text-center d-flex justify-content-between">
                 <button type="submit" class="btn btn-primary"><i class="fa-solid fa-file-arrow-up"></i></button>
                 <a asp-action="Index" asp-controller="Animal" class="btn btn-secondary ml-2">
                     <span class="material-symbols-outlined">

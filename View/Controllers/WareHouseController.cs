@@ -16,32 +16,34 @@ namespace View.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            List<ACDto> animals = new List<ACDto>();
-            var client = _httpClientFactory.CreateClient();
-            var tokenJson = HttpContext.Session.GetString("Jwt");
-
-            // Kiểm tra xem token có tồn tại không
-            if (string.IsNullOrEmpty(tokenJson))
+            try
             {
-                // Nếu không tồn tại, chuyển hướng đến trang đăng nhập
-                return RedirectToAction("PageLogin", "Account");
-            }
+                List<ACDto> animals = new List<ACDto>();
+                var client = _httpClientFactory.CreateClient();
+                var tokenJson = HttpContext.Session.GetString("Jwt");
+                if (string.IsNullOrEmpty(tokenJson))
+                {
+                    return RedirectToAction("PageLogin", "Account");
+                }
 
-            // Giải mã JSON để lấy giá trị của token
-            var tokenObj = JsonSerializer.Deserialize<Dictionary<string, string>>(tokenJson);
-            if (tokenObj == null || !tokenObj.ContainsKey("jwtToken"))
+                var tokenObj = JsonSerializer.Deserialize<Dictionary<string, string>>(tokenJson);
+                if (tokenObj == null || !tokenObj.ContainsKey("jwtToken"))
+                {
+                    return RedirectToAction("PageLogin", "Account");
+                }
+
+                var token = tokenObj["jwtToken"];
+                Console.WriteLine("JWT Token: " + token);
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                var data = await client.GetAsync("https://localhost:7035/api/AC/Get-All");
+                data.EnsureSuccessStatusCode();
+                animals.AddRange(await data.Content.ReadFromJsonAsync<IEnumerable<ACDto>>());
+                return View(animals);
+            }
+            catch
             {
-                return RedirectToAction("PageLogin", "Account");
+                return View("WarnGetUser");
             }
-            var token = tokenObj["jwtToken"];
-
-            // Thêm token vào header Authorization của yêu cầu HTTP
-            Console.WriteLine("JWT Token: " + token); // Ghi log token để kiểm tra
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            var data = await client.GetAsync("https://localhost:7035/api/AC/Get-All");
-            data.EnsureSuccessStatusCode();
-            animals.AddRange(await data.Content.ReadFromJsonAsync<IEnumerable<ACDto>>());
-            return View(animals);
         }
         [HttpGet]
         public async Task<IActionResult> Delete([FromRoute] int id)
@@ -50,15 +52,10 @@ namespace View.Controllers
             {
                 var client = _httpClientFactory.CreateClient();
                 var tokenJson = HttpContext.Session.GetString("Jwt");
-
-                // Kiểm tra xem token có tồn tại không
                 if (string.IsNullOrEmpty(tokenJson))
                 {
-                    // Nếu không tồn tại, chuyển hướng đến trang đăng nhập
                     return RedirectToAction("PageLogin", "Account");
                 }
-
-                // Giải mã JSON để lấy giá trị của token
                 var tokenObj = JsonSerializer.Deserialize<Dictionary<string, string>>(tokenJson);
                 if (tokenObj == null || !tokenObj.ContainsKey("jwtToken"))
                 {
@@ -66,9 +63,7 @@ namespace View.Controllers
                 }
 
                 var token = tokenObj["jwtToken"];
-
-                // Thêm token vào header Authorization của yêu cầu HTTP
-                Console.WriteLine("JWT Token: " + token); // Ghi log token để kiểm tra
+                Console.WriteLine("JWT Token: " + token); 
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 var httpReponse = await client.DeleteAsync("https://localhost:7035/api/AC/Delete?Id=" + id);
                 httpReponse.EnsureSuccessStatusCode();

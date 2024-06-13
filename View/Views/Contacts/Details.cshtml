@@ -4,14 +4,14 @@
     ViewData["Title"] = "Details";
 }
 
-<h1 class="text-center my-4">Chi tiết liên hệ</h1>
+<h1 class="text-center my-4 text-white">Chi tiết liên hệ</h1>
 
-<div class="card">
-    <div class="card-header bg-primary text-white">
+<div class="card bg-dark text-white">
+    <div class="card-header bg-primary">
         Thông tin liên hệ
     </div>
     <div class="card-body">
-        <dl class="row">
+        <dl class="row text-white">
             <dt class="col-sm-2 font-weight-bold">
                 @Html.DisplayNameFor(model => model.Name)
             </dt>
@@ -27,7 +27,7 @@
             <dt class="col-sm-3 font-weight-bold">
                 @Html.DisplayNameFor(model => model.Description)
             </dt>
-            <dd class="col-sm-8">
+            <dd class="col-sm-9">
                 @Html.DisplayFor(model => model.Description)
             </dd>
             <dt class="col-sm-3 font-weight-bold">
@@ -39,31 +39,37 @@
         </dl>
     </div>
     <div class="card-footer text-center">
-        <a asp-action="Index" class="btn btn-secondary">Quay về danh sách</a>
+        <a asp-action="Index" class="btn btn-secondary text-white">Quay về danh sách</a>
     </div>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
 
 <style>
     body {
-        background-color: #f8f9fa; /* Màu nền nhẹ cho toàn trang */
+        background-color: #343a40; /* Đổi nền thành màu đen */
     }
+
     h1 {
-        color: #343a40; /* Màu đậm cho tiêu đề */
+        color: white; /* Chữ trắng */
     }
+
     .card {
         margin: auto;
-        max-width: 600px; /* Giới hạn độ rộng của thẻ card */
-        border: none; /* Bỏ viền mặc định */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Thêm bóng đổ */
+        max-width: 600px;
+        border: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
+
     .card-header {
-        font-size: 1.25rem; /* Tăng kích thước font cho tiêu đề */
+        font-size: 1.25rem;
     }
+
     .card-body dt {
-        font-weight: bold; /* In đậm tên thuộc tính */
+        font-weight: bold;
     }
 </style>

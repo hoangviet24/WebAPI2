@@ -7,5 +7,6 @@
         public string? Description { get; set; }
         public float AgeAvg { get; set; }
         public string? Url { get; set; }
+        public string Loai { get; set; }
     }
 }

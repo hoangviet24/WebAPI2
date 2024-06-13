@@ -15,61 +15,45 @@ namespace View.Controllers
         {
             _httpClientFactory = httpClientFactory;
         }
-        //Get all
         public async Task<IActionResult> Index([FromQuery] string? filterQuery, bool isAccess)
         {
             var client = _httpClientFactory.CreateClient();
             List<CategoryDto> category = new List<CategoryDto>();
             var tokenJson = HttpContext.Session.GetString("Jwt");
-
-            // Kiểm tra xem token có tồn tại không
             if (string.IsNullOrEmpty(tokenJson))
             {
-                // Nếu không tồn tại, chuyển hướng đến trang đăng nhập
                 return RedirectToAction("PageLogin", "Account");
             }
-
-            // Giải mã JSON để lấy giá trị của token
             var tokenObj = JsonSerializer.Deserialize<Dictionary<string, string>>(tokenJson);
             if (tokenObj == null || !tokenObj.ContainsKey("jwtToken"))
             {
                 return RedirectToAction("PageLogin", "Account");
             }
             var token = tokenObj["jwtToken"];
-
-            // Thêm token vào header Authorization của yêu cầu HTTP
-            Console.WriteLine("JWT Token: " + token); // Ghi log token để kiểm tra
+            Console.WriteLine("JWT Token: " + token); 
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var data = await client.GetAsync($"https://localhost:7035/api/Category/GetAll?name={filterQuery}&isAccess={isAccess}");
             data.EnsureSuccessStatusCode();
             category.AddRange(await data.Content.ReadFromJsonAsync<IEnumerable<CategoryDto>>());
             return View(category);
         }
-        //Add data
         public async Task<IActionResult> Create()
         {
 
             var client = _httpClientFactory.CreateClient();
             List<AnimalDto> animal = new List<AnimalDto>();
             var tokenJson = HttpContext.Session.GetString("Jwt");
-
-            // Kiểm tra xem token có tồn tại không
             if (string.IsNullOrEmpty(tokenJson))
             {
-                // Nếu không tồn tại, chuyển hướng đến trang đăng nhập
                 return RedirectToAction("PageLogin", "Account");
             }
-
-            // Giải mã JSON để lấy giá trị của token
             var tokenObj = JsonSerializer.Deserialize<Dictionary<string, string>>(tokenJson);
             if (tokenObj == null || !tokenObj.ContainsKey("jwtToken"))
             {
                 return RedirectToAction("PageLogin", "Account");
             }
             var token = tokenObj["jwtToken"];
-
-            // Thêm token vào header Authorization của yêu cầu HTTP
-            Console.WriteLine("JWT Token: " + token); // Ghi log token để kiểm tra
+            Console.WriteLine("JWT Token: " + token); 
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var data = await client.GetAsync("https://localhost:7035/api/Animal/GetAll");
             data.EnsureSuccessStatusCode();
@@ -122,10 +106,9 @@ namespace View.Controllers
             }
             catch
             {
-                return View("Warn");
+                return View("WarnUpdate");
             }
         }
-        //Delete
         [HttpGet]
         public async Task<IActionResult> DeleteAnimal([FromRoute] int id)
         {
@@ -133,24 +116,17 @@ namespace View.Controllers
             {
                 var client = _httpClientFactory.CreateClient();
                 var tokenJson = HttpContext.Session.GetString("Jwt");
-
-                // Kiểm tra xem token có tồn tại không
                 if (string.IsNullOrEmpty(tokenJson))
                 {
-                    // Nếu không tồn tại, chuyển hướng đến trang đăng nhập
                     return RedirectToAction("PageLogin", "Account");
                 }
-
-                // Giải mã JSON để lấy giá trị của token
                 var tokenObj = JsonSerializer.Deserialize<Dictionary<string, string>>(tokenJson);
                 if (tokenObj == null || !tokenObj.ContainsKey("jwtToken"))
                 {
                     return RedirectToAction("PageLogin", "Account");
                 }
                 var token = tokenObj["jwtToken"];
-
-                // Thêm token vào header Authorization của yêu cầu HTTP
-                Console.WriteLine("JWT Token: " + token); // Ghi log token để kiểm tra
+                Console.WriteLine("JWT Token: " + token);
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 var httpReponse = await client.DeleteAsync("https://localhost:7035/api/Category/Delete?id=" + id);
                 httpReponse.EnsureSuccessStatusCode();
@@ -167,31 +143,23 @@ namespace View.Controllers
         {
             var client = _httpClientFactory.CreateClient();
             var tokenJson = HttpContext.Session.GetString("Jwt");
-
-            // Kiểm tra xem token có tồn tại không
             if (string.IsNullOrEmpty(tokenJson))
             {
-                // Nếu không tồn tại, chuyển hướng đến trang đăng nhập
                 return RedirectToAction("PageLogin", "Account");
             }
-
-            // Giải mã JSON để lấy giá trị của token
             var tokenObj = JsonSerializer.Deserialize<Dictionary<string, string>>(tokenJson);
             if (tokenObj == null || !tokenObj.ContainsKey("jwtToken"))
             {
                 return RedirectToAction("PageLogin", "Account");
             }
             var token = tokenObj["jwtToken"];
-
-            // Thêm token vào header Authorization của yêu cầu HTTP
-            Console.WriteLine("JWT Token: " + token); // Ghi log token để kiểm tra
+            Console.WriteLine("JWT Token: " + token); 
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             CategoryDto category = new CategoryDto();
             var data = await client.GetAsync("https://localhost:7035/api/Category/Get-by-ID?id=" + Id);
             data.EnsureSuccessStatusCode();
             category = await data.Content.ReadFromJsonAsync<CategoryDto>();
             ViewBag.Id = category;
-            //list animal
             List<AnimalDto> animal = new List<AnimalDto>();
             var dataAnimal = await client.GetAsync("https://localhost:7035/api/Animal/GetAll");
             dataAnimal.EnsureSuccessStatusCode();
@@ -207,24 +175,17 @@ namespace View.Controllers
             {
                 var client = _httpClientFactory.CreateClient();
                 var tokenJson = HttpContext.Session.GetString("Jwt");
-
-                // Kiểm tra xem token có tồn tại không
                 if (string.IsNullOrEmpty(tokenJson))
                 {
-                    // Nếu không tồn tại, chuyển hướng đến trang đăng nhập
                     return RedirectToAction("PageLogin", "Account");
                 }
-
-                // Giải mã JSON để lấy giá trị của token
                 var tokenObj = JsonSerializer.Deserialize<Dictionary<string, string>>(tokenJson);
                 if (tokenObj == null || !tokenObj.ContainsKey("jwtToken"))
                 {
                     return RedirectToAction("PageLogin", "Account");
                 }
                 var token = tokenObj["jwtToken"];
-
-                // Thêm token vào header Authorization của yêu cầu HTTP
-                Console.WriteLine("JWT Token: " + token); // Ghi log token để kiểm tra
+                Console.WriteLine("JWT Token: " + token); 
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 var httpReq = new HttpRequestMessage()
                 {
