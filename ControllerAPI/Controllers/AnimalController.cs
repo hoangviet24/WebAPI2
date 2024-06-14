@@ -18,11 +18,9 @@ namespace ControllerAPI.Controllers
     {
 
         private readonly IAnimalRepository iAnimalRepository;
-        private readonly DataContext _datacontext;
-        public AnimalController(IAnimalRepository animal,DataContext dataContext)
+        public AnimalController(IAnimalRepository animal)
         {
             iAnimalRepository = animal;
-            _datacontext = dataContext;
         }
         [Authorize (Roles = "Read")]
         [HttpGet("GetAll")]

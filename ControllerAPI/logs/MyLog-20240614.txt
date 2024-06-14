@@ -1059,3 +1059,865 @@ FROM [Animals] AS [a]
 2024-06-14 06:30:03.985 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) in 7.5542ms
 2024-06-14 06:30:03.986 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
 2024-06-14 06:30:03.987 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=False - 200 null application/json; charset=utf-8 16.2575ms
+2024-06-14 07:53:32.575 +07:00 [INF] User profile is available. Using 'C:\Users\hoang\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-06-14 07:53:32.722 +07:00 [INF] Now listening on: https://localhost:7035
+2024-06-14 07:53:32.725 +07:00 [INF] Now listening on: http://localhost:5287
+2024-06-14 07:53:32.729 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-14 07:53:32.732 +07:00 [INF] Hosting environment: Development
+2024-06-14 07:53:32.737 +07:00 [INF] Content root path: D:\API\ProjectWeb2\WebAPIAnimals\ControllerAPI
+2024-06-14 07:53:33.870 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7035/swagger/index.html - null null
+2024-06-14 07:53:34.207 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7035/swagger/index.html - 200 null text/html;charset=utf-8 341.7316ms
+2024-06-14 07:53:34.237 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7035/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-14 07:53:34.252 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7035/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 14.4731ms
+2024-06-14 07:53:34.358 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7035/_vs/browserLink - null null
+2024-06-14 07:53:34.429 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7035/_vs/browserLink - 200 null text/javascript; charset=UTF-8 70.0021ms
+2024-06-14 07:53:35.617 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7035/swagger/v1/swagger.json - null null
+2024-06-14 07:53:35.803 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7035/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 186.0893ms
+2024-06-14 07:53:40.668 +07:00 [INF] Request starting HTTP/1.1 POST https://localhost:7035/api/User/Login - application/json; charset=utf-8 49
+2024-06-14 07:53:41.350 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.UserController.Login (ControllerAPI)'
+2024-06-14 07:53:41.381 +07:00 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(DataAnimals.Models.DTO.LoginRequestDTO) on controller ControllerAPI.Controllers.UserController (ControllerAPI).
+2024-06-14 07:53:41.685 +07:00 [INF] Executing action method ControllerAPI.Controllers.UserController.Login (ControllerAPI) - Validation state: "Valid"
+2024-06-14 07:53:43.545 +07:00 [INF] Executed DbCommand (89ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-06-14 07:53:43.799 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-06-14 07:53:43.871 +07:00 [INF] Executed action method ControllerAPI.Controllers.UserController.Login (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 2175.6595ms.
+2024-06-14 07:53:43.885 +07:00 [INF] Executing OkObjectResult, writing value of type 'DataAnimals.Models.DTO.LoginResponseDTO'.
+2024-06-14 07:53:43.902 +07:00 [INF] Executed action ControllerAPI.Controllers.UserController.Login (ControllerAPI) in 2509.9274ms
+2024-06-14 07:53:43.909 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.UserController.Login (ControllerAPI)'
+2024-06-14 07:53:43.929 +07:00 [INF] Request finished HTTP/1.1 POST https://localhost:7035/api/User/Login - 200 null application/json; charset=utf-8 3261.6169ms
+2024-06-14 07:53:43.995 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=False - null null
+2024-06-14 07:53:44.059 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 07:53:44.063 +07:00 [INF] Route matched with {action = "Filtering", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Filtering(System.String, Boolean) on controller ControllerAPI.Controllers.AnimalController (ControllerAPI).
+2024-06-14 07:53:44.072 +07:00 [INF] Executing action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) - Validation state: "Valid"
+2024-06-14 07:53:44.343 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id] AS [ID], [a].[Name], [a].[Description], [a].[AgeAvg], [a].[Url], (
+    SELECT TOP(1) [c].[Name]
+    FROM [AnimalCategories] AS [a0]
+    LEFT JOIN [Categories] AS [c] ON [a0].[Category_Id] = [c].[Id]
+    WHERE [a].[Id] = [a0].[Animal_Id]) AS [Loai]
+FROM [Animals] AS [a]
+2024-06-14 07:53:44.360 +07:00 [INF] Animal Page => System.Collections.Generic.List`1[DataAnimals.DTO.Animal.AnimalDto]
+2024-06-14 07:53:44.367 +07:00 [INF] Executed action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 292.0474ms.
+2024-06-14 07:53:44.372 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Animal.AnimalDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 07:53:44.384 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) in 319.032ms
+2024-06-14 07:53:44.389 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 07:53:44.391 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=False - 200 null application/json; charset=utf-8 395.3977ms
+2024-06-14 07:53:47.477 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/AC/Get-All - null null
+2024-06-14 07:53:47.489 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.ACController.Get (ControllerAPI)'
+2024-06-14 07:53:47.497 +07:00 [INF] Route matched with {action = "Get", controller = "AC"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Get() on controller ControllerAPI.Controllers.ACController (ControllerAPI).
+2024-06-14 07:53:47.505 +07:00 [INF] Executing action method ControllerAPI.Controllers.ACController.Get (ControllerAPI) - Validation state: "Valid"
+2024-06-14 07:53:47.530 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a0].[Name] AS [Animal_Name], [c].[Name] AS [Category_Name]
+FROM [AnimalCategories] AS [a]
+LEFT JOIN [Animals] AS [a0] ON [a].[Animal_Id] = [a0].[Id]
+LEFT JOIN [Categories] AS [c] ON [a].[Category_Id] = [c].[Id]
+2024-06-14 07:53:47.534 +07:00 [INF] Executed action method ControllerAPI.Controllers.ACController.Get (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 27.6652ms.
+2024-06-14 07:53:47.535 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Warehouse.ACDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 07:53:47.538 +07:00 [INF] Executed action ControllerAPI.Controllers.ACController.Get (ControllerAPI) in 34.5561ms
+2024-06-14 07:53:47.539 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.ACController.Get (ControllerAPI)'
+2024-06-14 07:53:47.541 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/AC/Get-All - 200 null application/json; charset=utf-8 63.2865ms
+2024-06-14 07:53:48.005 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Category/GetAll?name=&isAccess=False - null null
+2024-06-14 07:53:48.009 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.CategoryController.Filtering (ControllerAPI)'
+2024-06-14 07:53:48.013 +07:00 [INF] Route matched with {action = "Filtering", controller = "Category"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Filtering(System.String, Boolean) on controller ControllerAPI.Controllers.CategoryController (ControllerAPI).
+2024-06-14 07:53:48.017 +07:00 [INF] Executing action method ControllerAPI.Controllers.CategoryController.Filtering (ControllerAPI) - Validation state: "Valid"
+2024-06-14 07:53:48.086 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name], [t].[Name], [t].[Id], [t].[Id0]
+FROM [Categories] AS [c]
+LEFT JOIN (
+    SELECT [a0].[Name], [a].[Id], [a0].[Id] AS [Id0], [a].[Category_Id]
+    FROM [AnimalCategories] AS [a]
+    LEFT JOIN [Animals] AS [a0] ON [a].[Animal_Id] = [a0].[Id]
+) AS [t] ON [c].[Id] = [t].[Category_Id]
+ORDER BY [c].[Id], [t].[Id]
+2024-06-14 07:53:48.101 +07:00 [INF] Animal Page => System.Collections.Generic.List`1[DataAnimals.DTO.Category.CategoryDto]
+2024-06-14 07:53:48.102 +07:00 [INF] Executed action method ControllerAPI.Controllers.CategoryController.Filtering (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 82.4378ms.
+2024-06-14 07:53:48.103 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Category.CategoryDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 07:53:48.108 +07:00 [INF] Executed action ControllerAPI.Controllers.CategoryController.Filtering (ControllerAPI) in 93.5587ms
+2024-06-14 07:53:48.110 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.CategoryController.Filtering (ControllerAPI)'
+2024-06-14 07:53:48.111 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Category/GetAll?name=&isAccess=False - 200 null application/json; charset=utf-8 105.9622ms
+2024-06-14 07:53:56.102 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Category/Get-by-ID?id=3 - null null
+2024-06-14 07:53:56.113 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.CategoryController.Get (ControllerAPI)'
+2024-06-14 07:53:56.119 +07:00 [INF] Route matched with {action = "Get", controller = "Category"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get(Int32) on controller ControllerAPI.Controllers.CategoryController (ControllerAPI).
+2024-06-14 07:53:56.128 +07:00 [INF] Executing action method ControllerAPI.Controllers.CategoryController.Get (ControllerAPI) - Validation state: "Valid"
+2024-06-14 07:53:56.147 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Name], [t0].[Name], [t0].[Id], [t0].[Id0]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[Name]
+    FROM [Categories] AS [c]
+    WHERE [c].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [a0].[Name], [a].[Id], [a0].[Id] AS [Id0], [a].[Category_Id]
+    FROM [AnimalCategories] AS [a]
+    LEFT JOIN [Animals] AS [a0] ON [a].[Animal_Id] = [a0].[Id]
+) AS [t0] ON [t].[Id] = [t0].[Category_Id]
+ORDER BY [t].[Id], [t0].[Id]
+2024-06-14 07:53:56.151 +07:00 [INF] Category Page => DataAnimals.DTO.Category.CategoryDto
+2024-06-14 07:53:56.152 +07:00 [INF] Executed action method ControllerAPI.Controllers.CategoryController.Get (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 22.3917ms.
+2024-06-14 07:53:56.153 +07:00 [INF] Executing OkObjectResult, writing value of type 'DataAnimals.DTO.Category.CategoryDto'.
+2024-06-14 07:53:56.155 +07:00 [INF] Executed action ControllerAPI.Controllers.CategoryController.Get (ControllerAPI) in 28.3002ms
+2024-06-14 07:53:56.156 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.CategoryController.Get (ControllerAPI)'
+2024-06-14 07:53:56.157 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Category/Get-by-ID?id=3 - 200 null application/json; charset=utf-8 55.02ms
+2024-06-14 07:53:56.189 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll - null null
+2024-06-14 07:53:56.192 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 07:53:56.193 +07:00 [INF] Route matched with {action = "Filtering", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Filtering(System.String, Boolean) on controller ControllerAPI.Controllers.AnimalController (ControllerAPI).
+2024-06-14 07:53:56.196 +07:00 [INF] Executing action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) - Validation state: "Valid"
+2024-06-14 07:53:56.203 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id] AS [ID], [a].[Name], [a].[Description], [a].[AgeAvg], [a].[Url], (
+    SELECT TOP(1) [c].[Name]
+    FROM [AnimalCategories] AS [a0]
+    LEFT JOIN [Categories] AS [c] ON [a0].[Category_Id] = [c].[Id]
+    WHERE [a].[Id] = [a0].[Animal_Id]) AS [Loai]
+FROM [Animals] AS [a]
+2024-06-14 07:53:56.205 +07:00 [INF] Animal Page => System.Collections.Generic.List`1[DataAnimals.DTO.Animal.AnimalDto]
+2024-06-14 07:53:56.206 +07:00 [INF] Executed action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 9.0952ms.
+2024-06-14 07:53:56.207 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Animal.AnimalDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 07:53:56.208 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) in 13.8817ms
+2024-06-14 07:53:56.210 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 07:53:56.211 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll - 200 null application/json; charset=utf-8 22.5108ms
+2024-06-14 07:54:04.944 +07:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7035/api/Category/Update?id=3 - application/json; charset=utf-8 69
+2024-06-14 07:54:04.952 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.CategoryController.Update (ControllerAPI)'
+2024-06-14 07:54:04.955 +07:00 [INF] Route matched with {action = "Update", controller = "Category"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Update(DataAnimals.DTO.Category.AddCategoryDto, Int32) on controller ControllerAPI.Controllers.CategoryController (ControllerAPI).
+2024-06-14 07:54:04.967 +07:00 [INF] Executing action method ControllerAPI.Controllers.CategoryController.Update (ControllerAPI) - Validation state: "Valid"
+2024-06-14 07:54:04.985 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CatergoryAnimal_Id], [c].[Name]
+FROM [Categories] AS [c]
+WHERE [c].[Id] = @__id_0
+2024-06-14 07:54:05.028 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[Animal_Id], [a].[Category_Id]
+FROM [AnimalCategories] AS [a]
+WHERE [a].[Category_Id] = @__id_0
+2024-06-14 07:54:05.158 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [AnimalCategories]
+OUTPUT 1
+WHERE [Id] = @p0;
+DELETE FROM [AnimalCategories]
+OUTPUT 1
+WHERE [Id] = @p1;
+DELETE FROM [AnimalCategories]
+OUTPUT 1
+WHERE [Id] = @p2;
+DELETE FROM [AnimalCategories]
+OUTPUT 1
+WHERE [Id] = @p3;
+2024-06-14 07:54:05.217 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AnimalCategories] ([Animal_Id], [Category_Id])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1);
+2024-06-14 07:54:05.244 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AnimalCategories] ([Animal_Id], [Category_Id])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1);
+2024-06-14 07:54:05.252 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AnimalCategories] ([Animal_Id], [Category_Id])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1);
+2024-06-14 07:54:05.254 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AnimalCategories] ([Animal_Id], [Category_Id])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1);
+2024-06-14 07:54:05.258 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AnimalCategories] ([Animal_Id], [Category_Id])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1);
+2024-06-14 07:54:05.264 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AnimalCategories] ([Animal_Id], [Category_Id])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1);
+2024-06-14 07:54:05.266 +07:00 [INF] Category Page => DataAnimals.DTO.Category.AddCategoryDto
+2024-06-14 07:54:05.267 +07:00 [INF] Executed action method ControllerAPI.Controllers.CategoryController.Update (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 292.655ms.
+2024-06-14 07:54:05.269 +07:00 [INF] Executing OkObjectResult, writing value of type 'DataAnimals.DTO.Category.AddCategoryDto'.
+2024-06-14 07:54:05.271 +07:00 [INF] Executed action ControllerAPI.Controllers.CategoryController.Update (ControllerAPI) in 312.9143ms
+2024-06-14 07:54:05.272 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.CategoryController.Update (ControllerAPI)'
+2024-06-14 07:54:05.273 +07:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7035/api/Category/Update?id=3 - 200 null application/json; charset=utf-8 329.3686ms
+2024-06-14 07:54:05.330 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Category/GetAll?name=&isAccess=False - null null
+2024-06-14 07:54:05.333 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.CategoryController.Filtering (ControllerAPI)'
+2024-06-14 07:54:05.336 +07:00 [INF] Route matched with {action = "Filtering", controller = "Category"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Filtering(System.String, Boolean) on controller ControllerAPI.Controllers.CategoryController (ControllerAPI).
+2024-06-14 07:54:05.339 +07:00 [INF] Executing action method ControllerAPI.Controllers.CategoryController.Filtering (ControllerAPI) - Validation state: "Valid"
+2024-06-14 07:54:05.343 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name], [t].[Name], [t].[Id], [t].[Id0]
+FROM [Categories] AS [c]
+LEFT JOIN (
+    SELECT [a0].[Name], [a].[Id], [a0].[Id] AS [Id0], [a].[Category_Id]
+    FROM [AnimalCategories] AS [a]
+    LEFT JOIN [Animals] AS [a0] ON [a].[Animal_Id] = [a0].[Id]
+) AS [t] ON [c].[Id] = [t].[Category_Id]
+ORDER BY [c].[Id], [t].[Id]
+2024-06-14 07:54:05.346 +07:00 [INF] Animal Page => System.Collections.Generic.List`1[DataAnimals.DTO.Category.CategoryDto]
+2024-06-14 07:54:05.346 +07:00 [INF] Executed action method ControllerAPI.Controllers.CategoryController.Filtering (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 6.0081ms.
+2024-06-14 07:54:05.347 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Category.CategoryDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 07:54:05.348 +07:00 [INF] Executed action ControllerAPI.Controllers.CategoryController.Filtering (ControllerAPI) in 9.1573ms
+2024-06-14 07:54:05.349 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.CategoryController.Filtering (ControllerAPI)'
+2024-06-14 07:54:05.350 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Category/GetAll?name=&isAccess=False - 200 null application/json; charset=utf-8 20.5472ms
+2024-06-14 07:54:16.466 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=False - null null
+2024-06-14 07:54:16.472 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 07:54:16.474 +07:00 [INF] Route matched with {action = "Filtering", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Filtering(System.String, Boolean) on controller ControllerAPI.Controllers.AnimalController (ControllerAPI).
+2024-06-14 07:54:16.477 +07:00 [INF] Executing action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) - Validation state: "Valid"
+2024-06-14 07:54:16.480 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id] AS [ID], [a].[Name], [a].[Description], [a].[AgeAvg], [a].[Url], (
+    SELECT TOP(1) [c].[Name]
+    FROM [AnimalCategories] AS [a0]
+    LEFT JOIN [Categories] AS [c] ON [a0].[Category_Id] = [c].[Id]
+    WHERE [a].[Id] = [a0].[Animal_Id]) AS [Loai]
+FROM [Animals] AS [a]
+2024-06-14 07:54:16.482 +07:00 [INF] Animal Page => System.Collections.Generic.List`1[DataAnimals.DTO.Animal.AnimalDto]
+2024-06-14 07:54:16.483 +07:00 [INF] Executed action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 4.8504ms.
+2024-06-14 07:54:16.484 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Animal.AnimalDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 07:54:16.486 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) in 10.3176ms
+2024-06-14 07:54:16.487 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 07:54:16.488 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=False - 200 null application/json; charset=utf-8 21.3426ms
+2024-06-14 07:54:17.888 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll - null null
+2024-06-14 07:54:17.892 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 07:54:17.893 +07:00 [INF] Route matched with {action = "Filtering", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Filtering(System.String, Boolean) on controller ControllerAPI.Controllers.AnimalController (ControllerAPI).
+2024-06-14 07:54:17.895 +07:00 [INF] Executing action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) - Validation state: "Valid"
+2024-06-14 07:54:17.898 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id] AS [ID], [a].[Name], [a].[Description], [a].[AgeAvg], [a].[Url], (
+    SELECT TOP(1) [c].[Name]
+    FROM [AnimalCategories] AS [a0]
+    LEFT JOIN [Categories] AS [c] ON [a0].[Category_Id] = [c].[Id]
+    WHERE [a].[Id] = [a0].[Animal_Id]) AS [Loai]
+FROM [Animals] AS [a]
+2024-06-14 07:54:17.900 +07:00 [INF] Animal Page => System.Collections.Generic.List`1[DataAnimals.DTO.Animal.AnimalDto]
+2024-06-14 07:54:17.901 +07:00 [INF] Executed action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 5.0841ms.
+2024-06-14 07:54:17.902 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Animal.AnimalDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 07:54:17.904 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) in 9.2311ms
+2024-06-14 07:54:17.905 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 07:54:17.906 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll - 200 null application/json; charset=utf-8 18.3387ms
+2024-06-14 07:54:17.913 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Animal/Get-Page?page=1&pagesize=5 - null null
+2024-06-14 07:54:17.917 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.AnimalController.GetPaging (ControllerAPI)'
+2024-06-14 07:54:17.919 +07:00 [INF] Route matched with {action = "GetPaging", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetPaging(Int32, Int32) on controller ControllerAPI.Controllers.AnimalController (ControllerAPI).
+2024-06-14 07:54:17.921 +07:00 [INF] Executing action method ControllerAPI.Controllers.AnimalController.GetPaging (ControllerAPI) - Validation state: "Valid"
+2024-06-14 07:54:17.927 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id] AS [ID], [a].[Name], [a].[Description], [a].[AgeAvg], [a].[Url], (
+    SELECT TOP(1) [c].[Name]
+    FROM [AnimalCategories] AS [a0]
+    LEFT JOIN [Categories] AS [c] ON [a0].[Category_Id] = [c].[Id]
+    WHERE [a].[Id] = [a0].[Animal_Id]) AS [Loai]
+FROM [Animals] AS [a]
+2024-06-14 07:54:17.931 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id] AS [ID], [a].[Name], [a].[Description], [a].[AgeAvg], [a].[Url], (
+    SELECT TOP(1) [c].[Name]
+    FROM [AnimalCategories] AS [a0]
+    LEFT JOIN [Categories] AS [c] ON [a0].[Category_Id] = [c].[Id]
+    WHERE [a].[Id] = [a0].[Animal_Id]) AS [Loai]
+FROM [Animals] AS [a]
+2024-06-14 07:54:17.933 +07:00 [INF] Executed action method ControllerAPI.Controllers.AnimalController.GetPaging (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 10.2217ms.
+2024-06-14 07:54:17.935 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Animal.AnimalDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 07:54:17.936 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.GetPaging (ControllerAPI) in 14.9375ms
+2024-06-14 07:54:17.937 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.GetPaging (ControllerAPI)'
+2024-06-14 07:54:17.938 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Animal/Get-Page?page=1&pagesize=5 - 200 null application/json; charset=utf-8 24.588ms
+2024-06-14 07:54:18.720 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/AC/Get-All - null null
+2024-06-14 07:54:18.726 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.ACController.Get (ControllerAPI)'
+2024-06-14 07:54:18.727 +07:00 [INF] Route matched with {action = "Get", controller = "AC"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Get() on controller ControllerAPI.Controllers.ACController (ControllerAPI).
+2024-06-14 07:54:18.730 +07:00 [INF] Executing action method ControllerAPI.Controllers.ACController.Get (ControllerAPI) - Validation state: "Valid"
+2024-06-14 07:54:18.733 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a0].[Name] AS [Animal_Name], [c].[Name] AS [Category_Name]
+FROM [AnimalCategories] AS [a]
+LEFT JOIN [Animals] AS [a0] ON [a].[Animal_Id] = [a0].[Id]
+LEFT JOIN [Categories] AS [c] ON [a].[Category_Id] = [c].[Id]
+2024-06-14 07:54:18.734 +07:00 [INF] Executed action method ControllerAPI.Controllers.ACController.Get (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 3.6021ms.
+2024-06-14 07:54:18.736 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Warehouse.ACDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 07:54:18.737 +07:00 [INF] Executed action ControllerAPI.Controllers.ACController.Get (ControllerAPI) in 7.9048ms
+2024-06-14 07:54:18.738 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.ACController.Get (ControllerAPI)'
+2024-06-14 07:54:18.739 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/AC/Get-All - 200 null application/json; charset=utf-8 19.0663ms
+2024-06-14 07:54:18.977 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/User/ListUsers - null null
+2024-06-14 07:54:18.981 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.UserController.ListUsers (ControllerAPI)'
+2024-06-14 07:54:18.986 +07:00 [INF] Route matched with {action = "ListUsers", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ListUsers() on controller ControllerAPI.Controllers.UserController (ControllerAPI).
+2024-06-14 07:54:18.994 +07:00 [INF] Executing action method ControllerAPI.Controllers.UserController.ListUsers (ControllerAPI) - Validation state: "Valid"
+2024-06-14 07:54:19.003 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2024-06-14 07:54:19.006 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-06-14 07:54:19.011 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-06-14 07:54:19.013 +07:00 [INF] Executed action method ControllerAPI.Controllers.UserController.ListUsers (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 18.359ms.
+2024-06-14 07:54:19.015 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Login.UserDTO, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 07:54:19.018 +07:00 [INF] Executed action ControllerAPI.Controllers.UserController.ListUsers (ControllerAPI) in 30.3184ms
+2024-06-14 07:54:19.019 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.UserController.ListUsers (ControllerAPI)'
+2024-06-14 07:54:19.019 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/User/ListUsers - 200 null application/json; charset=utf-8 42.7688ms
+2024-06-14 07:54:19.270 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Category/GetAll?name=&isAccess=False - null null
+2024-06-14 07:54:19.274 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.CategoryController.Filtering (ControllerAPI)'
+2024-06-14 07:54:19.275 +07:00 [INF] Route matched with {action = "Filtering", controller = "Category"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Filtering(System.String, Boolean) on controller ControllerAPI.Controllers.CategoryController (ControllerAPI).
+2024-06-14 07:54:19.277 +07:00 [INF] Executing action method ControllerAPI.Controllers.CategoryController.Filtering (ControllerAPI) - Validation state: "Valid"
+2024-06-14 07:54:19.281 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name], [t].[Name], [t].[Id], [t].[Id0]
+FROM [Categories] AS [c]
+LEFT JOIN (
+    SELECT [a0].[Name], [a].[Id], [a0].[Id] AS [Id0], [a].[Category_Id]
+    FROM [AnimalCategories] AS [a]
+    LEFT JOIN [Animals] AS [a0] ON [a].[Animal_Id] = [a0].[Id]
+) AS [t] ON [c].[Id] = [t].[Category_Id]
+ORDER BY [c].[Id], [t].[Id]
+2024-06-14 07:54:19.283 +07:00 [INF] Animal Page => System.Collections.Generic.List`1[DataAnimals.DTO.Category.CategoryDto]
+2024-06-14 07:54:19.284 +07:00 [INF] Executed action method ControllerAPI.Controllers.CategoryController.Filtering (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 5.0875ms.
+2024-06-14 07:54:19.285 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Category.CategoryDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 07:54:19.286 +07:00 [INF] Executed action ControllerAPI.Controllers.CategoryController.Filtering (ControllerAPI) in 9.5548ms
+2024-06-14 07:54:19.287 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.CategoryController.Filtering (ControllerAPI)'
+2024-06-14 07:54:19.288 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Category/GetAll?name=&isAccess=False - 200 null application/json; charset=utf-8 17.7572ms
+2024-06-14 07:54:19.726 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=False - null null
+2024-06-14 07:54:19.731 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 07:54:19.732 +07:00 [INF] Route matched with {action = "Filtering", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Filtering(System.String, Boolean) on controller ControllerAPI.Controllers.AnimalController (ControllerAPI).
+2024-06-14 07:54:19.734 +07:00 [INF] Executing action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) - Validation state: "Valid"
+2024-06-14 07:54:19.738 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id] AS [ID], [a].[Name], [a].[Description], [a].[AgeAvg], [a].[Url], (
+    SELECT TOP(1) [c].[Name]
+    FROM [AnimalCategories] AS [a0]
+    LEFT JOIN [Categories] AS [c] ON [a0].[Category_Id] = [c].[Id]
+    WHERE [a].[Id] = [a0].[Animal_Id]) AS [Loai]
+FROM [Animals] AS [a]
+2024-06-14 07:54:19.743 +07:00 [INF] Animal Page => System.Collections.Generic.List`1[DataAnimals.DTO.Animal.AnimalDto]
+2024-06-14 07:54:19.744 +07:00 [INF] Executed action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 8.5908ms.
+2024-06-14 07:54:19.746 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Animal.AnimalDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 07:54:19.747 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) in 13.6878ms
+2024-06-14 07:54:19.748 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 07:54:19.750 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=False - 200 null application/json; charset=utf-8 23.5317ms
+2024-06-14 07:54:19.987 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/AC/Get-All - null null
+2024-06-14 07:54:19.991 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.ACController.Get (ControllerAPI)'
+2024-06-14 07:54:19.992 +07:00 [INF] Route matched with {action = "Get", controller = "AC"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Get() on controller ControllerAPI.Controllers.ACController (ControllerAPI).
+2024-06-14 07:54:19.996 +07:00 [INF] Executing action method ControllerAPI.Controllers.ACController.Get (ControllerAPI) - Validation state: "Valid"
+2024-06-14 07:54:19.999 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a0].[Name] AS [Animal_Name], [c].[Name] AS [Category_Name]
+FROM [AnimalCategories] AS [a]
+LEFT JOIN [Animals] AS [a0] ON [a].[Animal_Id] = [a0].[Id]
+LEFT JOIN [Categories] AS [c] ON [a].[Category_Id] = [c].[Id]
+2024-06-14 07:54:20.001 +07:00 [INF] Executed action method ControllerAPI.Controllers.ACController.Get (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 3.3207ms.
+2024-06-14 07:54:20.002 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Warehouse.ACDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 07:54:20.003 +07:00 [INF] Executed action ControllerAPI.Controllers.ACController.Get (ControllerAPI) in 7.9824ms
+2024-06-14 07:54:20.004 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.ACController.Get (ControllerAPI)'
+2024-06-14 07:54:20.005 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/AC/Get-All - 200 null application/json; charset=utf-8 17.8312ms
+2024-06-14 07:54:20.758 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/User/ListUsers - null null
+2024-06-14 07:54:20.762 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.UserController.ListUsers (ControllerAPI)'
+2024-06-14 07:54:20.764 +07:00 [INF] Route matched with {action = "ListUsers", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ListUsers() on controller ControllerAPI.Controllers.UserController (ControllerAPI).
+2024-06-14 07:54:20.776 +07:00 [INF] Executing action method ControllerAPI.Controllers.UserController.ListUsers (ControllerAPI) - Validation state: "Valid"
+2024-06-14 07:54:20.779 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2024-06-14 07:54:20.782 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-06-14 07:54:20.785 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-06-14 07:54:20.787 +07:00 [INF] Executed action method ControllerAPI.Controllers.UserController.ListUsers (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 10.0491ms.
+2024-06-14 07:54:20.791 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Login.UserDTO, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 07:54:20.792 +07:00 [INF] Executed action ControllerAPI.Controllers.UserController.ListUsers (ControllerAPI) in 26.0263ms
+2024-06-14 07:54:20.794 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.UserController.ListUsers (ControllerAPI)'
+2024-06-14 07:54:20.795 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/User/ListUsers - 200 null application/json; charset=utf-8 36.9356ms
+2024-06-14 07:54:21.341 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Category/GetAll?name=&isAccess=False - null null
+2024-06-14 07:54:21.346 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.CategoryController.Filtering (ControllerAPI)'
+2024-06-14 07:54:21.347 +07:00 [INF] Route matched with {action = "Filtering", controller = "Category"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Filtering(System.String, Boolean) on controller ControllerAPI.Controllers.CategoryController (ControllerAPI).
+2024-06-14 07:54:21.349 +07:00 [INF] Executing action method ControllerAPI.Controllers.CategoryController.Filtering (ControllerAPI) - Validation state: "Valid"
+2024-06-14 07:54:21.353 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name], [t].[Name], [t].[Id], [t].[Id0]
+FROM [Categories] AS [c]
+LEFT JOIN (
+    SELECT [a0].[Name], [a].[Id], [a0].[Id] AS [Id0], [a].[Category_Id]
+    FROM [AnimalCategories] AS [a]
+    LEFT JOIN [Animals] AS [a0] ON [a].[Animal_Id] = [a0].[Id]
+) AS [t] ON [c].[Id] = [t].[Category_Id]
+ORDER BY [c].[Id], [t].[Id]
+2024-06-14 07:54:21.355 +07:00 [INF] Animal Page => System.Collections.Generic.List`1[DataAnimals.DTO.Category.CategoryDto]
+2024-06-14 07:54:21.357 +07:00 [INF] Executed action method ControllerAPI.Controllers.CategoryController.Filtering (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 6.5528ms.
+2024-06-14 07:54:21.360 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Category.CategoryDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 07:54:21.361 +07:00 [INF] Executed action ControllerAPI.Controllers.CategoryController.Filtering (ControllerAPI) in 11.9781ms
+2024-06-14 07:54:21.362 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.CategoryController.Filtering (ControllerAPI)'
+2024-06-14 07:54:21.363 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Category/GetAll?name=&isAccess=False - 200 null application/json; charset=utf-8 21.7975ms
+2024-06-14 07:54:21.625 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/AC/Get-All - null null
+2024-06-14 07:54:21.628 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.ACController.Get (ControllerAPI)'
+2024-06-14 07:54:21.628 +07:00 [INF] Route matched with {action = "Get", controller = "AC"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Get() on controller ControllerAPI.Controllers.ACController (ControllerAPI).
+2024-06-14 07:54:21.630 +07:00 [INF] Executing action method ControllerAPI.Controllers.ACController.Get (ControllerAPI) - Validation state: "Valid"
+2024-06-14 07:54:21.633 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a0].[Name] AS [Animal_Name], [c].[Name] AS [Category_Name]
+FROM [AnimalCategories] AS [a]
+LEFT JOIN [Animals] AS [a0] ON [a].[Animal_Id] = [a0].[Id]
+LEFT JOIN [Categories] AS [c] ON [a].[Category_Id] = [c].[Id]
+2024-06-14 07:54:21.635 +07:00 [INF] Executed action method ControllerAPI.Controllers.ACController.Get (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 3.4148ms.
+2024-06-14 07:54:21.636 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Warehouse.ACDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 07:54:21.637 +07:00 [INF] Executed action ControllerAPI.Controllers.ACController.Get (ControllerAPI) in 7.6623ms
+2024-06-14 07:54:21.638 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.ACController.Get (ControllerAPI)'
+2024-06-14 07:54:21.640 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/AC/Get-All - 200 null application/json; charset=utf-8 14.6519ms
+2024-06-14 07:54:22.143 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=False - null null
+2024-06-14 07:54:22.148 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 07:54:22.152 +07:00 [INF] Route matched with {action = "Filtering", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Filtering(System.String, Boolean) on controller ControllerAPI.Controllers.AnimalController (ControllerAPI).
+2024-06-14 07:54:22.155 +07:00 [INF] Executing action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) - Validation state: "Valid"
+2024-06-14 07:54:22.160 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id] AS [ID], [a].[Name], [a].[Description], [a].[AgeAvg], [a].[Url], (
+    SELECT TOP(1) [c].[Name]
+    FROM [AnimalCategories] AS [a0]
+    LEFT JOIN [Categories] AS [c] ON [a0].[Category_Id] = [c].[Id]
+    WHERE [a].[Id] = [a0].[Animal_Id]) AS [Loai]
+FROM [Animals] AS [a]
+2024-06-14 07:54:22.163 +07:00 [INF] Animal Page => System.Collections.Generic.List`1[DataAnimals.DTO.Animal.AnimalDto]
+2024-06-14 07:54:22.164 +07:00 [INF] Executed action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 6.4663ms.
+2024-06-14 07:54:22.166 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Animal.AnimalDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 07:54:22.168 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) in 13.619ms
+2024-06-14 07:54:22.169 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 07:54:22.170 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=False - 200 null application/json; charset=utf-8 26.9768ms
+2024-06-14 07:54:22.394 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/AC/Get-All - null null
+2024-06-14 07:54:22.397 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.ACController.Get (ControllerAPI)'
+2024-06-14 07:54:22.398 +07:00 [INF] Route matched with {action = "Get", controller = "AC"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Get() on controller ControllerAPI.Controllers.ACController (ControllerAPI).
+2024-06-14 07:54:22.400 +07:00 [INF] Executing action method ControllerAPI.Controllers.ACController.Get (ControllerAPI) - Validation state: "Valid"
+2024-06-14 07:54:22.403 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a0].[Name] AS [Animal_Name], [c].[Name] AS [Category_Name]
+FROM [AnimalCategories] AS [a]
+LEFT JOIN [Animals] AS [a0] ON [a].[Animal_Id] = [a0].[Id]
+LEFT JOIN [Categories] AS [c] ON [a].[Category_Id] = [c].[Id]
+2024-06-14 07:54:22.404 +07:00 [INF] Executed action method ControllerAPI.Controllers.ACController.Get (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 3.1932ms.
+2024-06-14 07:54:22.407 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Warehouse.ACDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 07:54:22.409 +07:00 [INF] Executed action ControllerAPI.Controllers.ACController.Get (ControllerAPI) in 8.7849ms
+2024-06-14 07:54:22.410 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.ACController.Get (ControllerAPI)'
+2024-06-14 07:54:22.411 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/AC/Get-All - 200 null application/json; charset=utf-8 16.8742ms
+2024-06-14 07:54:22.931 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/User/ListUsers - null null
+2024-06-14 07:54:22.934 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.UserController.ListUsers (ControllerAPI)'
+2024-06-14 07:54:22.936 +07:00 [INF] Route matched with {action = "ListUsers", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ListUsers() on controller ControllerAPI.Controllers.UserController (ControllerAPI).
+2024-06-14 07:54:22.941 +07:00 [INF] Executing action method ControllerAPI.Controllers.UserController.ListUsers (ControllerAPI) - Validation state: "Valid"
+2024-06-14 07:54:22.944 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2024-06-14 07:54:22.948 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-06-14 07:54:22.952 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-06-14 07:54:22.954 +07:00 [INF] Executed action method ControllerAPI.Controllers.UserController.ListUsers (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 11.2286ms.
+2024-06-14 07:54:22.956 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Login.UserDTO, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 07:54:22.956 +07:00 [INF] Executed action ControllerAPI.Controllers.UserController.ListUsers (ControllerAPI) in 18.4128ms
+2024-06-14 07:54:22.958 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.UserController.ListUsers (ControllerAPI)'
+2024-06-14 07:54:22.959 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/User/ListUsers - 200 null application/json; charset=utf-8 28.3406ms
+2024-06-14 07:55:06.519 +07:00 [INF] User profile is available. Using 'C:\Users\hoang\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-06-14 07:55:06.852 +07:00 [INF] Now listening on: https://localhost:7035
+2024-06-14 07:55:06.854 +07:00 [INF] Now listening on: http://localhost:5287
+2024-06-14 07:55:06.857 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-14 07:55:06.858 +07:00 [INF] Hosting environment: Development
+2024-06-14 07:55:06.859 +07:00 [INF] Content root path: D:\API\ProjectWeb2\WebAPIAnimals\ControllerAPI
+2024-06-14 07:55:08.318 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7035/swagger/index.html - null null
+2024-06-14 07:55:08.827 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7035/swagger/index.html - 200 null text/html;charset=utf-8 511.9819ms
+2024-06-14 07:55:08.833 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7035/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-14 07:55:08.841 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7035/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 7.775ms
+2024-06-14 07:55:09.883 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7035/_vs/browserLink - null null
+2024-06-14 07:55:09.925 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7035/_vs/browserLink - 200 null text/javascript; charset=UTF-8 42.0621ms
+2024-06-14 07:55:10.189 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7035/swagger/v1/swagger.json - null null
+2024-06-14 07:55:10.381 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7035/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 191.3169ms
+2024-06-14 07:55:15.605 +07:00 [INF] Request starting HTTP/1.1 POST https://localhost:7035/api/User/Login - application/json; charset=utf-8 49
+2024-06-14 07:55:15.647 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.UserController.Login (ControllerAPI)'
+2024-06-14 07:55:15.675 +07:00 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(DataAnimals.Models.DTO.LoginRequestDTO) on controller ControllerAPI.Controllers.UserController (ControllerAPI).
+2024-06-14 07:55:15.861 +07:00 [INF] Executing action method ControllerAPI.Controllers.UserController.Login (ControllerAPI) - Validation state: "Valid"
+2024-06-14 07:55:17.271 +07:00 [INF] Executed DbCommand (42ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-06-14 07:55:17.514 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-06-14 07:55:17.551 +07:00 [INF] Executed action method ControllerAPI.Controllers.UserController.Login (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1683.4858ms.
+2024-06-14 07:55:17.565 +07:00 [INF] Executing OkObjectResult, writing value of type 'DataAnimals.Models.DTO.LoginResponseDTO'.
+2024-06-14 07:55:17.579 +07:00 [INF] Executed action ControllerAPI.Controllers.UserController.Login (ControllerAPI) in 1891.7372ms
+2024-06-14 07:55:17.585 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.UserController.Login (ControllerAPI)'
+2024-06-14 07:55:17.604 +07:00 [INF] Request finished HTTP/1.1 POST https://localhost:7035/api/User/Login - 200 null application/json; charset=utf-8 1999.1241ms
+2024-06-14 07:55:17.678 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=False - null null
+2024-06-14 07:55:17.745 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 07:55:17.749 +07:00 [INF] Route matched with {action = "Filtering", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Filtering(System.String, Boolean) on controller ControllerAPI.Controllers.AnimalController (ControllerAPI).
+2024-06-14 07:55:17.758 +07:00 [INF] Executing action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) - Validation state: "Valid"
+2024-06-14 07:55:17.996 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id] AS [ID], [a].[Name], [a].[Description], [a].[AgeAvg], [a].[Url], (
+    SELECT TOP(1) [c].[Name]
+    FROM [AnimalCategories] AS [a0]
+    LEFT JOIN [Categories] AS [c] ON [a0].[Category_Id] = [c].[Id]
+    WHERE [a].[Id] = [a0].[Animal_Id]) AS [Loai]
+FROM [Animals] AS [a]
+2024-06-14 07:55:18.007 +07:00 [INF] Animal Page => System.Collections.Generic.List`1[DataAnimals.DTO.Animal.AnimalDto]
+2024-06-14 07:55:18.009 +07:00 [INF] Executed action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 249.5282ms.
+2024-06-14 07:55:18.011 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Animal.AnimalDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 07:55:18.022 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) in 271.2373ms
+2024-06-14 07:55:18.023 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 07:55:18.024 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=False - 200 null application/json; charset=utf-8 346.7ms
+2024-06-14 07:55:22.642 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=True - null null
+2024-06-14 07:55:22.655 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 07:55:22.660 +07:00 [INF] Route matched with {action = "Filtering", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Filtering(System.String, Boolean) on controller ControllerAPI.Controllers.AnimalController (ControllerAPI).
+2024-06-14 07:55:22.666 +07:00 [INF] Executing action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) - Validation state: "Valid"
+2024-06-14 07:55:22.683 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id] AS [ID], [a].[Name], [a].[Description], [a].[AgeAvg], [a].[Url], (
+    SELECT TOP(1) [c].[Name]
+    FROM [AnimalCategories] AS [a0]
+    LEFT JOIN [Categories] AS [c] ON [a0].[Category_Id] = [c].[Id]
+    WHERE [a].[Id] = [a0].[Animal_Id]) AS [Loai]
+FROM [Animals] AS [a]
+2024-06-14 07:55:22.692 +07:00 [INF] Animal Page => System.Collections.Generic.List`1[DataAnimals.DTO.Animal.AnimalDto]
+2024-06-14 07:55:22.694 +07:00 [INF] Executed action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 27.1222ms.
+2024-06-14 07:55:22.695 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Animal.AnimalDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 07:55:22.696 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) in 32.1222ms
+2024-06-14 07:55:22.698 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 07:55:22.700 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=True - 200 null application/json; charset=utf-8 57.6046ms
+2024-06-14 07:55:24.611 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=False - null null
+2024-06-14 07:55:24.622 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 07:55:24.628 +07:00 [INF] Route matched with {action = "Filtering", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Filtering(System.String, Boolean) on controller ControllerAPI.Controllers.AnimalController (ControllerAPI).
+2024-06-14 07:55:24.637 +07:00 [INF] Executing action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) - Validation state: "Valid"
+2024-06-14 07:55:24.648 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id] AS [ID], [a].[Name], [a].[Description], [a].[AgeAvg], [a].[Url], (
+    SELECT TOP(1) [c].[Name]
+    FROM [AnimalCategories] AS [a0]
+    LEFT JOIN [Categories] AS [c] ON [a0].[Category_Id] = [c].[Id]
+    WHERE [a].[Id] = [a0].[Animal_Id]) AS [Loai]
+FROM [Animals] AS [a]
+2024-06-14 07:55:24.656 +07:00 [INF] Animal Page => System.Collections.Generic.List`1[DataAnimals.DTO.Animal.AnimalDto]
+2024-06-14 07:55:24.659 +07:00 [INF] Executed action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 14.5814ms.
+2024-06-14 07:55:24.661 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Animal.AnimalDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 07:55:24.662 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) in 28.7253ms
+2024-06-14 07:55:24.663 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 07:55:24.664 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=False - 200 null application/json; charset=utf-8 53.1551ms
+2024-06-14 07:55:32.595 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Animal/Get-By-Id?id=1 - null null
+2024-06-14 07:55:32.605 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.AnimalController.GetId (ControllerAPI)'
+2024-06-14 07:55:32.611 +07:00 [INF] Route matched with {action = "GetId", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetId(Int32) on controller ControllerAPI.Controllers.AnimalController (ControllerAPI).
+2024-06-14 07:55:32.616 +07:00 [INF] Executing action method ControllerAPI.Controllers.AnimalController.GetId (ControllerAPI) - Validation state: "Valid"
+2024-06-14 07:55:32.634 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id] AS [ID], [a].[Name], [a].[Description], [a].[AgeAvg], [a].[Url], (
+    SELECT TOP(1) [c].[Name]
+    FROM [AnimalCategories] AS [a0]
+    LEFT JOIN [Categories] AS [c] ON [a0].[Category_Id] = [c].[Id]
+    WHERE [a].[Id] = [a0].[Animal_Id]) AS [Loai]
+FROM [Animals] AS [a]
+WHERE [a].[Id] = @__id_0
+2024-06-14 07:55:32.636 +07:00 [INF] Animal Page => DataAnimals.DTO.Animal.AnimalDto
+2024-06-14 07:55:32.637 +07:00 [INF] Executed action method ControllerAPI.Controllers.AnimalController.GetId (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 17.4682ms.
+2024-06-14 07:55:32.639 +07:00 [INF] Executing OkObjectResult, writing value of type 'DataAnimals.DTO.Animal.AnimalDto'.
+2024-06-14 07:55:32.640 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.GetId (ControllerAPI) in 25.031ms
+2024-06-14 07:55:32.641 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.GetId (ControllerAPI)'
+2024-06-14 07:55:32.642 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Animal/Get-By-Id?id=1 - 200 null application/json; charset=utf-8 47.324ms
+2024-06-14 07:55:34.582 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=False - null null
+2024-06-14 07:55:34.587 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 07:55:34.588 +07:00 [INF] Route matched with {action = "Filtering", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Filtering(System.String, Boolean) on controller ControllerAPI.Controllers.AnimalController (ControllerAPI).
+2024-06-14 07:55:34.593 +07:00 [INF] Executing action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) - Validation state: "Valid"
+2024-06-14 07:55:34.604 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id] AS [ID], [a].[Name], [a].[Description], [a].[AgeAvg], [a].[Url], (
+    SELECT TOP(1) [c].[Name]
+    FROM [AnimalCategories] AS [a0]
+    LEFT JOIN [Categories] AS [c] ON [a0].[Category_Id] = [c].[Id]
+    WHERE [a].[Id] = [a0].[Animal_Id]) AS [Loai]
+FROM [Animals] AS [a]
+2024-06-14 07:55:34.610 +07:00 [INF] Animal Page => System.Collections.Generic.List`1[DataAnimals.DTO.Animal.AnimalDto]
+2024-06-14 07:55:34.613 +07:00 [INF] Executed action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 16.8881ms.
+2024-06-14 07:55:34.616 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Animal.AnimalDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 07:55:34.621 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) in 28.1316ms
+2024-06-14 07:55:34.623 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 07:55:34.626 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=False - 200 null application/json; charset=utf-8 44.1162ms
+2024-06-14 07:55:35.928 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Animal/Get-By-Id?id=1 - null null
+2024-06-14 07:55:35.937 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.AnimalController.GetId (ControllerAPI)'
+2024-06-14 07:55:35.942 +07:00 [INF] Route matched with {action = "GetId", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetId(Int32) on controller ControllerAPI.Controllers.AnimalController (ControllerAPI).
+2024-06-14 07:55:35.948 +07:00 [INF] Executing action method ControllerAPI.Controllers.AnimalController.GetId (ControllerAPI) - Validation state: "Valid"
+2024-06-14 07:55:35.957 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id] AS [ID], [a].[Name], [a].[Description], [a].[AgeAvg], [a].[Url], (
+    SELECT TOP(1) [c].[Name]
+    FROM [AnimalCategories] AS [a0]
+    LEFT JOIN [Categories] AS [c] ON [a0].[Category_Id] = [c].[Id]
+    WHERE [a].[Id] = [a0].[Animal_Id]) AS [Loai]
+FROM [Animals] AS [a]
+WHERE [a].[Id] = @__id_0
+2024-06-14 07:55:35.964 +07:00 [INF] Animal Page => DataAnimals.DTO.Animal.AnimalDto
+2024-06-14 07:55:35.965 +07:00 [INF] Executed action method ControllerAPI.Controllers.AnimalController.GetId (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 13.0742ms.
+2024-06-14 07:55:35.968 +07:00 [INF] Executing OkObjectResult, writing value of type 'DataAnimals.DTO.Animal.AnimalDto'.
+2024-06-14 07:55:35.971 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.GetId (ControllerAPI) in 23.773ms
+2024-06-14 07:55:35.974 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.GetId (ControllerAPI)'
+2024-06-14 07:55:35.976 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Animal/Get-By-Id?id=1 - 200 null application/json; charset=utf-8 48.3249ms
+2024-06-14 08:06:43.552 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=False - null null
+2024-06-14 08:06:43.564 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 08:06:43.568 +07:00 [INF] Route matched with {action = "Filtering", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Filtering(System.String, Boolean) on controller ControllerAPI.Controllers.AnimalController (ControllerAPI).
+2024-06-14 08:06:43.573 +07:00 [INF] Executing action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) - Validation state: "Valid"
+2024-06-14 08:06:43.585 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id] AS [ID], [a].[Name], [a].[Description], [a].[AgeAvg], [a].[Url], (
+    SELECT TOP(1) [c].[Name]
+    FROM [AnimalCategories] AS [a0]
+    LEFT JOIN [Categories] AS [c] ON [a0].[Category_Id] = [c].[Id]
+    WHERE [a].[Id] = [a0].[Animal_Id]) AS [Loai]
+FROM [Animals] AS [a]
+2024-06-14 08:06:43.594 +07:00 [INF] Animal Page => System.Collections.Generic.List`1[DataAnimals.DTO.Animal.AnimalDto]
+2024-06-14 08:06:43.595 +07:00 [INF] Executed action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 20.5993ms.
+2024-06-14 08:06:43.597 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Animal.AnimalDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 08:06:43.598 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) in 26.0547ms
+2024-06-14 08:06:43.600 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 08:06:43.601 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=False - 200 null application/json; charset=utf-8 49.7522ms
+2024-06-14 08:06:46.848 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Animal/Get-By-Id?id=1 - null null
+2024-06-14 08:06:46.855 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.AnimalController.GetId (ControllerAPI)'
+2024-06-14 08:06:46.858 +07:00 [INF] Route matched with {action = "GetId", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetId(Int32) on controller ControllerAPI.Controllers.AnimalController (ControllerAPI).
+2024-06-14 08:06:46.864 +07:00 [INF] Executing action method ControllerAPI.Controllers.AnimalController.GetId (ControllerAPI) - Validation state: "Valid"
+2024-06-14 08:06:46.872 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id] AS [ID], [a].[Name], [a].[Description], [a].[AgeAvg], [a].[Url], (
+    SELECT TOP(1) [c].[Name]
+    FROM [AnimalCategories] AS [a0]
+    LEFT JOIN [Categories] AS [c] ON [a0].[Category_Id] = [c].[Id]
+    WHERE [a].[Id] = [a0].[Animal_Id]) AS [Loai]
+FROM [Animals] AS [a]
+WHERE [a].[Id] = @__id_0
+2024-06-14 08:06:46.878 +07:00 [INF] Animal Page => DataAnimals.DTO.Animal.AnimalDto
+2024-06-14 08:06:46.880 +07:00 [INF] Executed action method ControllerAPI.Controllers.AnimalController.GetId (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 13.7212ms.
+2024-06-14 08:06:46.887 +07:00 [INF] Executing OkObjectResult, writing value of type 'DataAnimals.DTO.Animal.AnimalDto'.
+2024-06-14 08:06:46.890 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.GetId (ControllerAPI) in 26.8261ms
+2024-06-14 08:06:46.891 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.GetId (ControllerAPI)'
+2024-06-14 08:06:46.892 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Animal/Get-By-Id?id=1 - 200 null application/json; charset=utf-8 44.4757ms
+2024-06-14 08:06:57.145 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=False - null null
+2024-06-14 08:06:57.152 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 08:06:57.154 +07:00 [INF] Route matched with {action = "Filtering", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Filtering(System.String, Boolean) on controller ControllerAPI.Controllers.AnimalController (ControllerAPI).
+2024-06-14 08:06:57.156 +07:00 [INF] Executing action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) - Validation state: "Valid"
+2024-06-14 08:06:57.159 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id] AS [ID], [a].[Name], [a].[Description], [a].[AgeAvg], [a].[Url], (
+    SELECT TOP(1) [c].[Name]
+    FROM [AnimalCategories] AS [a0]
+    LEFT JOIN [Categories] AS [c] ON [a0].[Category_Id] = [c].[Id]
+    WHERE [a].[Id] = [a0].[Animal_Id]) AS [Loai]
+FROM [Animals] AS [a]
+2024-06-14 08:06:57.163 +07:00 [INF] Animal Page => System.Collections.Generic.List`1[DataAnimals.DTO.Animal.AnimalDto]
+2024-06-14 08:06:57.163 +07:00 [INF] Executed action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 6.5904ms.
+2024-06-14 08:06:57.164 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Animal.AnimalDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 08:06:57.166 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) in 9.8684ms
+2024-06-14 08:06:57.166 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 08:06:57.167 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=False - 200 null application/json; charset=utf-8 22.5089ms
+2024-06-14 08:18:32.993 +07:00 [INF] User profile is available. Using 'C:\Users\hoang\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-06-14 08:18:33.222 +07:00 [INF] Now listening on: https://localhost:7035
+2024-06-14 08:18:33.224 +07:00 [INF] Now listening on: http://localhost:5287
+2024-06-14 08:18:33.228 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-14 08:18:33.232 +07:00 [INF] Hosting environment: Development
+2024-06-14 08:18:33.235 +07:00 [INF] Content root path: D:\API\ProjectWeb2\WebAPIAnimals\ControllerAPI
+2024-06-14 08:18:34.420 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7035/swagger/index.html - null null
+2024-06-14 08:18:34.848 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7035/swagger/index.html - 200 null text/html;charset=utf-8 430.5644ms
+2024-06-14 08:18:35.777 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7035/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-14 08:18:35.777 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7035/_vs/browserLink - null null
+2024-06-14 08:18:35.787 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7035/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 9.6526ms
+2024-06-14 08:18:35.828 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7035/_vs/browserLink - 200 null text/javascript; charset=UTF-8 50.8476ms
+2024-06-14 08:18:36.452 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7035/swagger/v1/swagger.json - null null
+2024-06-14 08:18:36.722 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7035/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 270.0428ms
+2024-06-14 08:19:30.117 +07:00 [INF] Request starting HTTP/1.1 POST https://localhost:7035/api/User/Login - application/json; charset=utf-8 49
+2024-06-14 08:19:30.857 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.UserController.Login (ControllerAPI)'
+2024-06-14 08:19:30.878 +07:00 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(DataAnimals.Models.DTO.LoginRequestDTO) on controller ControllerAPI.Controllers.UserController (ControllerAPI).
+2024-06-14 08:19:31.200 +07:00 [INF] Executing action method ControllerAPI.Controllers.UserController.Login (ControllerAPI) - Validation state: "Valid"
+2024-06-14 08:19:33.267 +07:00 [INF] Executed DbCommand (91ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-06-14 08:19:33.485 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-06-14 08:19:33.550 +07:00 [INF] Executed action method ControllerAPI.Controllers.UserController.Login (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 2341.2867ms.
+2024-06-14 08:19:33.565 +07:00 [INF] Executing OkObjectResult, writing value of type 'DataAnimals.Models.DTO.LoginResponseDTO'.
+2024-06-14 08:19:33.579 +07:00 [INF] Executed action ControllerAPI.Controllers.UserController.Login (ControllerAPI) in 2692.9019ms
+2024-06-14 08:19:33.586 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.UserController.Login (ControllerAPI)'
+2024-06-14 08:19:33.602 +07:00 [INF] Request finished HTTP/1.1 POST https://localhost:7035/api/User/Login - 200 null application/json; charset=utf-8 3485.0357ms
+2024-06-14 08:19:33.664 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=False - null null
+2024-06-14 08:19:33.738 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 08:19:33.744 +07:00 [INF] Route matched with {action = "Filtering", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Filtering(System.String, Boolean) on controller ControllerAPI.Controllers.AnimalController (ControllerAPI).
+2024-06-14 08:19:33.761 +07:00 [INF] Executing action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) - Validation state: "Valid"
+2024-06-14 08:19:34.021 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id] AS [ID], [a].[Name], [a].[Description], [a].[AgeAvg], [a].[Url], (
+    SELECT TOP(1) [c].[Name]
+    FROM [AnimalCategories] AS [a0]
+    LEFT JOIN [Categories] AS [c] ON [a0].[Category_Id] = [c].[Id]
+    WHERE [a].[Id] = [a0].[Animal_Id]) AS [Loai]
+FROM [Animals] AS [a]
+2024-06-14 08:19:34.035 +07:00 [INF] Animal Page => System.Collections.Generic.List`1[DataAnimals.DTO.Animal.AnimalDto]
+2024-06-14 08:19:34.040 +07:00 [INF] Executed action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 272.7001ms.
+2024-06-14 08:19:34.046 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Animal.AnimalDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 08:19:34.062 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) in 308.894ms
+2024-06-14 08:19:34.069 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 08:19:34.073 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=False - 200 null application/json; charset=utf-8 409.3066ms
+2024-06-14 08:19:48.802 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=C%C3%A1%20m%E1%BA%ADp&isAccess=False - null null
+2024-06-14 08:19:48.815 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 08:19:48.819 +07:00 [INF] Route matched with {action = "Filtering", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Filtering(System.String, Boolean) on controller ControllerAPI.Controllers.AnimalController (ControllerAPI).
+2024-06-14 08:19:48.827 +07:00 [INF] Executing action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) - Validation state: "Valid"
+2024-06-14 08:19:48.862 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__ToLower_0_contains='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id] AS [ID], [a].[Name], [a].[Description], [a].[AgeAvg], [a].[Url]
+FROM [Animals] AS [a]
+WHERE LOWER([a].[Name]) LIKE @__ToLower_0_contains ESCAPE N'\'
+2024-06-14 08:19:48.871 +07:00 [INF] Animal Page => System.Collections.Generic.List`1[DataAnimals.DTO.Animal.AnimalDto]
+2024-06-14 08:19:48.872 +07:00 [INF] Executed action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 39.3486ms.
+2024-06-14 08:19:48.874 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Animal.AnimalDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 08:19:48.875 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) in 49.3477ms
+2024-06-14 08:19:48.876 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 08:19:48.878 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=C%C3%A1%20m%E1%BA%ADp&isAccess=False - 200 null application/json; charset=utf-8 75.6252ms
+2024-06-14 08:20:25.936 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Category/GetAll?name=&isAccess=False - null null
+2024-06-14 08:20:25.942 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.CategoryController.Filtering (ControllerAPI)'
+2024-06-14 08:20:25.946 +07:00 [INF] Route matched with {action = "Filtering", controller = "Category"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Filtering(System.String, Boolean) on controller ControllerAPI.Controllers.CategoryController (ControllerAPI).
+2024-06-14 08:20:25.950 +07:00 [INF] Executing action method ControllerAPI.Controllers.CategoryController.Filtering (ControllerAPI) - Validation state: "Valid"
+2024-06-14 08:20:25.999 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name], [t].[Name], [t].[Id], [t].[Id0]
+FROM [Categories] AS [c]
+LEFT JOIN (
+    SELECT [a0].[Name], [a].[Id], [a0].[Id] AS [Id0], [a].[Category_Id]
+    FROM [AnimalCategories] AS [a]
+    LEFT JOIN [Animals] AS [a0] ON [a].[Animal_Id] = [a0].[Id]
+) AS [t] ON [c].[Id] = [t].[Category_Id]
+ORDER BY [c].[Id], [t].[Id]
+2024-06-14 08:20:26.012 +07:00 [INF] Animal Page => System.Collections.Generic.List`1[DataAnimals.DTO.Category.CategoryDto]
+2024-06-14 08:20:26.014 +07:00 [INF] Executed action method ControllerAPI.Controllers.CategoryController.Filtering (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 62.2922ms.
+2024-06-14 08:20:26.016 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Category.CategoryDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 08:20:26.020 +07:00 [INF] Executed action ControllerAPI.Controllers.CategoryController.Filtering (ControllerAPI) in 72.0547ms
+2024-06-14 08:20:26.022 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.CategoryController.Filtering (ControllerAPI)'
+2024-06-14 08:20:26.024 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Category/GetAll?name=&isAccess=False - 200 null application/json; charset=utf-8 88.0708ms
+2024-06-14 08:20:32.163 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=False - null null
+2024-06-14 08:20:32.172 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 08:20:32.176 +07:00 [INF] Route matched with {action = "Filtering", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Filtering(System.String, Boolean) on controller ControllerAPI.Controllers.AnimalController (ControllerAPI).
+2024-06-14 08:20:32.185 +07:00 [INF] Executing action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) - Validation state: "Valid"
+2024-06-14 08:20:32.201 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id] AS [ID], [a].[Name], [a].[Description], [a].[AgeAvg], [a].[Url], (
+    SELECT TOP(1) [c].[Name]
+    FROM [AnimalCategories] AS [a0]
+    LEFT JOIN [Categories] AS [c] ON [a0].[Category_Id] = [c].[Id]
+    WHERE [a].[Id] = [a0].[Animal_Id]) AS [Loai]
+FROM [Animals] AS [a]
+2024-06-14 08:20:32.208 +07:00 [INF] Animal Page => System.Collections.Generic.List`1[DataAnimals.DTO.Animal.AnimalDto]
+2024-06-14 08:20:32.210 +07:00 [INF] Executed action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 19.1204ms.
+2024-06-14 08:20:32.215 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Animal.AnimalDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 08:20:32.217 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) in 35.4376ms
+2024-06-14 08:20:32.222 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 08:20:32.227 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=False - 200 null application/json; charset=utf-8 63.6955ms
+2024-06-14 08:20:38.929 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Category/GetAll?name=&isAccess=False - null null
+2024-06-14 08:20:38.934 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.CategoryController.Filtering (ControllerAPI)'
+2024-06-14 08:20:38.936 +07:00 [INF] Route matched with {action = "Filtering", controller = "Category"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Filtering(System.String, Boolean) on controller ControllerAPI.Controllers.CategoryController (ControllerAPI).
+2024-06-14 08:20:38.938 +07:00 [INF] Executing action method ControllerAPI.Controllers.CategoryController.Filtering (ControllerAPI) - Validation state: "Valid"
+2024-06-14 08:20:38.941 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name], [t].[Name], [t].[Id], [t].[Id0]
+FROM [Categories] AS [c]
+LEFT JOIN (
+    SELECT [a0].[Name], [a].[Id], [a0].[Id] AS [Id0], [a].[Category_Id]
+    FROM [AnimalCategories] AS [a]
+    LEFT JOIN [Animals] AS [a0] ON [a].[Animal_Id] = [a0].[Id]
+) AS [t] ON [c].[Id] = [t].[Category_Id]
+ORDER BY [c].[Id], [t].[Id]
+2024-06-14 08:20:38.943 +07:00 [INF] Animal Page => System.Collections.Generic.List`1[DataAnimals.DTO.Category.CategoryDto]
+2024-06-14 08:20:38.944 +07:00 [INF] Executed action method ControllerAPI.Controllers.CategoryController.Filtering (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 4.9587ms.
+2024-06-14 08:20:38.945 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Category.CategoryDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 08:20:38.947 +07:00 [INF] Executed action ControllerAPI.Controllers.CategoryController.Filtering (ControllerAPI) in 9.5919ms
+2024-06-14 08:20:38.948 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.CategoryController.Filtering (ControllerAPI)'
+2024-06-14 08:20:38.950 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Category/GetAll?name=&isAccess=False - 200 null application/json; charset=utf-8 20.0995ms
+2024-06-14 08:20:43.090 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=False - null null
+2024-06-14 08:20:43.095 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 08:20:43.100 +07:00 [INF] Route matched with {action = "Filtering", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Filtering(System.String, Boolean) on controller ControllerAPI.Controllers.AnimalController (ControllerAPI).
+2024-06-14 08:20:43.106 +07:00 [INF] Executing action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) - Validation state: "Valid"
+2024-06-14 08:20:43.117 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id] AS [ID], [a].[Name], [a].[Description], [a].[AgeAvg], [a].[Url], (
+    SELECT TOP(1) [c].[Name]
+    FROM [AnimalCategories] AS [a0]
+    LEFT JOIN [Categories] AS [c] ON [a0].[Category_Id] = [c].[Id]
+    WHERE [a].[Id] = [a0].[Animal_Id]) AS [Loai]
+FROM [Animals] AS [a]
+2024-06-14 08:20:43.124 +07:00 [INF] Animal Page => System.Collections.Generic.List`1[DataAnimals.DTO.Animal.AnimalDto]
+2024-06-14 08:20:43.127 +07:00 [INF] Executed action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 14.4073ms.
+2024-06-14 08:20:43.130 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Animal.AnimalDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 08:20:43.133 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) in 26.8553ms
+2024-06-14 08:20:43.137 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 08:20:43.141 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=False - 200 null application/json; charset=utf-8 51.0472ms
+2024-06-14 08:21:26.214 +07:00 [INF] Request starting HTTP/1.1 POST https://localhost:7035/api/Animal/Push - application/json; charset=utf-8 3076
+2024-06-14 08:21:26.222 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.AnimalController.Post (ControllerAPI)'
+2024-06-14 08:21:26.227 +07:00 [INF] Route matched with {action = "Post", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Post(DataAnimals.DTO.Animal.AddAnimalDto) on controller ControllerAPI.Controllers.AnimalController (ControllerAPI).
+2024-06-14 08:21:26.243 +07:00 [INF] Executing action method ControllerAPI.Controllers.AnimalController.Post (ControllerAPI) - Validation state: "Valid"
+2024-06-14 08:21:26.388 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Single), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Animals] ([AgeAvg], [CatergoryAnimal_Id], [Description], [Name], [Url])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2024-06-14 08:21:26.418 +07:00 [INF] Animal Page => DataAnimals.DTO.Animal.AddAnimalDto
+2024-06-14 08:21:26.423 +07:00 [INF] Executed action method ControllerAPI.Controllers.AnimalController.Post (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 174.3653ms.
+2024-06-14 08:21:26.430 +07:00 [INF] Executing OkObjectResult, writing value of type 'DataAnimals.DTO.Animal.AddAnimalDto'.
+2024-06-14 08:21:26.438 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.Post (ControllerAPI) in 205.1715ms
+2024-06-14 08:21:26.443 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.Post (ControllerAPI)'
+2024-06-14 08:21:26.447 +07:00 [INF] Request finished HTTP/1.1 POST https://localhost:7035/api/Animal/Push - 200 null application/json; charset=utf-8 233.4693ms
+2024-06-14 08:21:26.503 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=False - null null
+2024-06-14 08:21:26.510 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 08:21:26.514 +07:00 [INF] Route matched with {action = "Filtering", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Filtering(System.String, Boolean) on controller ControllerAPI.Controllers.AnimalController (ControllerAPI).
+2024-06-14 08:21:26.518 +07:00 [INF] Executing action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) - Validation state: "Valid"
+2024-06-14 08:21:26.523 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id] AS [ID], [a].[Name], [a].[Description], [a].[AgeAvg], [a].[Url], (
+    SELECT TOP(1) [c].[Name]
+    FROM [AnimalCategories] AS [a0]
+    LEFT JOIN [Categories] AS [c] ON [a0].[Category_Id] = [c].[Id]
+    WHERE [a].[Id] = [a0].[Animal_Id]) AS [Loai]
+FROM [Animals] AS [a]
+2024-06-14 08:21:26.527 +07:00 [INF] Animal Page => System.Collections.Generic.List`1[DataAnimals.DTO.Animal.AnimalDto]
+2024-06-14 08:21:26.529 +07:00 [INF] Executed action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 9.8185ms.
+2024-06-14 08:21:26.530 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Animal.AnimalDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 08:21:26.531 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) in 13.5105ms
+2024-06-14 08:21:26.532 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 08:21:26.533 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=&isAccess=False - 200 null application/json; charset=utf-8 30.4331ms
+2024-06-14 08:21:30.386 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=Kh%E1%BB%A7ng%20long&isAccess=False - null null
+2024-06-14 08:21:30.397 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 08:21:30.402 +07:00 [INF] Route matched with {action = "Filtering", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Filtering(System.String, Boolean) on controller ControllerAPI.Controllers.AnimalController (ControllerAPI).
+2024-06-14 08:21:30.409 +07:00 [INF] Executing action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) - Validation state: "Valid"
+2024-06-14 08:21:30.418 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__ToLower_0_contains='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id] AS [ID], [a].[Name], [a].[Description], [a].[AgeAvg], [a].[Url]
+FROM [Animals] AS [a]
+WHERE LOWER([a].[Name]) LIKE @__ToLower_0_contains ESCAPE N'\'
+2024-06-14 08:21:30.426 +07:00 [INF] Animal Page => System.Collections.Generic.List`1[DataAnimals.DTO.Animal.AnimalDto]
+2024-06-14 08:21:30.430 +07:00 [INF] Executed action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 14.6115ms.
+2024-06-14 08:21:30.437 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Animal.AnimalDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 08:21:30.439 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) in 30.8914ms
+2024-06-14 08:21:30.441 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 08:21:30.443 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=Kh%E1%BB%A7ng%20long&isAccess=False - 200 null application/json; charset=utf-8 56.4392ms
+2024-06-14 08:21:32.021 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Animal/Get-By-Id?id=3016 - null null
+2024-06-14 08:21:32.029 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.AnimalController.GetId (ControllerAPI)'
+2024-06-14 08:21:32.033 +07:00 [INF] Route matched with {action = "GetId", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetId(Int32) on controller ControllerAPI.Controllers.AnimalController (ControllerAPI).
+2024-06-14 08:21:32.038 +07:00 [INF] Executing action method ControllerAPI.Controllers.AnimalController.GetId (ControllerAPI) - Validation state: "Valid"
+2024-06-14 08:21:32.052 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id] AS [ID], [a].[Name], [a].[Description], [a].[AgeAvg], [a].[Url], (
+    SELECT TOP(1) [c].[Name]
+    FROM [AnimalCategories] AS [a0]
+    LEFT JOIN [Categories] AS [c] ON [a0].[Category_Id] = [c].[Id]
+    WHERE [a].[Id] = [a0].[Animal_Id]) AS [Loai]
+FROM [Animals] AS [a]
+WHERE [a].[Id] = @__id_0
+2024-06-14 08:21:32.058 +07:00 [INF] Animal Page => DataAnimals.DTO.Animal.AnimalDto
+2024-06-14 08:21:32.059 +07:00 [INF] Executed action method ControllerAPI.Controllers.AnimalController.GetId (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 17.7477ms.
+2024-06-14 08:21:32.062 +07:00 [INF] Executing OkObjectResult, writing value of type 'DataAnimals.DTO.Animal.AnimalDto'.
+2024-06-14 08:21:32.063 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.GetId (ControllerAPI) in 25.8734ms
+2024-06-14 08:21:32.065 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.GetId (ControllerAPI)'
+2024-06-14 08:21:32.066 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Animal/Get-By-Id?id=3016 - 200 null application/json; charset=utf-8 45.506ms
+2024-06-14 08:28:11.653 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=Kh%E1%BB%A7ng%20long&isAccess=False - null null
+2024-06-14 08:28:11.658 +07:00 [INF] Executing endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 08:28:11.664 +07:00 [INF] Route matched with {action = "Filtering", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Filtering(System.String, Boolean) on controller ControllerAPI.Controllers.AnimalController (ControllerAPI).
+2024-06-14 08:28:11.669 +07:00 [INF] Executing action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) - Validation state: "Valid"
+2024-06-14 08:28:11.681 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__ToLower_0_contains='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id] AS [ID], [a].[Name], [a].[Description], [a].[AgeAvg], [a].[Url]
+FROM [Animals] AS [a]
+WHERE LOWER([a].[Name]) LIKE @__ToLower_0_contains ESCAPE N'\'
+2024-06-14 08:28:11.685 +07:00 [INF] Animal Page => System.Collections.Generic.List`1[DataAnimals.DTO.Animal.AnimalDto]
+2024-06-14 08:28:11.685 +07:00 [INF] Executed action method ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 15.7301ms.
+2024-06-14 08:28:11.687 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DataAnimals.DTO.Animal.AnimalDto, DataAnimals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-14 08:28:11.689 +07:00 [INF] Executed action ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI) in 20.8368ms
+2024-06-14 08:28:11.690 +07:00 [INF] Executed endpoint 'ControllerAPI.Controllers.AnimalController.Filtering (ControllerAPI)'
+2024-06-14 08:28:11.693 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7035/api/Animal/GetAll?name=Kh%E1%BB%A7ng%20long&isAccess=False - 200 null application/json; charset=utf-8 39.35ms
