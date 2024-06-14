@@ -26,6 +26,7 @@ namespace View
             var builder = WebApplication.CreateBuilder(args);
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddHttpContextAccessor();
             builder.Services.AddHttpClient();
             builder.Services.AddSession();
             builder.Services.AddScoped<ITokenRepository, AuthTokenRepository>();

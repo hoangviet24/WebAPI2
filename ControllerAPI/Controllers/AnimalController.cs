@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
 using System;
+using System.Xml.Serialization;
 
 namespace ControllerAPI.Controllers
 {

@@ -91,7 +91,7 @@ namespace View.Controllers
             }
             catch
             {
-                return View("Warn");
+                return View("WarnUpdate");
             }
         }
         [HttpGet]
@@ -255,7 +255,7 @@ namespace View.Controllers
             {
                 Console.WriteLine("Bug: " + ex);
                 return View("Warn");
-            }
+            } 
         }
     }
 }

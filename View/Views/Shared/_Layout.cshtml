@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Identity
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,10 +44,9 @@
             border-radius: 5px;
         }
 
-       
     </style>
 </head>
-<body>
+<body class="flex-container">
     <header>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark border-bottom box-shadow mb-3">
             <div class="container-fluid">
@@ -70,7 +70,11 @@
                             <a class="nav-link" asp-area="" asp-controller="User" asp-action="Index">Người dùng</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " asp-area="" asp-controller="Contacts" asp-action="Create">Hỗ trợ</a>
+                            @if (Context.Session.GetString("Roles") == "Write")
+                            {
+                                <a class="nav-link " asp-area="" asp-controller="Contacts" asp-action="Create">Hỗ trợ</a>
+                            }
+                        
                         </li>
                     </ul>
                     <ul class="navbar-nav ms-auto">
@@ -96,14 +100,14 @@
             </div>
         </nav>
     </header>
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div style="background-color:#2d3436" class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasExampleLabel">notice</h5>
+            <h5 class="offcanvas-title text-white" id="offcanvasExampleLabel">notice</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
             <div class="">
-                <label class="h5 mb-4">Are you sure you want to log out?</label>
+                <label class="h5 mb-4 text-white">Are you sure you want to log out?</label>
             </div>
             <form asp-controller="Account" asp-action="LogoutSuccess" method="post" class="d-inline">
                 <button type="submit" class="btn btn-link nav-link bg-dark text-white" >Logout</button>
@@ -115,13 +119,29 @@
             @RenderBody()
         </main>
     </div>
-    <footer class="border-top bg-dark footer text-muted">
-        <div class="container  text-white">
-            &copy; 2024 - View - Võ Hoàng Việt - Phạm Văn Tình - Triệu Hoàng Nhật Trường
+    <footer class="bg-dark footer text-muted">
+        <div style="max-width:1920px" class=" container text-center my-4 text-white">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <label>Thông tin chúng tôi</label>
+                    <p>Võ Hoàng Việt</p>
+                    <p>Phạm Văn Tình</p>
+                    <p>Triệu Hoàng Nhật trường</p>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <label>Địa chỉ</label>
+                    <p>Đại Học Yersin Đà Lạt <br/> - 27 Đường Tôn Thất Tùng, Phường 8, Thành phố Đà Lạt, Lâm Đồng, Việt Nam</p>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <label>Bản đồ</label>
+                    <p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1951.5634459534326!2d108.43653977242516!3d11.965715411785865!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317112c929cbd58f%3A0x5842b98761c9e0eb!2zVHLGsOG7nW5nIMSQ4bqhaSBI4buNYyBZZXJzaW4gxJDDoCBM4bqhdA!5e0!3m2!1svi!2sus!4v1718292928721!5m2!1svi!2sus" 
+                                width="300" height="170" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </p>
+                </div>
+            </div>
         </div>
     </footer>
-    
-
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

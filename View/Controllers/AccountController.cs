@@ -21,6 +21,8 @@ using DataAnimals.Models;
 using NuGet.Common;
 using System.Net.Mime;
 using System.Net.Http.Json;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.SignalR;
 
 namespace View.Controllers
 {
@@ -40,7 +42,7 @@ namespace View.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginRequestDTO loginRequestDto)
         {
-            try
+            if (ModelState.IsValid)
             {
                 var clt = _httpClientFactory.CreateClient();
                 var jsonContent = new StringContent(JsonSerializer.Serialize(loginRequestDto), Encoding.UTF8,
@@ -59,10 +61,7 @@ namespace View.Controllers
                     ModelState.AddModelError(string.Empty, "Invalid login attempt: " + errorMessage);
                 }
             }
-            catch
-            {
-                return RedirectToAction("PageLogin", "Account");
-            }
+            TempData["Wrong"] = "Username or Password wrong";
             return RedirectToAction("PageLogin", "Account");
         }
         [HttpPost]
